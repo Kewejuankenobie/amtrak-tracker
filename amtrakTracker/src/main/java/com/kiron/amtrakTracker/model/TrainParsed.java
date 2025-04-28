@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class TrainParsed {
+    private String id;
     private Integer number;
     private String name;
     private String destination;
@@ -16,6 +17,7 @@ public class TrainParsed {
     private Integer next_station_delay;
 
     public TrainParsed(TrainApiModel train) {
+        id = train.getTrain_id();
         number = train.getNumber();
         name = train.getName();
         destination = train.getDestination();
