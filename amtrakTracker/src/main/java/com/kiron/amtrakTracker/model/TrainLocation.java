@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class TrainLocation {
 
-    private Integer latitude;
-    private Integer longitude;
+    private Double latitude;
+    private Double longitude;
     private Double speed;
 }

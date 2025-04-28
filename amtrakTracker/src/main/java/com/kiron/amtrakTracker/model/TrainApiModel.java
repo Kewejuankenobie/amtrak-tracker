@@ -13,6 +13,7 @@ public class TrainApiModel {
     private Integer number;
     private String name;
     //private Integer last_updated;
+    private String destination;
     private TrainLocation location;
     private TrainStop[] stops;
 
