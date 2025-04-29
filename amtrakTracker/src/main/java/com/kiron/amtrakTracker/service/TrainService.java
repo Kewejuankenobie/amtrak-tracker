@@ -13,4 +13,8 @@ public interface TrainService {
     List<TrainParsed> getTrainsByName(String query);
 
     List<TrainParsed> getTrainsByNumber(Integer i);
+
+    void setAllInactive();
+
+    void deleteInactiveTrains();
 }

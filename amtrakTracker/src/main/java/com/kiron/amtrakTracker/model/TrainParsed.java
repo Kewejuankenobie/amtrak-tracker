@@ -26,11 +26,14 @@ public class TrainParsed {
     private String next_station;
     private Integer next_station_delay;
 
+    private Boolean is_active;
+
     public TrainParsed(TrainApiModel train) {
         id = train.getTrain_id();
         number = train.getNumber();
         name = train.getName();
         destination = train.getDestination();
+        is_active = true;
         if (train.getLocation() == null) {
             System.out.println("No Location");
             return;

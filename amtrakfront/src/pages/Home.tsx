@@ -22,23 +22,35 @@ function Home() {
     const [trains, setTrains] = useState<Train[]>([]);
     const [query, setQuery] = useState<string>("");
 
-    useEffect(() => {
-        const updateTrains = async () => {
-            try {
-                const obtainedTrains: Train[] = await getTrainUpdates();
-                console.log(obtainedTrains);
-                setTrains(obtainedTrains);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        updateTrains();
-    }, [query === '']);
-
-    const handleSearch = async (e) => {
-        e.preventDefault();
+    async function fetchTrains() {
         try {
             const obtainedTrains: Train[] = await searchTrain(query);
+            console.log(obtainedTrains);
+            setTrains(obtainedTrains);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        fetchTrains();
+    }, []);
+
+    useEffect(() => {
+        const timerID: number = setTimeout(() => {
+           fetchTrains();
+        }, 30000);
+
+        return () => {
+            clearTimeout(timerID);
+        }
+    }, [trains]);
+
+    const handleSearch = async (e, searchQuery: string) => {
+        e.preventDefault();
+        try {
+            const obtainedTrains: Train[] = await searchTrain(searchQuery);
+            console.log(obtainedTrains);
             setTrains(obtainedTrains);
         } catch (error) {
             console.log(error);
@@ -52,13 +64,15 @@ function Home() {
             <form onSubmit={handleSearch}>
                 <div className="flex flex-row items-center bg-white">
                 <input type="text"
-                    placeholder="Search Train Name/Num"
-                       className="shadow appearance-none rounded w-full px-2 py-1 border-1 border-gray-50"
+                    placeholder="Search Train Name or Number"
+                       className="shadow appearance-none rounded w-full px-2 py-1 mb-4 mt-2 w-md border-1 border-gray-50"
                        value={query}
-                       onChange={(e) => setQuery(e.target.value)}
+                       onChange={(e) => {
+                           setQuery(e.target.value);
+                       handleSearch(e, e.target.value);}}
                     />
-                <button type="submit" className="bg-blue-200 p-2 m-2 border-1 border-blue-300 rounded-md shadow-md
-                cursor-pointer hover:bg-blue-300">Search</button>
+                {/*<button type="submit" className="bg-blue-200 p-2 m-2 border-1 border-blue-300 rounded-md shadow-md*/}
+                {/*cursor-pointer hover:bg-blue-300">Search</button>*/}
                 </div>
             </form>
             {

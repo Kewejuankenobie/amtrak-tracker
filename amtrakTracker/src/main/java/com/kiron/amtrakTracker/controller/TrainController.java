@@ -37,11 +37,17 @@ public class TrainController {
         ObjectMapper mapper = new ObjectMapper();
         TrainApiModel[] trains = mapper.readValue(trainUrl, TrainApiModel[].class);
         //These train objects need cleaning up before sending to user, perhaps a second train object
+
+        trainService.setAllInactive();
+
         List<TrainParsed> parsedTrains = new ArrayList<TrainParsed>();
         for (TrainApiModel train : trains) {
             TrainParsed parsedTrain = trainService.addTrain(new TrainParsed(train));
             parsedTrains.add(parsedTrain);
         }
+
+        trainService.deleteInactiveTrains();
+
         trainResponse.put("status", 1);
         trainResponse.put("data", parsedTrains);
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);

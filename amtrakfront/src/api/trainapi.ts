@@ -7,6 +7,9 @@ export const getTrainUpdates = async () => {
 }
 
 export const searchTrain = async (searchTerm: string) => {
+    if (searchTerm === '') {
+        return await getTrainUpdates();
+    }
     const response = await fetch(`${BASE_URL}/search/${encodeURIComponent(searchTerm)}`);
     const data = await response.json();
     return data.data;

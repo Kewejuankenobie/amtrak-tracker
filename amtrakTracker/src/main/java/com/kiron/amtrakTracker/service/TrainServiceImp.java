@@ -32,4 +32,18 @@ public class TrainServiceImp implements TrainService {
     public List<TrainParsed> getTrainsByNumber(Integer i) {
         return trainRepository.findByNumber(i);
     }
+
+    @Override
+    public void setAllInactive() {
+        List<TrainParsed> allTrains = trainRepository.findAll();
+        for (TrainParsed train : allTrains) {
+            train.setIs_active(false);
+        }
+        trainRepository.saveAll(allTrains);
+    }
+
+    @Override
+    public void deleteInactiveTrains() {
+        trainRepository.deleteByIs_active(false);
+    }
 }
