@@ -1,10 +1,20 @@
 package com.kiron.amtrakTracker.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
 @Data
+@NoArgsConstructor
 public class TrainParsed {
+
+    @Id
     private String id;
+
     private Integer number;
     private String name;
     private String destination;
