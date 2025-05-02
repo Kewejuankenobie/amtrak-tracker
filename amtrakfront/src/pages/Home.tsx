@@ -2,6 +2,7 @@ import {ChangeEvent, FormEvent, useEffect, useRef, useState} from "react";
 import {searchTrain} from "../api/trainapi.ts";
 import TrainListElement from "../components/TrainListElement.tsx";
 import {Train} from "../types.ts";
+import TrainDetail from "../components/TrainDetail.tsx";
 
 function Home() {
 
@@ -54,37 +55,44 @@ function Home() {
 
     return (
         <>
-            <div className="flex flex-col items-center bg-white">
-                <h1 className="font-bold text-3xl pb-2">Train Tracker</h1>
-                <form onSubmit={(e) => handleSearch(e, query)}>
-                    <div className="flex flex-row items-center bg-white">
-                        <input type="text"
-                               placeholder="Search Train Name or Number"
-                               className="shadow appearance-none rounded w-full px-2 py-1 mb-4 mt-2 w-md border-1 border-gray-50"
-                               value={query}
-                               onChange={(e) => {
-                                   setQuery(e.target.value);
-                                   handleSearch(e, e.target.value);
-                               }}
-                        />
-                        {/*<button type="submit" className="bg-blue-200 p-2 m-2 border-1 border-blue-300 rounded-md shadow-md*/}
-                        {/*cursor-pointer hover:bg-blue-300">Search</button>*/}
-                    </div>
-                </form>
+            <div className="flex flex-col items-center bg-gray-50">
+                <div className="flex lg:flex-row flex-col items-center lg:justify-left justify-center w-full border-b-1 border-gray-200 bg-gray-100">
+                    <h1 className="font-bold text-2xl py-2 ml-10 text-blue-900">Amtrak Tracker</h1>
+                    <form onSubmit={(e) => handleSearch(e, query)} className="w-full">
+                        <div className="flex w-full">
+                            <input type="text"
+                                   placeholder="Search Train Name or Number"
+                                   className="shadow rounded-lg px-2 py-1 bg-white w-full mx-10 outline-0"
+                                   value={query}
+                                   onChange={(e) => {
+                                       setQuery(e.target.value);
+                                       handleSearch(e, e.target.value);
+                                   }}
+                            />
+                            {/*<button type="submit" className="bg-blue-200 p-2 m-2 border-1 border-blue-300 rounded-md shadow-md*/}
+                            {/*cursor-pointer hover:bg-blue-300">Search</button>*/}
+                        </div>
+                    </form>
+                </div>
+                <div className="w-full h-[92.5vh] flex flex-col items-center overflow-y-auto">
                 {
                     trains.map((train: Train) => <TrainListElement train={train}
                                                                    onClick={() => setCurTrain(train)}/>)
                 }
+                </div>
             </div>
-            <dialog ref={dialogRef} className="m-auto">
-                    <div className="flex flex-col bg-white border-1 rounded-lg justify-center items-center w-md p-10">
-                        <p>{curTrain?.name}</p>
-                        <button onClick={() => {
-                            dialogRef.current?.close()
-                        }}
-                                className="border-1">X
-                        </button>
-                    </div>
+            <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 overflow-visible rounded-lg w-3/5 h-3/5">
+                <div className="flex flex-col relative z-0 bg-cyan-50 border-2 rounded-lg justify-normal
+                     w-full h-full p-10">
+                    <TrainDetail train={curTrain}/>
+                    <button onClick={() => {
+                        dialogRef.current?.close()
+                    }}
+                            className="absolute -top-2 -right-2 w-7 h-7 z-1 flex justify-center items-center
+                                bg-gray-200 rounded-full text-2xl cursor-pointer">X
+                        <span className="sr-only">Close</span>
+                    </button>
+                </div>
             </dialog>
         </>
     );

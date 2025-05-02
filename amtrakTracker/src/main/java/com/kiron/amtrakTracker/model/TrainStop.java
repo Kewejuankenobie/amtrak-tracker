@@ -8,6 +8,8 @@ import lombok.Data;
 public class TrainStop {
 
     private String code;
+    private Long sched_arrive;
+    private Long sched_depart;
     private TrainArDep arrive;
     private TrainArDep depart;
 }

@@ -12,5 +12,6 @@ export type Train = {
     last_station_delay?: number;
     next_station?: string;
     next_station_delay?: number;
+    scheduled_arrival?: string;
     Component: React.ComponentType;
 }
