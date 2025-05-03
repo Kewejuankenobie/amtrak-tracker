@@ -3,6 +3,7 @@ package com.kiron.amtrakTracker.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kiron.amtrakTracker.model.TrainApiModel;
+import com.kiron.amtrakTracker.model.TrainLocation;
 import com.kiron.amtrakTracker.model.TrainParsed;
 import com.kiron.amtrakTracker.service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +80,37 @@ public class TrainController {
         parsedTrains.sort(Comparator.comparing(TrainParsed::getNumber));
         trainResponse.put("status", 1);
         trainResponse.put("data", parsedTrains);
+        return new ResponseEntity<>(trainResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/closest/{latitude}/{longitude}")
+    public ResponseEntity<?> closest(@PathVariable double latitude, @PathVariable double longitude) {
+        Map<String, Object> trainResponse = new HashMap<String, Object>();
+
+        List<TrainParsed> allTrains = trainService.getAllTrains();
+        Map<Double, TrainParsed> distanceMap = new HashMap<Double, TrainParsed>();
+        List<Double> distanceList = new ArrayList<>();
+
+        for (TrainParsed train : allTrains) {
+            if (train.getLatitude() == null || train.getLongitude() == null) {
+                continue;
+            }
+            Double distance = Math.sqrt((train.getLatitude() - latitude) * (train.getLatitude() - latitude) +
+                    (train.getLongitude() - longitude) * (train.getLongitude() - longitude));
+
+            distanceMap.put(distance, train);
+            distanceList.add(distance);
+        }
+
+        distanceList.sort(Comparator.comparing(Double::valueOf));
+
+        List<TrainParsed> closestTrains = new ArrayList<>();
+        for (int i = 0; i < 5; ++i) {
+            closestTrains.add(distanceMap.get(distanceList.get(i)));
+        }
+
+        trainResponse.put("status", 1);
+        trainResponse.put("data", closestTrains);
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);
     }
 

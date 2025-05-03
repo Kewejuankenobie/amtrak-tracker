@@ -17,14 +17,14 @@ function TrainDetail({train}: {train: Train | null}) {
                 <p>Speed: {train.speed} mph</p>
                 {
                     train.last_station_delay == null ?
-                        <p>No info on the last station departure</p> :
+                        <p>No info on the last station</p> :
                         train.last_station_delay < 0 ?
                             <p>Left {train.last_station} {Math.round(-1 * train.last_station_delay / 60)} minutes late</p> :
                             <p>Left {train.last_station} on time</p>
                 }
                 {
                     train.next_station_delay == null || train.scheduled_arrival == null ?
-                        <p>No info on the next station arrival</p> :
+                        <p>No info on the next station</p> :
                         train.next_station_delay < 0 ?
                             <p>Estimated arrival at {train.next_station} is {train.scheduled_arrival} {Math.round(-1 * train.next_station_delay / 60)} minutes late</p> :
                             <p>Estimated arrival at {train.next_station} is {train.scheduled_arrival} on time</p>

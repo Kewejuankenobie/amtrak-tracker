@@ -1,6 +1,9 @@
 import Home from "./pages/Home.tsx";
 import {APIProvider} from "@vis.gl/react-google-maps";
 import 'dotenv'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Closest from "./pages/Closest.tsx";
+import Navbar from "./components/Navbar.tsx";
 
 function App() {
 
@@ -11,7 +14,13 @@ function App() {
     <>
       <div>
           <APIProvider apiKey={key} onLoad={() => console.log("Maps API Loaded")}>
-              <Home />
+              <BrowserRouter>
+                  <Navbar />
+                  <Routes>
+                      <Route index element={<Home />} />
+                      <Route path="closest" element={<Closest />} />
+                  </Routes>
+              </BrowserRouter>
           </APIProvider>
       </div>
     </>
