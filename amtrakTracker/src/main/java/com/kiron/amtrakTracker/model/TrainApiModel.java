@@ -12,6 +12,7 @@ public class TrainApiModel {
     private String train_id;
     private Integer number;
     private String name;
+    private String railroad;
     //private Integer last_updated;
     private String destination;
     private TrainLocation location;

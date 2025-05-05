@@ -22,6 +22,7 @@ public class TrainParsed {
 
     private Integer number;
     private String name;
+    private String railroad;
     private String destination;
     private Double latitude;
     private Double longitude;
@@ -47,6 +48,7 @@ public class TrainParsed {
         latitude = train.getLocation().getLatitude();
         longitude = train.getLocation().getLongitude();
         speed = train.getLocation().getSpeed();
+        railroad = train.getRailroad();
 
         TrainStop stationItr = null;
         for (TrainStop station: train.getStops()) {

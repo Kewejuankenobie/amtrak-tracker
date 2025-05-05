@@ -4,6 +4,7 @@ export type Train = {
     id: string;
     number: number;
     name: string;
+    railroad: string;
     destination: string;
     latitude?: number;
     longitude?: number;

@@ -12,7 +12,8 @@ function TrainDetail({train}: {train: Train | null}) {
     return (
         <>
             <div className="h-full">
-                <p className="font-bold text-blue-900 mb-2 text-2xl">Train {train.number}: {train.name}</p>
+                <p className={`font-bold ${train.railroad == 'AMTRAK' ? 'text-blue-900' : 'text-amber-700'} 
+                mb-2 text-2xl`}>Train {train.number}: {train.name}</p>
                 <p>Destination: {train.destination}</p>
                 <p>Speed: {train.speed} mph</p>
                 {

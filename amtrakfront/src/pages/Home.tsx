@@ -79,8 +79,9 @@ function Home() {
                 </div>
             </div>
             <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 overflow-visible rounded-lg w-3/5 h-3/5">
-                <div className="flex flex-col relative z-0 bg-cyan-50 border-2 rounded-lg justify-normal
-                     w-full h-full p-10">
+                <div className={`flex flex-col relative z-0 
+                ${curTrain && curTrain.railroad == 'AMTRAK' ? 'bg-cyan-50' : 'bg-yellow-50'} border-2 rounded-lg justify-normal
+                     w-full h-full p-10`}>
                     <TrainDetail train={curTrain}/>
                     <button onClick={() => {
                         dialogRef.current?.close()
