@@ -113,5 +113,4 @@ public class TrainController {
         trainResponse.put("data", closestTrains);
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);
     }
-
 }

@@ -4,6 +4,7 @@ import 'dotenv'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Closest from "./pages/Closest.tsx";
 import Navbar from "./components/Navbar.tsx";
+import StationInfo from "./pages/StationInfo.tsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                   <Routes>
                       <Route index element={<Home />} />
                       <Route path="closest" element={<Closest />} />
+                      <Route path="station-info" element={<StationInfo />} />
                   </Routes>
               </BrowserRouter>
           </APIProvider>

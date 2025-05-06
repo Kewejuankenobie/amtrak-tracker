@@ -18,6 +18,11 @@ function Navbar() {
                         to="/closest">
                         Closest Five
                     </Link>
+                    <Link className="border-b-2 mr-10 cursor-pointer
+                    hover:border-blue-700 hover:text-blue-700 hover:border-b-3 transition delay-75"
+                          to="/station-info">
+                        Station Info
+                    </Link>
                 </div>
             </div>
         </>

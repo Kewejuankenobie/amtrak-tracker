@@ -39,4 +39,5 @@ public class TrainAPIUpdate {
         trainService.deleteInactiveTrains();
         log.info("Updated Trains, there are " + trains.length + " trains");
     }
+
 }
