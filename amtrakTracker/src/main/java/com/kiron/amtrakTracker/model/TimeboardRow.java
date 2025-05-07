@@ -7,7 +7,11 @@ public class TimeboardRow {
 
     private Integer number;
     private String name;
+    private String scheduled_arrival;
+    private String scheduled_departure;
     private String arrival;
     private String departure;
-    private Boolean is_late;
+    private String destination;
+    private Boolean late_arrival;
+    private Boolean late_departure;
 }

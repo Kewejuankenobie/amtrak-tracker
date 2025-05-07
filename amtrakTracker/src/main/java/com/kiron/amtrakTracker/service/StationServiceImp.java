@@ -3,6 +3,8 @@ package com.kiron.amtrakTracker.service;
 import com.google.transit.realtime.GtfsRealtime;
 import com.google.transit.realtime.GtfsRealtime.FeedEntity;
 import com.google.transit.realtime.GtfsRealtime.FeedMessage;
+import com.kiron.amtrakTracker.model.StationTimeboard;
+import com.kiron.amtrakTracker.model.TimeboardRow;
 import com.kiron.amtrakTracker.model.gtfs.RouteAmtrak;
 import com.kiron.amtrakTracker.model.gtfs.StationAmtrak;
 import com.kiron.amtrakTracker.model.gtfs.StopTimesAmtrak;
@@ -20,8 +22,13 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -40,30 +47,72 @@ public class StationServiceImp implements StationService {
     private TripRepository tripRepository;
 
     @Override
-    public StationAmtrak getTrainsAtStation(String code) throws IOException {
+    public StationTimeboard getTrainsAtStation(String code) throws IOException {
         //First, get all train gtfs-rt
         URL urlAm = new URL("https://asm-backend.transitdocs.com/gtfs/amtrak");
         URL urlVia = new URL("https://asm-backend.transitdocs.com/gtfs/via");
         FeedMessage amFeed = FeedMessage.parseFrom(urlAm.openStream());
         FeedMessage viaFeed = FeedMessage.parseFrom(urlVia.openStream());
 
-        for (FeedEntity entity : amFeed.getEntityList()) {
-            String tripId = entity.getVehicle().getTrip().getTripId();
-            String trainId = entity.getVehicle().getVehicle().getId();
-            if (entity.hasTripUpdate()) {
-                long i = entity.getTripUpdate().getStopTimeUpdate(1).getArrival().getTime();
+        StationAmtrak station = stationRepository.findById(code).orElse(null);
+        if (station == null) {
+            return null;
+        }
 
-                for (GtfsRealtime.TripUpdate.StopTimeUpdate stopTimeUpdate : entity.getTripUpdate().getStopTimeUpdateList()) {
-                    if (stopTimeUpdate.getStopId().equals(code)) {
+        StationTimeboard timeboard = new StationTimeboard(code, station.getName(), station.getWebsite());
 
+
+        List<StopTimesAmtrak> allStops = stopTimeRepository.findAllByStop_Id(code);
+        for (StopTimesAmtrak stopTime : allStops) {
+            TimeboardRow row = new TimeboardRow();
+            row.setScheduled_arrival(parseTime(stopTime.getArrival_time()));
+            row.setScheduled_departure(parseTime(stopTime.getDeparture_time()));
+            row.setLate_arrival(false);
+            row.setLate_departure(false);
+            TripAmtrak trip = tripRepository.findById(stopTime.getTrip_id()).orElse(null);
+            if (trip == null) {
+                continue;
+            }
+
+            row.setNumber(trip.getNumber());
+            row.setDestination(trip.getDestination());
+            RouteAmtrak route = routeRepository.findById(trip.getRoute_id()).orElse(null);
+            if (route == null) {
+                continue;
+            }
+            row.setName(route.getRoute_name());
+            int stopSequence = stopTime.getStop_sequence() - 1;
+
+            //Next, check updated data, if there, then we add to the timeboard and change arrival and departure times if needed
+
+            for (FeedEntity entity : amFeed.getEntityList()) {
+                if (entity.hasTripUpdate()) {
+                    String tripId = entity.getTripUpdate().getTrip().getTripId();
+                    if (!tripId.equals(trip.getTrip_id())) {
+                        continue;
                     }
+                    GtfsRealtime.TripUpdate.StopTimeUpdate update = entity.getTripUpdate().getStopTimeUpdate(stopSequence);
+
+                    if (update.hasArrival()) {
+                        row.setArrival(formatEpoch(update.getArrival().getTime()));
+                        if (update.getArrival().getDelay() > 0) {
+                            row.setLate_arrival(true);
+                        }
+                    }
+                    if (update.hasDeparture()) {
+                        row.setDeparture(formatEpoch(update.getDeparture().getTime()));
+                        if (update.getDeparture().getDelay() > 0) {
+                            row.setLate_departure(true);
+                        }
+                    }
+                    timeboard.addRow(row);
                 }
             }
         }
 
         //We need static GTFS Data stored in a database to match the route numbers to train
         // names and trip id to train number (short train name)
-        return null;
+        return timeboard;
     }
 
     @Override
@@ -76,7 +125,6 @@ public class StationServiceImp implements StationService {
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         ZipEntry zipEntry;
 
-        List<String> fname = new ArrayList<String>();
         List<StationAmtrak> stations = new ArrayList<>();
         List<StopTimesAmtrak> stopTimes = new ArrayList<>();
         List<RouteAmtrak> routes = new ArrayList<>();
@@ -148,6 +196,36 @@ public class StationServiceImp implements StationService {
         stopTimeRepository.saveAll(stopTimes);
         routeRepository.saveAll(routes);
         tripRepository.saveAll(trips);
+    }
+
+    private String parseTime(String time) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        StringTokenizer st = new StringTokenizer(time, ":");
+        String[] parsedTokens = new String[3];
+        parsedTokens[0] = st.nextToken();
+        if (Integer.parseInt(parsedTokens[0]) > 23) {
+            int replacement = Integer.parseInt(parsedTokens[0]);
+            while (replacement > 23) {
+                replacement -= 24;
+            }
+            parsedTokens[0] = String.format("%02d", replacement);
+        } else if (Integer.parseInt(parsedTokens[0]) < 10) {
+            parsedTokens[0] = String.format("%02d", Integer.parseInt(parsedTokens[0]));
+        }
+        parsedTokens[1] = st.nextToken();
+        parsedTokens[2] = st.nextToken();
+
+        return formatter.format(formatter2.parse(parsedTokens[0] + ":" + parsedTokens[1] + ":" + parsedTokens[2]));
+    }
+
+    private String formatEpoch(Long epoch) {
+        Instant instant = Instant.ofEpochSecond(epoch);
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        return formatter.format(localDateTime);
     }
 
 }
