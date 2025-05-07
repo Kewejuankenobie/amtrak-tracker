@@ -2,6 +2,7 @@ package com.kiron.amtrakTracker.model;
 
 import lombok.Data;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +31,31 @@ public class StationTimeboard {
             return -1;
         }
         return timeboard.getLast().getNumber();
+    }
+
+    public void sortTimeboardRemoveExtra() {
+        for (int i = 1; i < timeboard.size(); i++) {
+            if (timeboard.get(i).getActual_time() == timeboard.get(i - 1).getActual_time()) {
+                timeboard.remove(i);
+                i--;
+            }
+        }
+        timeboard.sort((o1, o2) -> {
+            String o1DT;
+            String o2DT;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+            DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+            if (o1.getDeparture() == null) {
+                o1DT = o1.getDate() + formatter2.format(formatter.parse(o1.getScheduled_departure()));
+            } else {
+                o1DT = o1.getDate() + formatter2.format(formatter.parse(o1.getDeparture()));
+            }
+            if (o2.getDeparture() == null) {
+                o2DT = o2.getDate() + formatter2.format(formatter.parse(o2.getScheduled_departure()));
+            } else {
+                o2DT = o2.getDate() + formatter2.format(formatter.parse(o2.getDeparture()));
+            }
+            return o1DT.compareTo(o2DT);
+        });
     }
 }

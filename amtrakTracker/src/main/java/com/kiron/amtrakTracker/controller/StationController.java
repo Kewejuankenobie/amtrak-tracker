@@ -10,9 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/station")
@@ -34,12 +32,30 @@ public class StationController {
         return new ResponseEntity<>(stationResponse, HttpStatus.OK);
     }
 
-//    @GetMapping("/search/{query}")
-//    public ResponseEntity<?> search(@PathVariable String query) {
-//        Map<String, Object> stationResponse = new HashMap<String, Object>();
-//
-//
-//    }
+    @GetMapping("/search/{query}")
+    public ResponseEntity<?> search(@PathVariable String query) {
+        Map<String, Object> stationResponse = new HashMap<String, Object>();
+
+        Set<StationAmtrak> codeResults = stationService.getStationByCode(query);
+        Set<StationAmtrak> nameResults = stationService.getStationByName(query);
+
+        codeResults.addAll(nameResults);
+
+        stationResponse.put("status", 1);
+        stationResponse.put("data", codeResults);
+        return new ResponseEntity<>(stationResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/getAllStations")
+    public ResponseEntity<?> getAllStations() {
+        Map<String, Object> stationResponse = new HashMap<String, Object>();
+
+        List<StationAmtrak> stations = stationService.getAllStations();
+
+        stationResponse.put("status", 1);
+        stationResponse.put("data", stations);
+        return new ResponseEntity<>(stationResponse, HttpStatus.OK);
+    }
 
     @PostMapping(value ="/updateStation")
     public ResponseEntity<?> updateStation(

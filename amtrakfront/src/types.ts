@@ -16,3 +16,32 @@ export type Train = {
     scheduled_arrival?: string;
     Component: React.ComponentType;
 }
+
+export type StationListEl = {
+    id: string;
+    name: string;
+    website: string;
+    Component: React.ComponentType;
+}
+
+export type Timeboard = {
+    code: string;
+    name: string;
+    website: string;
+    timeboard: TimeboardRow[];
+    Component: React.ComponentType;
+}
+
+export type TimeboardRow = {
+    date: string;
+    number: number;
+    name: string;
+    scheduled_arrival: string;
+    scheduled_departure: string;
+    arrival?: string;
+    departure?: string;
+    destination: string;
+    late_arrival: boolean;
+    late_departure: boolean;
+    Component: React.Component;
+}

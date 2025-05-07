@@ -25,10 +25,9 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -91,19 +90,31 @@ public class StationServiceImp implements StationService {
                     if (!tripId.equals(trip.getTrip_id())) {
                         continue;
                     }
+                    if (entity.getTripUpdate().getStopTimeUpdateCount() <= stopSequence) {
+                        continue;
+                    }
                     GtfsRealtime.TripUpdate.StopTimeUpdate update = entity.getTripUpdate().getStopTimeUpdate(stopSequence);
-
+                    
                     if (update.hasArrival()) {
+                        row.setDate(formatDate(update.getArrival().getTime()));
+                        row.setActual_time(update.getArrival().getTime());
                         row.setArrival(formatEpoch(update.getArrival().getTime()));
                         if (update.getArrival().getDelay() > 0) {
                             row.setLate_arrival(true);
                         }
                     }
                     if (update.hasDeparture()) {
+                        if (row.getDate() == null) {
+                            row.setDate(formatDate(update.getDeparture().getTime()));
+                            row.setActual_time(update.getDeparture().getTime());
+                        }
                         row.setDeparture(formatEpoch(update.getDeparture().getTime()));
                         if (update.getDeparture().getDelay() > 0) {
                             row.setLate_departure(true);
                         }
+                    }
+                    if (!update.hasArrival() && !update.hasDeparture()) {
+                        row.setDate(formatDate(Instant.now().getEpochSecond()));
                     }
                     timeboard.addRow(row);
                 }
@@ -112,6 +123,7 @@ public class StationServiceImp implements StationService {
 
         //We need static GTFS Data stored in a database to match the route numbers to train
         // names and trip id to train number (short train name)
+        timeboard.sortTimeboardRemoveExtra();
         return timeboard;
     }
 
@@ -198,6 +210,23 @@ public class StationServiceImp implements StationService {
         tripRepository.saveAll(trips);
     }
 
+    @Override
+    public Set<StationAmtrak> getStationByCode(String query) {
+        List<StationAmtrak> stations = stationRepository.findByIdContainsIgnoreCase(query);
+        return new HashSet<>(stations);
+    }
+
+    @Override
+    public Set<StationAmtrak> getStationByName(String query) {
+        List<StationAmtrak> stations = stationRepository.findByNameContainsIgnoreCase(query);
+        return new HashSet<>(stations);
+    }
+
+    @Override
+    public List<StationAmtrak> getAllStations() {
+        return stationRepository.findAll();
+    }
+
     private String parseTime(String time) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -225,6 +254,14 @@ public class StationServiceImp implements StationService {
         ZoneId zone = ZoneId.systemDefault();
         LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        return formatter.format(localDateTime);
+    }
+
+    private String formatDate(Long epoch) {
+        Instant instant = Instant.ofEpochSecond(epoch);
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd");
         return formatter.format(localDateTime);
     }
 

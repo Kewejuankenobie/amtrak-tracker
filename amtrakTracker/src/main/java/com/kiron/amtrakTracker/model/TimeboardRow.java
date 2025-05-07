@@ -12,6 +12,8 @@ public class TimeboardRow {
     private String arrival;
     private String departure;
     private String destination;
+    private String date;
     private Boolean late_arrival;
     private Boolean late_departure;
+    private Long actual_time;
 }

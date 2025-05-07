@@ -14,4 +14,9 @@ public class StationAmtrak {
     private String name;
     private String website;
 
+    //Should be using hash codes
+    public boolean equals(StationAmtrak other) {
+        return this.id.equals(other.id);
+    }
+
 }
