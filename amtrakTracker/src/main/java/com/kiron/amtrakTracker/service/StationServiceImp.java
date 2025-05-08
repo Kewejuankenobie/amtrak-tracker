@@ -62,6 +62,7 @@ public class StationServiceImp implements StationService {
 
 
         List<StopTimesAmtrak> allStops = stopTimeRepository.findAllByStop_Id(code);
+
         for (StopTimesAmtrak stopTime : allStops) {
             TimeboardRow row = new TimeboardRow();
             row.setScheduled_arrival(parseTime(stopTime.getArrival_time()));
@@ -83,21 +84,31 @@ public class StationServiceImp implements StationService {
             int stopSequence = stopTime.getStop_sequence() - 1;
 
             //Next, check updated data, if there, then we add to the timeboard and change arrival and departure times if needed
-
-            for (FeedEntity entity : amFeed.getEntityList()) {
+            //We need to loop through all entities because one trip id can have multiple entities (different days)
+            for (int i = 0; i < amFeed.getEntityCount(); i++) {
+                FeedEntity entity = amFeed.getEntity(i);
                 if (entity.hasTripUpdate()) {
                     String tripId = entity.getTripUpdate().getTrip().getTripId();
                     if (!tripId.equals(trip.getTrip_id())) {
                         continue;
                     }
+                    //There are a few cases where the stop sequence of the stop time is out of range (Empire
+                    // Builder from PDX at CHI for instance)
                     if (entity.getTripUpdate().getStopTimeUpdateCount() <= stopSequence) {
                         continue;
                     }
+
+
                     GtfsRealtime.TripUpdate.StopTimeUpdate update = entity.getTripUpdate().getStopTimeUpdate(stopSequence);
+
+                    //If we are on another entity for the same trip id, then we need to add a new row
+                    if (row.getDate() != null) {
+                        row = new TimeboardRow(row, false);
+                    }
                     
                     if (update.hasArrival()) {
-                        row.setDate(formatDate(update.getArrival().getTime()));
                         row.setActual_time(update.getArrival().getTime());
+                        row.setDate(formatDate(row.getActual_time()));
                         row.setArrival(formatEpoch(update.getArrival().getTime()));
                         if (update.getArrival().getDelay() > 0) {
                             row.setLate_arrival(true);
@@ -105,14 +116,16 @@ public class StationServiceImp implements StationService {
                     }
                     if (update.hasDeparture()) {
                         if (row.getDate() == null) {
-                            row.setDate(formatDate(update.getDeparture().getTime()));
                             row.setActual_time(update.getDeparture().getTime());
+                            row.setDate(formatDate(row.getActual_time()));
                         }
                         row.setDeparture(formatEpoch(update.getDeparture().getTime()));
                         if (update.getDeparture().getDelay() > 0) {
                             row.setLate_departure(true);
                         }
                     }
+                    //If there is no arrival or departure, it is most likely a rescheduled train (1xxx), so we will assume
+                    //its date is today
                     if (!update.hasArrival() && !update.hasDeparture()) {
                         row.setDate(formatDate(Instant.now().getEpochSecond()));
                     }
@@ -121,15 +134,15 @@ public class StationServiceImp implements StationService {
             }
         }
 
-        //We need static GTFS Data stored in a database to match the route numbers to train
-        // names and trip id to train number (short train name)
-        timeboard.sortTimeboardRemoveExtra();
+        timeboard.sortTimeboard();
         return timeboard;
     }
 
     @Override
     public void updateGTFS() throws IOException, CsvValidationException {
+        //Updates the static GTFS database tables for Amtrak Trains
 
+        //First, we need to get the gtfs data and get their zip entries
         URL urlAm = new URL("https://content.amtrak.com/content/gtfs/GTFS.zip");
         HttpURLConnection conn = (HttpURLConnection) urlAm.openConnection();
         conn.setRequestMethod("GET");
@@ -145,8 +158,9 @@ public class StationServiceImp implements StationService {
         while ((zipEntry = zipInputStream.getNextEntry()) != null) {
             if (zipEntry.getName().equals("stops.txt") || zipEntry.getName().equals("stop_times.txt")
             || zipEntry.getName().equals("routes.txt") || zipEntry.getName().equals("trips.txt")) {
-                //Also need stop_times, routes, and trips
 
+                //Reads the zip files input stream to byte arrays, which will later be read from to prevent
+                //the inability to read all zip files
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];
                 int length;
@@ -163,6 +177,8 @@ public class StationServiceImp implements StationService {
                     boolean firstLine = true;
                     Long lineNum = 0L;
                     while ((line = csvReader.readNext()) != null) {
+                        //Reading each line into an array, we add each index of line to the according object based on
+                        //which csv file is being read
                         if (firstLine) {
                             firstLine = false;
                             continue;
@@ -228,6 +244,7 @@ public class StationServiceImp implements StationService {
     }
 
     private String parseTime(String time) {
+        //Converts time in the total time format to a standard 12 hour format
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm:ss");
 
@@ -235,6 +252,7 @@ public class StationServiceImp implements StationService {
         String[] parsedTokens = new String[3];
         parsedTokens[0] = st.nextToken();
         if (Integer.parseInt(parsedTokens[0]) > 23) {
+            //Handles when we have more than 23 hours
             int replacement = Integer.parseInt(parsedTokens[0]);
             while (replacement > 23) {
                 replacement -= 24;
@@ -250,6 +268,7 @@ public class StationServiceImp implements StationService {
     }
 
     private String formatEpoch(Long epoch) {
+        //Formats epoch time to the 12 hour format
         Instant instant = Instant.ofEpochSecond(epoch);
         ZoneId zone = ZoneId.systemDefault();
         LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
@@ -258,6 +277,7 @@ public class StationServiceImp implements StationService {
     }
 
     private String formatDate(Long epoch) {
+        //Formats epoch time to the month/day date format
         Instant instant = Instant.ofEpochSecond(epoch);
         ZoneId zone = ZoneId.systemDefault();
         LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();

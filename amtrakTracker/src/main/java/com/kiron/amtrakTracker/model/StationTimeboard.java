@@ -33,13 +33,8 @@ public class StationTimeboard {
         return timeboard.getLast().getNumber();
     }
 
-    public void sortTimeboardRemoveExtra() {
-        for (int i = 1; i < timeboard.size(); i++) {
-            if (timeboard.get(i).getActual_time() == timeboard.get(i - 1).getActual_time()) {
-                timeboard.remove(i);
-                i--;
-            }
-        }
+    public void sortTimeboard() {
+    //Sorts the timeboard rows by date and time
         timeboard.sort((o1, o2) -> {
             String o1DT;
             String o2DT;
