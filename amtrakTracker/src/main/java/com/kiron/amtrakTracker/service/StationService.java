@@ -1,7 +1,7 @@
 package com.kiron.amtrakTracker.service;
 
 import com.kiron.amtrakTracker.model.StationTimeboard;
-import com.kiron.amtrakTracker.model.gtfs.StationAmtrak;
+import com.kiron.amtrakTracker.model.gtfs.Station;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.IOException;
@@ -14,9 +14,9 @@ public interface StationService {
 
     void updateGTFS() throws IOException, CsvValidationException;
 
-    Set<StationAmtrak> getStationByCode(String query);
+    Set<Station> getStationByCode(String query);
 
-    Set<StationAmtrak> getStationByName(String query);
+    Set<Station> getStationByName(String query);
 
-    List<StationAmtrak> getAllStations();
+    List<Station> getAllStations();
 }

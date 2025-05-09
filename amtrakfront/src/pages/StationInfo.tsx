@@ -38,7 +38,7 @@ function StationInfo() {
 
     const getTimeboardFromStation = async (station: StationListEl)=> {
         try {
-            const obtainedTimeboard: Timeboard = await getTimeboard(station.id);
+            const obtainedTimeboard: Timeboard = await getTimeboard(station.code);
             setTimeboard(obtainedTimeboard);
             console.log(obtainedTimeboard);
         } catch (error) {

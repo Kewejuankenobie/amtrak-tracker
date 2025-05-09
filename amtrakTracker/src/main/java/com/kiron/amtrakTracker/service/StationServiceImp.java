@@ -5,10 +5,10 @@ import com.google.transit.realtime.GtfsRealtime.FeedEntity;
 import com.google.transit.realtime.GtfsRealtime.FeedMessage;
 import com.kiron.amtrakTracker.model.StationTimeboard;
 import com.kiron.amtrakTracker.model.TimeboardRow;
-import com.kiron.amtrakTracker.model.gtfs.RouteAmtrak;
-import com.kiron.amtrakTracker.model.gtfs.StationAmtrak;
-import com.kiron.amtrakTracker.model.gtfs.StopTimesAmtrak;
-import com.kiron.amtrakTracker.model.gtfs.TripAmtrak;
+import com.kiron.amtrakTracker.model.gtfs.Route;
+import com.kiron.amtrakTracker.model.gtfs.Station;
+import com.kiron.amtrakTracker.model.gtfs.StopTimes;
+import com.kiron.amtrakTracker.model.gtfs.Trip;
 import com.kiron.amtrakTracker.repository.RouteRepository;
 import com.kiron.amtrakTracker.repository.StationRepository;
 import com.kiron.amtrakTracker.repository.StopTimeRepository;
@@ -25,7 +25,6 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.zip.ZipEntry;
@@ -53,7 +52,7 @@ public class StationServiceImp implements StationService {
         FeedMessage amFeed = FeedMessage.parseFrom(urlAm.openStream());
         FeedMessage viaFeed = FeedMessage.parseFrom(urlVia.openStream());
 
-        StationAmtrak station = stationRepository.findById(code).orElse(null);
+        Station station = stationRepository.findByCode(code);
         if (station == null) {
             return null;
         }
@@ -61,81 +60,90 @@ public class StationServiceImp implements StationService {
         StationTimeboard timeboard = new StationTimeboard(code, station.getName(), station.getWebsite());
 
 
-        List<StopTimesAmtrak> allStops = stopTimeRepository.findAllByStop_Id(code);
+        List<StopTimes> allStops = stopTimeRepository.findAllByStop_Id(station.getId());
 
-        for (StopTimesAmtrak stopTime : allStops) {
-            TimeboardRow row = new TimeboardRow();
-            row.setScheduled_arrival(parseTime(stopTime.getArrival_time()));
-            row.setScheduled_departure(parseTime(stopTime.getDeparture_time()));
-            row.setLate_arrival(false);
-            row.setLate_departure(false);
-            TripAmtrak trip = tripRepository.findById(stopTime.getTrip_id()).orElse(null);
-            if (trip == null) {
-                continue;
-            }
+        for (StopTimes stopTime : allStops) {
 
-            row.setNumber(trip.getNumber());
-            row.setDestination(trip.getDestination());
-            RouteAmtrak route = routeRepository.findById(trip.getRoute_id()).orElse(null);
-            if (route == null) {
-                continue;
-            }
-            row.setName(route.getRoute_name());
-            int stopSequence = stopTime.getStop_sequence() - 1;
-
-            //Next, check updated data, if there, then we add to the timeboard and change arrival and departure times if needed
-            //We need to loop through all entities because one trip id can have multiple entities (different days)
-            for (int i = 0; i < amFeed.getEntityCount(); i++) {
-                FeedEntity entity = amFeed.getEntity(i);
-                if (entity.hasTripUpdate()) {
-                    String tripId = entity.getTripUpdate().getTrip().getTripId();
-                    if (!tripId.equals(trip.getTrip_id())) {
-                        continue;
-                    }
-                    //There are a few cases where the stop sequence of the stop time is out of range (Empire
-                    // Builder from PDX at CHI for instance)
-                    if (entity.getTripUpdate().getStopTimeUpdateCount() <= stopSequence) {
-                        continue;
-                    }
-
-
-                    GtfsRealtime.TripUpdate.StopTimeUpdate update = entity.getTripUpdate().getStopTimeUpdate(stopSequence);
-
-                    //If we are on another entity for the same trip id, then we need to add a new row
-                    if (row.getDate() != null) {
-                        row = new TimeboardRow(row, false);
-                    }
-                    
-                    if (update.hasArrival()) {
-                        row.setActual_time(update.getArrival().getTime());
-                        row.setDate(formatDate(row.getActual_time()));
-                        row.setArrival(formatEpoch(update.getArrival().getTime()));
-                        if (update.getArrival().getDelay() > 0) {
-                            row.setLate_arrival(true);
-                        }
-                    }
-                    if (update.hasDeparture()) {
-                        if (row.getDate() == null) {
-                            row.setActual_time(update.getDeparture().getTime());
-                            row.setDate(formatDate(row.getActual_time()));
-                        }
-                        row.setDeparture(formatEpoch(update.getDeparture().getTime()));
-                        if (update.getDeparture().getDelay() > 0) {
-                            row.setLate_departure(true);
-                        }
-                    }
-                    //If there is no arrival or departure, it is most likely a rescheduled train (1xxx), so we will assume
-                    //its date is today
-                    if (!update.hasArrival() && !update.hasDeparture()) {
-                        row.setDate(formatDate(Instant.now().getEpochSecond()));
-                    }
-                    timeboard.addRow(row);
-                }
+            if (code.length() == 3) {
+                buildRow(amFeed, stopTime, timeboard);
+            } else {
+                buildRow(viaFeed, stopTime, timeboard);
             }
         }
 
         timeboard.sortTimeboard();
         return timeboard;
+    }
+
+    private void buildRow(FeedMessage feed, StopTimes stopTime, StationTimeboard timeboard) {
+        TimeboardRow row = new TimeboardRow();
+        row.setScheduled_arrival(parseTime(stopTime.getArrival_time()));
+        row.setScheduled_departure(parseTime(stopTime.getDeparture_time()));
+        row.setLate_arrival(false);
+        row.setLate_departure(false);
+        Trip trip = tripRepository.findById(stopTime.getTrip_id()).orElse(null);
+        if (trip == null) {
+            return;
+        }
+
+        row.setNumber(trip.getNumber());
+        row.setDestination(trip.getDestination());
+        Route route = routeRepository.findById(trip.getRoute_id()).orElse(null);
+        if (route == null) {
+            return;
+        }
+        row.setName(route.getRoute_name());
+        int stopSequence = stopTime.getStop_sequence() - 1;
+
+        //Next, check updated data, if there, then we add to the timeboard and change arrival and departure times if needed
+        //We need to loop through all entities because one trip id can have multiple entities (different days)
+        for (int i = 0; i < feed.getEntityCount(); i++) {
+            FeedEntity entity = feed.getEntity(i);
+            if (entity.hasTripUpdate()) {
+                String tripId = entity.getTripUpdate().getTrip().getTripId();
+                if (!tripId.equals(trip.getTrip_id())) {
+                    continue;
+                }
+                //There are a few cases where the stop sequence of the stop time is out of range (Empire
+                // Builder from PDX at CHI for instance)
+                if (entity.getTripUpdate().getStopTimeUpdateCount() <= stopSequence) {
+                    continue;
+                }
+
+
+                GtfsRealtime.TripUpdate.StopTimeUpdate update = entity.getTripUpdate().getStopTimeUpdate(stopSequence);
+
+                //If we are on another entity for the same trip id, then we need to add a new row
+                if (row.getDate() != null) {
+                    row = new TimeboardRow(row, false);
+                }
+
+                if (update.hasArrival()) {
+                    row.setActual_time(update.getArrival().getTime());
+                    row.setDate(formatDate(row.getActual_time()));
+                    row.setArrival(formatEpoch(update.getArrival().getTime()));
+                    if (update.getArrival().getDelay() > 0) {
+                        row.setLate_arrival(true);
+                    }
+                }
+                if (update.hasDeparture()) {
+                    if (row.getDate() == null) {
+                        row.setActual_time(update.getDeparture().getTime());
+                        row.setDate(formatDate(row.getActual_time()));
+                    }
+                    row.setDeparture(formatEpoch(update.getDeparture().getTime()));
+                    if (update.getDeparture().getDelay() > 0) {
+                        row.setLate_departure(true);
+                    }
+                }
+                //If there is no arrival or departure, it is most likely a rescheduled train (1xxx), so we will assume
+                //its date is today
+                if (!update.hasArrival() && !update.hasDeparture()) {
+                    row.setDate(formatDate(Instant.now().getEpochSecond()));
+                }
+                timeboard.addRow(row);
+            }
+        }
     }
 
     @Override
@@ -144,20 +152,39 @@ public class StationServiceImp implements StationService {
 
         //First, we need to get the gtfs data and get their zip entries
         URL urlAm = new URL("https://content.amtrak.com/content/gtfs/GTFS.zip");
-        HttpURLConnection conn = (HttpURLConnection) urlAm.openConnection();
+        URL urlVia = new URL("https://www.viarail.ca/sites/all/files/gtfs/viarail.zip");
+
+        List<Station> stations = new ArrayList<>();
+        List<StopTimes> stopTimes = new ArrayList<>();
+        List<Route> routes = new ArrayList<>();
+        List<Trip> trips = new ArrayList<>();
+
+        updateGTFSFromCSV(urlAm, stations, stopTimes, routes, trips, true);
+        updateGTFSFromCSV(urlVia, stations, stopTimes, routes, trips, false);
+
+        stationRepository.saveAll(stations);
+        stopTimeRepository.saveAll(stopTimes);
+        routeRepository.saveAll(routes);
+        tripRepository.saveAll(trips);
+    }
+
+    private void updateGTFSFromCSV(URL url, List<Station> stations, List<StopTimes> stopTimes,
+                                   List<Route> routes, List<Trip> trips,
+                                   boolean isAmtk) throws IOException, CsvValidationException {
+
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         InputStream inputStream = conn.getInputStream();
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         ZipEntry zipEntry;
 
-        List<StationAmtrak> stations = new ArrayList<>();
-        List<StopTimesAmtrak> stopTimes = new ArrayList<>();
-        List<RouteAmtrak> routes = new ArrayList<>();
-        List<TripAmtrak> trips = new ArrayList<>();
-
+        Long stopTimeSize = 0L;
+        if (!stopTimes.isEmpty()) {
+            stopTimeSize = stopTimes.getLast().getId();
+        }
         while ((zipEntry = zipInputStream.getNextEntry()) != null) {
             if (zipEntry.getName().equals("stops.txt") || zipEntry.getName().equals("stop_times.txt")
-            || zipEntry.getName().equals("routes.txt") || zipEntry.getName().equals("trips.txt")) {
+                    || zipEntry.getName().equals("routes.txt") || zipEntry.getName().equals("trips.txt")) {
 
                 //Reads the zip files input stream to byte arrays, which will later be read from to prevent
                 //the inability to read all zip files
@@ -184,33 +211,11 @@ public class StationServiceImp implements StationService {
                             continue;
                         }
 
-                        if (zipEntry.getName().equals("stops.txt")) {
-                            StationAmtrak station = new StationAmtrak();
-                            station.setId(line[0]);
-                            station.setName(line[1]);
-                            station.setWebsite(line[2]);
-                            stations.add(station);
-                        } else if (zipEntry.getName().equals("stop_times.txt")) {
-                            StopTimesAmtrak stopTime = new StopTimesAmtrak();
-                            stopTime.setId(lineNum);
-                            stopTime.setTrip_id(line[0]);
-                            stopTime.setArrival_time(line[1]);
-                            stopTime.setDeparture_time(line[2]);
-                            stopTime.setStop_id(line[3]);
-                            stopTime.setStop_sequence(Integer.parseInt(line[4]));
-                            stopTimes.add(stopTime);
-                        } else if (zipEntry.getName().equals("routes.txt")) {
-                            RouteAmtrak route = new RouteAmtrak();
-                            route.setRoute_id(line[0]);
-                            route.setRoute_name(line[3]);
-                            routes.add(route);
-                        } else if (zipEntry.getName().equals("trips.txt")) {
-                            TripAmtrak trip = new TripAmtrak();
-                            trip.setTrip_id(line[2]);
-                            trip.setRoute_id(line[0]);
-                            trip.setNumber(Integer.parseInt(line[3]));
-                            trip.setDestination(line[6]);
-                            trips.add(trip);
+                        if (isAmtk) {
+                            updateAmtrakGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
+
+                        } else {
+                            updateViaGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
                         }
                         lineNum++;
                     }
@@ -220,26 +225,120 @@ public class StationServiceImp implements StationService {
                 zipInputStream.closeEntry();
             }
         }
-        stationRepository.saveAll(stations);
-        stopTimeRepository.saveAll(stopTimes);
-        routeRepository.saveAll(routes);
-        tripRepository.saveAll(trips);
+    }
+
+    private void updateAmtrakGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
+                                  List<Route> routes, List<Trip> trips, Long lineNum, Long stopTimeSize) {
+        if (name.equals("stops.txt")) {
+            Station station = new Station();
+            station.setId(line[0]);
+            station.setCode(line[0]);
+            station.setName(line[1]);
+            station.setWebsite(line[2]);
+            stations.add(station);
+        } else if (name.equals("stop_times.txt")) {
+            StopTimes stopTime = new StopTimes();
+            stopTime.setId(lineNum + stopTimeSize);
+            stopTime.setTrip_id(line[0]);
+            stopTime.setArrival_time(line[1]);
+            stopTime.setDeparture_time(line[2]);
+            stopTime.setStop_id(line[3]);
+            stopTime.setStop_sequence(Integer.parseInt(line[4]));
+            stopTimes.add(stopTime);
+        } else if (name.equals("routes.txt")) {
+            Route route = new Route();
+            route.setRoute_id(line[0]);
+            route.setRoute_name(line[3]);
+            routes.add(route);
+        } else if (name.equals("trips.txt")) {
+            Trip trip = new Trip();
+            trip.setTrip_id(line[2]);
+            trip.setRoute_id(line[0]);
+            trip.setNumber(Integer.parseInt(line[3]));
+            trip.setDestination(line[6]);
+            trips.add(trip);
+        }
+    }
+
+    private void updateViaGTFS(String name, String[] line, List<Station> stations,
+                               List<StopTimes> stopTimes, List<Route> routes, List<Trip> trips, Long lineNum,
+                               Long stopTimeSize) {
+        if (name.equals("stops.txt")) {
+            Station station = new Station();
+            station.setId(line[0]);
+            station.setCode(line[1]);
+            station.setName(line[2]);
+            stations.add(station);
+        } else if (name.equals("stop_times.txt")) {
+            StopTimes stopTime = new StopTimes();
+            stopTime.setId(lineNum + stopTimeSize);
+            stopTime.setTrip_id(line[0]);
+            stopTime.setArrival_time(line[1]);
+            stopTime.setDeparture_time(line[2]);
+            stopTime.setStop_id(line[3]);
+            stopTime.setStop_sequence(Integer.parseInt(line[4]));
+            stopTimes.add(stopTime);
+        } else if (name.equals("routes.txt")) {
+            Route route = new Route();
+            route.setRoute_id(line[0]);
+            route.setRoute_name(getViaRouteName(line[2]));
+            routes.add(route);
+        } else if (name.equals("trips.txt")) {
+            Trip trip = new Trip();
+            trip.setTrip_id(line[2]);
+            trip.setRoute_id(line[0]);
+            if (line[4].isEmpty()) {
+                trip.setNumber(0);
+            } else if (line[4].contains("-")) {
+                StringTokenizer st = new StringTokenizer(line[4], "-");
+                trip.setNumber(Integer.parseInt(st.nextToken()));
+            } else {
+                trip.setNumber(Integer.parseInt(line[4]));
+                //maple leaf case
+            }
+            trip.setDestination(line[5]);
+            trips.add(trip);
+        }
+    }
+
+    private String getViaRouteName(String defaultRoute) {
+        if (defaultRoute.equals("Vancouver - Toronto")) {
+            return "Canadian";
+        } else if (defaultRoute.equals("Montréal - Halifax")) {
+            return "Ocean";
+        } else if (defaultRoute.equals("Toronto - New York")) {
+            return "Maple Leaf";
+        } else if (defaultRoute.equals("Sudbury - White River")) {
+            return "Lake Superior";
+        } else if (defaultRoute.equals("Jasper - Prince Rupert")) {
+            return "Skeena";
+        } else if (defaultRoute.equals("Winnipeg - Churchill") || defaultRoute.equals("The Pas - Churchill")) {
+            return "Hudson Bay";
+        } else if (defaultRoute.equals("Montréal - Senneterre")) {
+            return "Abitibi";
+        } else if (defaultRoute.equals("Montréal - Jonquière")) {
+            return "Saguenay";
+        } else {
+            return "Corridor: " + defaultRoute;
+        }
     }
 
     @Override
-    public Set<StationAmtrak> getStationByCode(String query) {
-        List<StationAmtrak> stations = stationRepository.findByIdContainsIgnoreCase(query);
+    public Set<Station> getStationByCode(String query) {
+        List<Station> stations = stationRepository.findByCodeContainsIgnoreCase(query);
         return new HashSet<>(stations);
     }
 
     @Override
-    public Set<StationAmtrak> getStationByName(String query) {
-        List<StationAmtrak> stations = stationRepository.findByNameContainsIgnoreCase(query);
+    public Set<Station> getStationByName(String query) {
+        Set<Station> stations = new HashSet<>(stationRepository.findByNameContainsIgnoreCase(query));
+        String nextQuery = query.replace("e", "é");
+        stations.addAll(stationRepository.findByNameContainsIgnoreCase(nextQuery));
         return new HashSet<>(stations);
     }
 
     @Override
-    public List<StationAmtrak> getAllStations() {
+    public List<Station> getAllStations() {
         return stationRepository.findAll();
     }
 

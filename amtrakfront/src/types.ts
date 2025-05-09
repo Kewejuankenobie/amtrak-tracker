@@ -18,7 +18,7 @@ export type Train = {
 }
 
 export type StationListEl = {
-    id: string;
+    code: string;
     name: string;
     website: string;
     Component: React.ComponentType;

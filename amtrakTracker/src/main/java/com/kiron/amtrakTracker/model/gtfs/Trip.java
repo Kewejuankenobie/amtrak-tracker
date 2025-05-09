@@ -6,10 +6,12 @@ import lombok.Data;
 
 @Data
 @Entity
-public class RouteAmtrak {
+public class Trip {
 
     @Id
-    private String route_id;
+    private String trip_id;
 
-    private String route_name;
+    private String route_id;
+    private Integer number;
+    private String destination;
 }

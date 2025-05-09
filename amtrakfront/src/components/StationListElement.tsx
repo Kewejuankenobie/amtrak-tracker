@@ -9,7 +9,7 @@ function StationListElement({station, onClick}: {station: StationListEl, onClick
             border-1 shadow-md
             cursor-pointer"
             onClick={onClick}>
-                <p>{station.id}: {station.name}</p>
+                <p>{station.code}: {station.name}</p>
             </div>
 
         </>

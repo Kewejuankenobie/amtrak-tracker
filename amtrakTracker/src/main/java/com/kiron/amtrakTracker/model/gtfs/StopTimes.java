@@ -6,12 +6,16 @@ import lombok.Data;
 
 @Data
 @Entity
-public class TripAmtrak {
+public class StopTimes {
 
     @Id
-    private String trip_id;
+    private Long id;
 
-    private String route_id;
-    private Integer number;
-    private String destination;
+    private String trip_id;
+    private String departure_time;
+    private String arrival_time;
+    private String stop_id;
+    private Integer stop_sequence;
+
+
 }

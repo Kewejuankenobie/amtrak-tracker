@@ -6,16 +6,17 @@ import lombok.Data;
 
 @Data
 @Entity
-public class StationAmtrak {
+public class Station {
 
     @Id
     private String id;
 
+    private String code;
     private String name;
     private String website;
 
     //Should be using hash codes
-    public boolean equals(StationAmtrak other) {
+    public boolean equals(Station other) {
         return this.id.equals(other.id);
     }
 

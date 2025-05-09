@@ -1,7 +1,7 @@
 package com.kiron.amtrakTracker.controller;
 
 import com.kiron.amtrakTracker.model.StationTimeboard;
-import com.kiron.amtrakTracker.model.gtfs.StationAmtrak;
+import com.kiron.amtrakTracker.model.gtfs.Station;
 import com.kiron.amtrakTracker.service.StationService;
 import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +36,8 @@ public class StationController {
     public ResponseEntity<?> search(@PathVariable String query) {
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
-        Set<StationAmtrak> codeResults = stationService.getStationByCode(query);
-        Set<StationAmtrak> nameResults = stationService.getStationByName(query);
+        Set<Station> codeResults = stationService.getStationByCode(query);
+        Set<Station> nameResults = stationService.getStationByName(query);
 
         codeResults.addAll(nameResults);
 
@@ -50,7 +50,7 @@ public class StationController {
     public ResponseEntity<?> getAllStations() {
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
-        List<StationAmtrak> stations = stationService.getAllStations();
+        List<Station> stations = stationService.getAllStations();
 
         stationResponse.put("status", 1);
         stationResponse.put("data", stations);
