@@ -11,6 +11,7 @@ function App() {
     //Move to the backend, this is unsafe
     const key: string = import.meta.env.VITE_API_KEY;
 
+
   return (
     <>
       <div>

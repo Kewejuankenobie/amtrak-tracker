@@ -5,11 +5,17 @@ function StationListElement({station, onClick}: {station: StationListEl, onClick
 
     return (
         <>
-            <div className="bg-main-bg hover:bg-cyan-50 active:bg-blue-50 w-3/5 my-2 p-2 rounded-lg
-            border-1 shadow-md
-            cursor-pointer"
+            <div className={`bg-[#E0F2E1] ${station.code.length == 3 ? 'hover:bg-[#E8EDF0]' : 'hover:bg-[#EEF0E8]'} 
+            active:bg-blue-50 w-3/5 my-4 p-6 rounded-lg
+            shadow-md hover:-translate-y-1 hover:drop-shadow-lg duration-75
+            cursor-pointer`}
             onClick={onClick}>
-                <p>{station.code}: {station.name}</p>
+                <p className={`font-semibold mb-1.5`}>{station.code}: {station.name}</p>
+                {
+                    station.code.length == 3 ?
+                        <p className={`text-gray-700`}>Amtrak Station</p> :
+                        <p className={`text-gray-700`}>VIA Rail Station</p>
+                }
             </div>
 
         </>

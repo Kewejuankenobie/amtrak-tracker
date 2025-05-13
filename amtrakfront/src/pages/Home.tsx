@@ -81,14 +81,14 @@ function Home() {
             <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-3/5 h-3/5
             open:animate-dialog drop-shadow-xl">
                 <div className={`flex flex-col relative z-0 
-                ${curTrain && curTrain.railroad == 'AMTRAK' ? 'bg-cyan-50' : 'bg-yellow-50'} rounded-lg justify-normal
+                ${curTrain && curTrain.railroad == 'AMTRAK' ? 'bg-[#E0F2E1]' : 'bg-[#E0F2E1]'} rounded-lg justify-normal
                      w-full h-full p-10`}>
                     <TrainDetail train={curTrain}/>
                     <button onClick={() => {
                         dialogRef.current?.close()
                     }}
                             className="absolute -top-2 -right-2 w-7 h-7 z-1 flex justify-center items-center
-                                bg-gray-200 rounded-full text-2xl cursor-pointer">X
+                                bg-gray-200 rounded-full text-2xl cursor-pointer shadow-md">X
                         <span className="sr-only">Close</span>
                     </button>
                 </div>

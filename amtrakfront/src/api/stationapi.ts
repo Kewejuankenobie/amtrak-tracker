@@ -1,4 +1,4 @@
-const BASE_URL: string = 'http://localhost:8080/station';
+const BASE_URL: string = import.meta.env.VITE_DB_LINK + 'station';
 
 export const getAllStations = async () => {
     const response = await fetch(`${BASE_URL}/getAllStations`);

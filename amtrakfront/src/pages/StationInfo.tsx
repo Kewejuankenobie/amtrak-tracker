@@ -76,15 +76,19 @@ function StationInfo() {
                     }
                 </div>
             </div>
-            <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 overflow-visible rounded-lg w-4/5 h-4/5">
-                <div className={`flex flex-col relative z-0 bg-cyan-50 border-2 rounded-lg justify-normal
+            <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-4/5 h-4/5
+            open:animate-dialog drop-shadow-xl">
+                <div className={`flex flex-col relative z-0 ${
+                    timeboard && timeboard.code.length == 3 ? 'bg-[#E0F2E1]' : 'bg-[#E0F2E1]'
+                } 
+                rounded-lg justify-normal
                      w-full h-full md:p-6 p-2`}>
                     <StationTimeboard timeboard={timeboard}/>
                     <button onClick={() => {
                         dialogRef.current?.close()
                     }}
                             className="absolute -top-2 -right-2 w-7 h-7 z-1 flex justify-center items-center
-                                bg-gray-200 rounded-full text-2xl cursor-pointer">X
+                                bg-gray-200 rounded-full text-2xl cursor-pointer shadow-md">X
                         <span className="sr-only">Close</span>
                     </button>
                 </div>
