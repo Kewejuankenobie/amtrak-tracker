@@ -5,7 +5,7 @@ function StationListElement({station, onClick}: {station: StationListEl, onClick
 
     return (
         <>
-            <div className="bg-cyan-100 border-blue-200 hover:bg-cyan-50 active:bg-blue-50 w-3/5 my-2 p-2 rounded-lg
+            <div className="bg-main-bg hover:bg-cyan-50 active:bg-blue-50 w-3/5 my-2 p-2 rounded-lg
             border-1 shadow-md
             cursor-pointer"
             onClick={onClick}>

@@ -44,7 +44,7 @@ function Closest() {
 
     return (
         <>
-            <div className="bg-gray-50">
+            <div className="bg-[#f5f9f6] lg:h-[95vh] h-[90vh]">
                 {
                     !locationAllowed ? <p className="ml-4">Location Services Must Be Enabled To Use This Feature</p>
                         : <div className="w-full flex flex-col items-center">

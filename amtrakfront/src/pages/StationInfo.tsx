@@ -53,7 +53,7 @@ function StationInfo() {
 
     return (
         <>
-            <div className="flex flex-col h-[94vh] items-center bg-gray-50 overflow-y-scroll">
+            <div className="flex flex-col h-[95vh] items-center bg-[#f5f9f6] overflow-y-scroll">
                 <div className="flex flex-col items-center justify-center w-full">
                     <form onSubmit={(e) => handleSearch(e, query)} className="w-3/5">
                         <div className="flex w-full">

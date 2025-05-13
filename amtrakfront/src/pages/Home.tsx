@@ -55,7 +55,7 @@ function Home() {
 
     return (
         <>
-            <div className="flex flex-col h-[94vh] items-center bg-gray-50 overflow-y-scroll">
+            <div className="flex flex-col lg:h-[95vh] h-[90vh] items-center bg-main-bg overflow-y-scroll">
                 <div className="flex flex-col items-center justify-center w-full">
                     <form onSubmit={(e) => handleSearch(e, query)} className="w-3/5">
                         <div className="flex w-full">
@@ -78,9 +78,10 @@ function Home() {
                 }
                 </div>
             </div>
-            <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 overflow-visible rounded-lg w-3/5 h-3/5">
+            <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-3/5 h-3/5
+            open:animate-dialog drop-shadow-xl">
                 <div className={`flex flex-col relative z-0 
-                ${curTrain && curTrain.railroad == 'AMTRAK' ? 'bg-cyan-50' : 'bg-yellow-50'} border-2 rounded-lg justify-normal
+                ${curTrain && curTrain.railroad == 'AMTRAK' ? 'bg-cyan-50' : 'bg-yellow-50'} rounded-lg justify-normal
                      w-full h-full p-10`}>
                     <TrainDetail train={curTrain}/>
                     <button onClick={() => {

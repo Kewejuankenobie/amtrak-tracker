@@ -6,12 +6,12 @@ function TrainListElement({train, onClick}: {train: Train, onClick: React.MouseE
 
     return (
         <>
-            <div className={`${train.railroad == 'AMTRAK' ? 'bg-cyan-100 border-blue-200 hover:bg-cyan-50 active:bg-blue-50' : 
-                'bg-yellow-100 border-amber-100 hover:bg-yellow-50 active:bg-amber-50'} w-3/5 my-2 p-2 rounded-lg 
-            border-1 shadow-md
+            <div className={`bg-[#E0F2E1] my-4 ${train.railroad == 'AMTRAK' ? ' active:bg-blue-50 hover:bg-[#E8EDF0]' : 
+                'hover:bg-[#EEF0E8] active:bg-amber-50'} w-3/5 my-2 p-6 rounded-lg hover:-translate-y-1 hover:drop-shadow-lg duration-75
+            shadow-md
             cursor-pointer`}
             onClick={onClick}>
-                <p className={`font-semibold mb-2 text-lg ${train.railroad == 'AMTRAK' ? 'text-blue-900' : 'text-amber-700'}`}>{
+                <p className={`font-semibold mb-2 text-lg ${train.railroad == 'AMTRAK' ? 'text-black' : 'text-black'}`}>{
                     train.railroad == 'AMTRAK' ? 'Amtrak' : 'VIA Rail'
                 } Train {train.number}: {train.name}</p>
                 <div className="text-gray-700">
