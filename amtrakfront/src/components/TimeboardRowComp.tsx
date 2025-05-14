@@ -18,10 +18,10 @@ function TimeboardRowComp({row, type}: {row: TimeboardRow, type: string}) {
                         <div/>
                         <p className={`text-center`}>Arrive</p>
                         <p className={`text-center`}>Depart</p>
-                        <p>Schd.</p>
+                        <p className={`text-right pr-4`}>Schd.</p>
                         <p className="p-1 border-1 rounded-tl-sm bg-gray-200">{row.scheduled_arrival}</p>
                         <p className="p-1 border-1 rounded-tr-sm bg-gray-200">{row.scheduled_departure}</p>
-                        <p>Est.</p>
+                        <p className={`text-right pr-4`}>Est.</p>
                         <p className={`p-1 border-1 rounded-bl-sm ${row.late_arrival ? "bg-red-300" : "bg-green-200"}`}>{row.arrival}</p>
                         <p className={`p-1 border-1 rounded-br-sm ${row.late_departure ? "bg-red-300" : "bg-green-200"}`}>{row.departure}</p>
                     </div>

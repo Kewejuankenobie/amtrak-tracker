@@ -10,7 +10,7 @@ function StationListElement({station, onClick}: {station: StationListEl, onClick
             shadow-md hover:-translate-y-1 hover:drop-shadow-lg duration-75
             cursor-pointer`}
             onClick={onClick}>
-                <p className={`font-semibold mb-1.5`}>{station.code}: {station.name}</p>
+                <p className={`font-semibold text-lg mb-1.5`}>{station.code}: {station.name}</p>
                 {
                     station.code.length == 3 ?
                         <p className={`text-gray-700`}>Amtrak Station</p> :

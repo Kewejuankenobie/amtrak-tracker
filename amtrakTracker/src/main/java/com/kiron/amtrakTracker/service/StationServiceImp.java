@@ -94,6 +94,9 @@ public class StationServiceImp implements StationService {
         }
         row.setName(route.getRoute_name());
         int stopSequence = stopTime.getStop_sequence() - 1;
+        if (trip.getRoute_id().equals("SJ2")) {
+            ++stopSequence;
+        }
 
         //Next, check updated data, if there, then we add to the timeboard and change arrival and departure times if needed
         //We need to loop through all entities because one trip id can have multiple entities (different days)
@@ -101,7 +104,7 @@ public class StationServiceImp implements StationService {
             FeedEntity entity = feed.getEntity(i);
             if (entity.hasTripUpdate()) {
                 String tripId = entity.getTripUpdate().getTrip().getTripId();
-                if (!tripId.equals(trip.getTrip_id())) {
+                if (!tripId.equals(trip.getTrip_id()) && !tripId.contains("_AMTK_" + trip.getTrip_id())) {
                     continue;
                 }
                 //There are a few cases where the stop sequence of the stop time is out of range (Empire
@@ -153,14 +156,16 @@ public class StationServiceImp implements StationService {
         //First, we need to get the gtfs data and get their zip entries
         URL urlAm = new URL("https://content.amtrak.com/content/gtfs/GTFS.zip");
         URL urlVia = new URL("https://www.viarail.ca/sites/all/files/gtfs/viarail.zip");
+        URL urlSanJ = new URL("https://d34tiw64n5z4oh.cloudfront.net/wp-content/uploads/SJJPA_03182025-1.zip");
 
         List<Station> stations = new ArrayList<>();
         List<StopTimes> stopTimes = new ArrayList<>();
         List<Route> routes = new ArrayList<>();
         List<Trip> trips = new ArrayList<>();
 
-        updateGTFSFromCSV(urlAm, stations, stopTimes, routes, trips, true);
-        updateGTFSFromCSV(urlVia, stations, stopTimes, routes, trips, false);
+        updateGTFSFromCSV(urlAm, stations, stopTimes, routes, trips, 0);
+        updateGTFSFromCSV(urlVia, stations, stopTimes, routes, trips, 1);
+        updateGTFSFromCSV(urlSanJ, stations, stopTimes, routes, trips, 2);
 
         stationRepository.saveAll(stations);
         stopTimeRepository.saveAll(stopTimes);
@@ -170,7 +175,7 @@ public class StationServiceImp implements StationService {
 
     private void updateGTFSFromCSV(URL url, List<Station> stations, List<StopTimes> stopTimes,
                                    List<Route> routes, List<Trip> trips,
-                                   boolean isAmtk) throws IOException, CsvValidationException {
+                                   int type) throws IOException, CsvValidationException {
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
@@ -211,11 +216,13 @@ public class StationServiceImp implements StationService {
                             continue;
                         }
 
-                        if (isAmtk) {
+                        if (type == 0) {
                             updateAmtrakGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
 
-                        } else {
+                        } else if (type == 1) {
                             updateViaGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
+                        } else {
+                            updateSanJGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
                         }
                         lineNum++;
                     }
@@ -224,6 +231,39 @@ public class StationServiceImp implements StationService {
             } else {
                 zipInputStream.closeEntry();
             }
+        }
+    }
+
+    private void updateSanJGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
+                                List<Route> routes, List<Trip> trips, Long lineNum, Long stopTimeSize) {
+        if (name.equals("stops.txt") && line[0].length() == 3 && !line[7].contains("acerail")) {
+            Station station = new Station();
+            station.setId(line[0]);
+            station.setCode(line[0]);
+            station.setName(line[2]);
+            station.setWebsite(line[7]);
+            stations.add(station);
+        } else if (name.equals("stop_times.txt") && line[0].length() == 3) {
+            StopTimes stopTime = new StopTimes();
+            stopTime.setId(lineNum + stopTimeSize);
+            stopTime.setTrip_id(line[0]);
+            stopTime.setArrival_time(line[3]);
+            stopTime.setDeparture_time(line[4]);
+            stopTime.setStop_id(line[2]);
+            stopTime.setStop_sequence(Integer.parseInt(line[1]));
+            stopTimes.add(stopTime);
+        } else if (name.equals("routes.txt") && line[0].equals("SJ2")) {
+            Route route = new Route();
+            route.setRoute_id(line[0]);
+            route.setRoute_name(line[3]);
+            routes.add(route);
+        } else if (name.equals("trips.txt") && line[0].length() == 3) {
+            Trip trip = new Trip();
+            trip.setTrip_id(line[0]);
+            trip.setRoute_id(line[1]);
+            trip.setNumber(Integer.parseInt(line[0]));
+            trip.setDestination(line[3]);
+            trips.add(trip);
         }
     }
 
