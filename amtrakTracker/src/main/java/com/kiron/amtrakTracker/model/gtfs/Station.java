@@ -14,10 +14,6 @@ public class Station {
     private String code;
     private String name;
     private String website;
-
-    //Should be using hash codes
-    public boolean equals(Station other) {
-        return this.id.equals(other.id);
-    }
+    private String time_zone;
 
 }

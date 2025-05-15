@@ -3,8 +3,9 @@ package com.kiron.amtrakTracker.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kiron.amtrakTracker.model.TrainApiModel;
-import com.kiron.amtrakTracker.model.TrainLocation;
 import com.kiron.amtrakTracker.model.TrainParsed;
+import com.kiron.amtrakTracker.model.gtfs.Station;
+import com.kiron.amtrakTracker.service.StationService;
 import com.kiron.amtrakTracker.service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,10 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static java.lang.Integer.parseInt;
@@ -31,6 +36,9 @@ public class TrainController {
     @Autowired
     private TrainService trainService;
 
+    @Autowired
+    private StationService StationService;
+
     @PostMapping("/update")
     public ResponseEntity<?> updateAllTrains() throws IOException, URISyntaxException {
         Map<String, Object> trainResponse = new HashMap<String, Object>();
@@ -44,6 +52,24 @@ public class TrainController {
         List<TrainParsed> parsedTrains = new ArrayList<TrainParsed>();
         for (TrainApiModel train : trains) {
             TrainParsed parsedTrain = trainService.addTrain(new TrainParsed(train));
+
+            Station station;
+            try {
+                station = StationService.getStationByCode(parsedTrain.getNext_station()).iterator().next();
+            } catch (NoSuchElementException e) {
+                System.out.println("Station not found for " + parsedTrain.getNext_station());
+                parsedTrains.add(parsedTrain);
+                continue;
+            }
+
+
+            //Set the correct time for arrival
+            Instant instant = Instant.ofEpochSecond(parsedTrain.getArrival_epoch());
+            ZoneId zone = ZoneId.of(station.getTime_zone());
+            LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+            parsedTrain.setScheduled_arrival(formatter.format(localDateTime));
+
             parsedTrains.add(parsedTrain);
         }
 

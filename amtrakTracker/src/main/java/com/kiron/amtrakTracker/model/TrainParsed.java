@@ -1,16 +1,9 @@
 package com.kiron.amtrakTracker.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 
 @Entity
 @Data
@@ -32,6 +25,7 @@ public class TrainParsed {
     private String next_station;
     private Integer next_station_delay;
     private String scheduled_arrival;
+    private Long arrival_epoch;
 
     private Boolean is_active;
 
@@ -75,23 +69,18 @@ public class TrainParsed {
                 last_station = stationItr.getCode();
                 next_station = station.getCode();
                 next_station_delay = station.getArrive().getVariance();
-                Instant instant;
                 if (station.getSched_arrive() == null) {
                     if (station.getSched_depart() == null) {
                         return;
                     }
                     if (station.getDepart() == null) {
-                        instant = Instant.ofEpochSecond(station.getSched_depart());
+                        arrival_epoch = station.getSched_depart();
                     } else {
-                        instant = Instant.ofEpochSecond(station.getSched_depart() - station.getDepart().getVariance());
+                        arrival_epoch = station.getSched_depart() - station.getDepart().getVariance();
                     }
                 } else {
-                    instant = Instant.ofEpochSecond(station.getSched_arrive() - next_station_delay);
+                    arrival_epoch = station.getSched_arrive() - next_station_delay;
                 }
-                ZoneId zone = ZoneId.systemDefault();
-                LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
-                scheduled_arrival = formatter.format(localDateTime);
                 return;
             }
             stationItr = station;

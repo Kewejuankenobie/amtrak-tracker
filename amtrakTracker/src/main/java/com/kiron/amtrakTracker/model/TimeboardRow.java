@@ -1,6 +1,5 @@
 package com.kiron.amtrakTracker.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -31,6 +30,7 @@ public class TimeboardRow {
         if (copyDate) {
             this.date = row.getDate();
         }
-        this.late_arrival = row.getLate_arrival();
+        this.late_arrival = false;
+        this.late_departure = false;
     }
 }

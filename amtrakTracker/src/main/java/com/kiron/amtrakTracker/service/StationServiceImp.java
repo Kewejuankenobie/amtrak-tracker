@@ -22,9 +22,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.zip.ZipEntry;
@@ -76,9 +74,18 @@ public class StationServiceImp implements StationService {
     }
 
     private void buildRow(FeedMessage feed, StopTimes stopTime, StationTimeboard timeboard) {
+
+        String timeZone =stationRepository.findById(stopTime.getStop_id()).isPresent() ?
+                stationRepository.findById(stopTime.getStop_id()).get().getTime_zone() : "America/New_York";
+
+        ZonedDateTime t1 = ZonedDateTime.now(ZoneId.of(timeZone));
+        ZonedDateTime t2 = ZonedDateTime.now(ZoneId.of("America/New_York"));
+
+        int hourOffset = t1.getHour() - t2.getHour();
+
         TimeboardRow row = new TimeboardRow();
-        row.setScheduled_arrival(parseTime(stopTime.getArrival_time()));
-        row.setScheduled_departure(parseTime(stopTime.getDeparture_time()));
+        row.setScheduled_arrival(parseTime(stopTime.getArrival_time(), hourOffset));
+        row.setScheduled_departure(parseTime(stopTime.getDeparture_time(), hourOffset));
         row.setLate_arrival(false);
         row.setLate_departure(false);
         Trip trip = tripRepository.findById(stopTime.getTrip_id()).orElse(null);
@@ -124,7 +131,7 @@ public class StationServiceImp implements StationService {
                 if (update.hasArrival()) {
                     row.setActual_time(update.getArrival().getTime());
                     row.setDate(formatDate(row.getActual_time()));
-                    row.setArrival(formatEpoch(update.getArrival().getTime()));
+                    row.setArrival(formatEpoch(update.getArrival().getTime(), timeZone));
                     if (update.getArrival().getDelay() > 0) {
                         row.setLate_arrival(true);
                     }
@@ -134,7 +141,7 @@ public class StationServiceImp implements StationService {
                         row.setActual_time(update.getDeparture().getTime());
                         row.setDate(formatDate(row.getActual_time()));
                     }
-                    row.setDeparture(formatEpoch(update.getDeparture().getTime()));
+                    row.setDeparture(formatEpoch(update.getDeparture().getTime(), timeZone));
                     if (update.getDeparture().getDelay() > 0) {
                         row.setLate_departure(true);
                     }
@@ -242,6 +249,7 @@ public class StationServiceImp implements StationService {
             station.setCode(line[0]);
             station.setName(line[2]);
             station.setWebsite(line[7]);
+            station.setTime_zone("America/Los_Angeles");
             stations.add(station);
         } else if (name.equals("stop_times.txt") && line[0].length() == 3) {
             StopTimes stopTime = new StopTimes();
@@ -255,7 +263,7 @@ public class StationServiceImp implements StationService {
         } else if (name.equals("routes.txt") && line[0].equals("SJ2")) {
             Route route = new Route();
             route.setRoute_id(line[0]);
-            route.setRoute_name(line[3]);
+            route.setRoute_name("San Joaquins");
             routes.add(route);
         } else if (name.equals("trips.txt") && line[0].length() == 3) {
             Trip trip = new Trip();
@@ -275,6 +283,7 @@ public class StationServiceImp implements StationService {
             station.setCode(line[0]);
             station.setName(line[1]);
             station.setWebsite(line[2]);
+            station.setTime_zone(line[3]);
             stations.add(station);
         } else if (name.equals("stop_times.txt")) {
             StopTimes stopTime = new StopTimes();
@@ -308,6 +317,7 @@ public class StationServiceImp implements StationService {
             station.setId(line[0]);
             station.setCode(line[1]);
             station.setName(line[2]);
+            station.setTime_zone(line[6]);
             stations.add(station);
         } else if (name.equals("stop_times.txt")) {
             StopTimes stopTime = new StopTimes();
@@ -382,7 +392,7 @@ public class StationServiceImp implements StationService {
         return stationRepository.findAll();
     }
 
-    private String parseTime(String time) {
+    private String parseTime(String time, int offset) {
         //Converts time in the total time format to a standard 12 hour format
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -396,9 +406,17 @@ public class StationServiceImp implements StationService {
             while (replacement > 23) {
                 replacement -= 24;
             }
+            replacement += offset;
+            if (replacement < 0) {
+                replacement += 24;
+            }
             parsedTokens[0] = String.format("%02d", replacement);
-        } else if (Integer.parseInt(parsedTokens[0]) < 10) {
-            parsedTokens[0] = String.format("%02d", Integer.parseInt(parsedTokens[0]));
+        } else {
+            int replacement = Integer.parseInt(parsedTokens[0]) + offset;
+            if (replacement < 0) {
+                replacement += 24;
+            }
+            parsedTokens[0] = String.format("%02d", replacement);
         }
         parsedTokens[1] = st.nextToken();
         parsedTokens[2] = st.nextToken();
@@ -406,10 +424,10 @@ public class StationServiceImp implements StationService {
         return formatter.format(formatter2.parse(parsedTokens[0] + ":" + parsedTokens[1] + ":" + parsedTokens[2]));
     }
 
-    private String formatEpoch(Long epoch) {
+    private String formatEpoch(Long epoch, String timeZone) {
         //Formats epoch time to the 12 hour format
         Instant instant = Instant.ofEpochSecond(epoch);
-        ZoneId zone = ZoneId.systemDefault();
+        ZoneId zone = ZoneId.of(timeZone);
         LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
         return formatter.format(localDateTime);
