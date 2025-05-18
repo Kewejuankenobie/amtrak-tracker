@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.*;
@@ -184,9 +185,18 @@ public class StationServiceImp implements StationService {
                                    List<Route> routes, List<Trip> trips,
                                    int type) throws IOException, CsvValidationException {
 
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        InputStream inputStream = conn.getInputStream();
+        HttpURLConnection conn;
+        InputStream inputStream;
+        try {
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setConnectTimeout(5000);
+            conn.setReadTimeout(10000);
+            inputStream = conn.getInputStream();
+        } catch (SocketTimeoutException e) {
+            //If the input stream does not load fast enough, we will not update that gtfs data
+            return;
+        }
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         ZipEntry zipEntry;
 

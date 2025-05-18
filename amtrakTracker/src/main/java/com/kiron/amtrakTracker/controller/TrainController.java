@@ -2,9 +2,14 @@ package com.kiron.amtrakTracker.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.transit.realtime.GtfsRealtime;
 import com.kiron.amtrakTracker.model.TrainApiModel;
 import com.kiron.amtrakTracker.model.TrainParsed;
+import com.kiron.amtrakTracker.model.gtfs.Route;
 import com.kiron.amtrakTracker.model.gtfs.Station;
+import com.kiron.amtrakTracker.model.gtfs.Trip;
+import com.kiron.amtrakTracker.repository.RouteRepository;
+import com.kiron.amtrakTracker.repository.TripRepository;
 import com.kiron.amtrakTracker.service.StationService;
 import com.kiron.amtrakTracker.service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +43,10 @@ public class TrainController {
 
     @Autowired
     private StationService StationService;
+    @Autowired
+    private RouteRepository routeRepository;
+    @Autowired
+    private TripRepository tripRepository;
 
     @PostMapping("/update")
     public ResponseEntity<?> updateAllTrains() throws IOException, URISyntaxException {
@@ -51,7 +60,7 @@ public class TrainController {
 
         List<TrainParsed> parsedTrains = new ArrayList<TrainParsed>();
         for (TrainApiModel train : trains) {
-            TrainParsed parsedTrain = trainService.addTrain(new TrainParsed(train));
+            TrainParsed parsedTrain = new TrainParsed(train);
 
             Station station;
             try {
@@ -71,6 +80,7 @@ public class TrainController {
             parsedTrain.setScheduled_arrival(formatter.format(localDateTime));
 
             parsedTrains.add(parsedTrain);
+            trainService.addTrain(parsedTrain);
         }
 
         trainService.deleteInactiveTrains();

@@ -1,10 +1,11 @@
-import Home from "./pages/Home.tsx";
+import TrainInfo from "./pages/TrainInfo.tsx";
 import {APIProvider} from "@vis.gl/react-google-maps";
 import 'dotenv'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Closest from "./pages/Closest.tsx";
 import Navbar from "./components/Navbar.tsx";
 import StationInfo from "./pages/StationInfo.tsx";
+import Home from "./pages/Home.tsx";
 
 function App() {
 
@@ -19,9 +20,10 @@ function App() {
               <BrowserRouter>
                   <Navbar />
                   <Routes>
-                      <Route index element={<Home />} />
+                      <Route path="train-info" element={<TrainInfo />} />
                       <Route path="closest" element={<Closest />} />
                       <Route path="station-info" element={<StationInfo />} />
+                      <Route index element={<Home />} />
                   </Routes>
               </BrowserRouter>
           </APIProvider>
