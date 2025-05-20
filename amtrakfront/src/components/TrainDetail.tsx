@@ -11,9 +11,9 @@ function TrainDetail({train}: {train: Train | null}) {
 
     return (
         <>
-            <div className="h-full">
+            <div className="h-full overflow-y-hidden mb-10 md:text-md text-sm">
                 <p className={`font-bold ${train.railroad == 'AMTRAK' ? 'text-blue-900' : 'text-amber-700'} 
-                mb-2 text-2xl`}>Train {train.number}: {train.name}</p>
+                mb-2 md:text-2xl text-lg`}>Train {train.number}: {train.name}</p>
                 <p>Destination: {train.destination}</p>
                 <p>Speed: {train.speed} mph</p>
                 {
@@ -27,15 +27,15 @@ function TrainDetail({train}: {train: Train | null}) {
                     train.next_station_delay == null || train.scheduled_arrival == null ?
                         <p>No info on the next station</p> :
                         train.next_station_delay < 0 ?
-                            <p>Estimated arrival at {train.next_station} is {train.scheduled_arrival} {Math.round(-1 * train.next_station_delay / 60)} minutes late</p> :
-                            <p>Estimated arrival at {train.next_station} is {train.scheduled_arrival} on time</p>
+                            <p>Est. arrival at {train.next_station}: {train.scheduled_arrival} {Math.round(-1 * train.next_station_delay / 60)} minutes late</p> :
+                            <p>Est. arrival at {train.next_station}: {train.scheduled_arrival} on time</p>
                 }
                 {
                     position.lat != null && position.lng != null &&
-                    <div className="h-full">
+                    <div className="h-3/5">
                         <p>Latitude: {position.lat}</p>
                         <p>Longitude: {position.lng}</p>
-                        <div className="h-3/5 mt-2">
+                        <div className="h-full mt-2">
                             <Map
                                 defaultZoom={12}
                                 center={position}
@@ -43,7 +43,7 @@ function TrainDetail({train}: {train: Train | null}) {
                                 onCameraChanged={(e: MapCameraChangedEvent) =>
                                     console.log("Maps camera changed", e.detail.center, 'zoom:', e.detail.zoom)}>
                                 <AdvancedMarker position={position}>
-                                    <Pin background={'blue'} glyphColor={'cyan'} borderColor={'black'}/>
+                                    <Pin background={'green'} glyphColor={'white'} borderColor={'black'}/>
                                 </AdvancedMarker>
                             </Map>
                         </div>

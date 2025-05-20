@@ -55,9 +55,9 @@ function TrainInfo() {
 
     return (
         <>
-            <div className="flex flex-col lg:h-[95vh] h-[90vh] items-center bg-main-bg overflow-y-scroll">
+            <div className="flex flex-col lg:h-[95vh] h-[85vh] items-center bg-main-bg overflow-y-scroll">
                 <div className="flex flex-col items-center justify-center w-full">
-                    <form onSubmit={(e) => handleSearch(e, query)} className="w-3/5">
+                    <form onSubmit={(e) => handleSearch(e, query)} className="md:w-3/5 w-4/5">
                         <div className="flex w-full">
                             <input type="text"
                                    placeholder="Search Train Name or Number"
@@ -78,11 +78,11 @@ function TrainInfo() {
                 }
                 </div>
             </div>
-            <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-3/5 h-3/5
+            <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-4/5 h-4/5
             open:animate-dialog drop-shadow-xl">
                 <div className={`flex flex-col relative z-0 
                 ${curTrain && curTrain.railroad == 'AMTRAK' ? 'bg-[#E0F2E1]' : 'bg-[#E0F2E1]'} rounded-lg justify-normal
-                     w-full h-full p-10`}>
+                     w-full h-full md:pt-6 md:px-6 pt-2 px-2`}>
                     <TrainDetail train={curTrain}/>
                     <button onClick={() => {
                         dialogRef.current?.close()

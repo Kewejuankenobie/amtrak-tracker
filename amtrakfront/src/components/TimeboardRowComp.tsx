@@ -11,8 +11,8 @@ function TimeboardRowComp({row, type}: {row: TimeboardRow, type: string}) {
                 <div className={`flex flex-row justify-between px-2 items-center`}>
                     <div className={`flex md:flex-row flex-col items-center
                     ${type.length == 3 ? 'text-blue-500' : 'text-amber-600'}`}>
-                        <p className="lg:text-4xl text-xl pr-4 font-mono font-bold">{row.number}</p>
-                        <p className="lg:text-4xl text-xl wrap-anywhere">{row.destination}</p>
+                        <p className="lg:text-4xl text-xl lg:pr-4 pr-2 font-mono font-bold">{row.number}</p>
+                        <p className="lg:text-4xl text-xl flex-wrap">{row.destination}</p>
                     </div>
                     <div className={`grid grid-cols-3 grid-rows-3 m-2 md:visible collapse`}>
                         <div/>
@@ -25,7 +25,7 @@ function TimeboardRowComp({row, type}: {row: TimeboardRow, type: string}) {
                         <p className={`p-1 border-1 rounded-bl-sm ${row.late_arrival ? "bg-red-300" : "bg-green-200"}`}>{row.arrival}</p>
                         <p className={`p-1 border-1 rounded-br-sm ${row.late_departure ? "bg-red-300" : "bg-green-200"}`}>{row.departure}</p>
                     </div>
-                    <div className={`grid grid-cols-2 grid-rows-3 m-2 md:hidden visible`}>
+                    <div className={`grid grid-cols-2 grid-rows-3 m-2 md:hidden visible min-w-2/5 text-sm`}>
                         <p className={`text-center`}>Arrive</p>
                         <p className={'text-center'}>Depart</p>
                         <p className="p-1 border-1 rounded-tl-sm bg-gray-200">{row.scheduled_arrival}</p>

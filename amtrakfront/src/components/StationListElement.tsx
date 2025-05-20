@@ -6,7 +6,7 @@ function StationListElement({station, onClick}: {station: StationListEl, onClick
     return (
         <>
             <div className={`bg-[#E0F2E1] ${station.code.length == 3 ? 'hover:bg-[#E8EDF0]' : 'hover:bg-[#EEF0E8]'} 
-            active:bg-blue-50 w-3/5 my-4 p-6 rounded-lg
+            active:bg-blue-50 md:w-3/5 w-4/5 my-4 p-6 rounded-lg
             shadow-md hover:-translate-y-1 hover:drop-shadow-lg duration-75
             cursor-pointer`}
             onClick={onClick}>

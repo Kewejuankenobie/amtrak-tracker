@@ -54,6 +54,7 @@ public class StationController {
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
         List<Station> stations = stationService.getAllStations();
+        stations.sort((s1, s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
 
         stationResponse.put("status", 200);
         stationResponse.put("data", stations);

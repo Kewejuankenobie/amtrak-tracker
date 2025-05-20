@@ -15,7 +15,7 @@ function StationTimeboard({timeboard}: {timeboard: Timeboard | null}) {
                 {timeboard.website && <p>Learn more about the station at the <a href={timeboard.website}
                                                            className={`underline text-purple-500`}>{timeboard.code} website</a></p>}
                 <h2 className={`py-2 text-lg font-semibold`}>Train Schedule</h2>
-                <div className={`h-3/4 lg:h-4/5 px-1 overflow-y-auto rounded-md shadow-md bg-[#f5f9f6]`}>
+                <div className={`h-2/3 lg:h-4/5 px-1 overflow-y-scroll overscroll-x-none rounded-md shadow-md bg-[#f5f9f6]`}>
                     {
                         timeboard.timeboard.map(row => <TimeboardRowComp row={row} type={timeboard.code} />)
                     }

@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 function Home() {
     return (
         <>
-            <div className={`flex flex-row w-full justify-center items-center bg-main-bg lg:h-[95vh]`}>
-                <div className={'w-3/5'}>
+            <div className={`flex flex-row w-full justify-center items-center bg-main-bg lg:h-[95vh] overflow-y-scroll`}>
+                <div className={'lg:w-3/5 w-4/5'}>
                     <h1 className={'font-bold text-6xl pb-20 lg:pt-0 pt-10'}>No More Train Anxiety</h1>
                     <p className={'text-5xl'}>
                         Simplify the process of tracking your Amtrak and Via Rail trains
