@@ -2,14 +2,9 @@ package com.kiron.amtrakTracker.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.transit.realtime.GtfsRealtime;
 import com.kiron.amtrakTracker.model.TrainApiModel;
 import com.kiron.amtrakTracker.model.TrainParsed;
-import com.kiron.amtrakTracker.model.gtfs.Route;
 import com.kiron.amtrakTracker.model.gtfs.Station;
-import com.kiron.amtrakTracker.model.gtfs.Trip;
-import com.kiron.amtrakTracker.repository.RouteRepository;
-import com.kiron.amtrakTracker.repository.TripRepository;
 import com.kiron.amtrakTracker.service.StationService;
 import com.kiron.amtrakTracker.service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +38,6 @@ public class TrainController {
 
     @Autowired
     private StationService StationService;
-    @Autowired
-    private RouteRepository routeRepository;
-    @Autowired
-    private TripRepository tripRepository;
 
     @PostMapping("/update")
     public ResponseEntity<?> updateAllTrains() throws IOException, URISyntaxException {
@@ -85,7 +76,7 @@ public class TrainController {
 
         trainService.deleteInactiveTrains();
 
-        trainResponse.put("status", 1);
+        trainResponse.put("status", 201);
         trainResponse.put("data", parsedTrains);
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);
     }
@@ -96,7 +87,7 @@ public class TrainController {
 
         List<TrainParsed> parsedTrains = trainService.getAllTrains();
         parsedTrains.sort(Comparator.comparing(TrainParsed::getNumber));
-        trainResponse.put("status", 1);
+        trainResponse.put("status", 200);
         trainResponse.put("data", parsedTrains);
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);
     }
@@ -120,7 +111,7 @@ public class TrainController {
 
         parsedTrains.addAll(numberResults);
         parsedTrains.sort(Comparator.comparing(TrainParsed::getNumber));
-        trainResponse.put("status", 1);
+        trainResponse.put("status", 200);
         trainResponse.put("data", parsedTrains);
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);
     }
@@ -155,7 +146,7 @@ public class TrainController {
             closestTrains.add(distanceMap.get(distanceList.get(i)));
         }
 
-        trainResponse.put("status", 1);
+        trainResponse.put("status", 200);
         trainResponse.put("data", closestTrains);
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);
     }

@@ -30,7 +30,7 @@ public class StationController {
 
         StationTimeboard timeboard = stationService.getTrainsAtStation(code);
 
-        stationResponse.put("status", 1);
+        stationResponse.put("status", 200);
         stationResponse.put("data", timeboard);
         return new ResponseEntity<>(stationResponse, HttpStatus.OK);
     }
@@ -44,7 +44,7 @@ public class StationController {
 
         codeResults.addAll(nameResults);
 
-        stationResponse.put("status", 1);
+        stationResponse.put("status", 200);
         stationResponse.put("data", codeResults);
         return new ResponseEntity<>(stationResponse, HttpStatus.OK);
     }
@@ -55,7 +55,7 @@ public class StationController {
 
         List<Station> stations = stationService.getAllStations();
 
-        stationResponse.put("status", 1);
+        stationResponse.put("status", 200);
         stationResponse.put("data", stations);
         return new ResponseEntity<>(stationResponse, HttpStatus.OK);
     }
@@ -67,7 +67,7 @@ public class StationController {
 
         stationService.updateGTFS();
 
-        stationResponse.put("status", 1);
+        stationResponse.put("status", 201);
         return new ResponseEntity<>(stationResponse, HttpStatus.OK);
     }
 }
