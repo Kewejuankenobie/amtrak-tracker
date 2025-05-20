@@ -32,37 +32,40 @@ public class TrainAPIUpdate {
     private StationService stationService;
 
     @Scheduled(fixedRate = 120000)
-    public void updateTrains() throws IOException, URISyntaxException {
-        URL trainUrl = new URI("https://asm-backend.transitdocs.com/map").toURL();
-        ObjectMapper mapper = new ObjectMapper();
-        TrainApiModel[] trains = mapper.readValue(trainUrl, TrainApiModel[].class);
-        //These train objects need cleaning up before sending to user, perhaps a second train object
+    public void updateTrains() {
+        try {
+            URL trainUrl = new URI("https://asm-backend.transitdocs.com/map").toURL();
+            ObjectMapper mapper = new ObjectMapper();
+            TrainApiModel[] trains = mapper.readValue(trainUrl, TrainApiModel[].class);
+            //These train objects need cleaning up before sending to user, perhaps a second train object
 
-        trainService.setAllInactive();
+            trainService.setAllInactive();
 
-        for (TrainApiModel train : trains) {
-            TrainParsed parsedTrain = new TrainParsed(train);
-            Station station;
-            try {
-                station = stationService.getStationByCode(parsedTrain.getNext_station()).iterator().next();
-            } catch (NoSuchElementException e) {
-                System.out.println("Station not found for " + parsedTrain.getNext_station());
-                continue;
+            for (TrainApiModel train : trains) {
+                TrainParsed parsedTrain = new TrainParsed(train);
+                Station station;
+                try {
+                    station = stationService.getStationByCode(parsedTrain.getNext_station()).iterator().next();
+                } catch (NoSuchElementException e) {
+                    continue;
+                }
+
+
+                //Set the correct time for arrival
+                Instant instant = Instant.ofEpochSecond(parsedTrain.getArrival_epoch());
+                ZoneId zone = ZoneId.of(station.getTime_zone());
+                LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+                parsedTrain.setScheduled_arrival(formatter.format(localDateTime));
+
+                trainService.addTrain(parsedTrain);
             }
 
-
-            //Set the correct time for arrival
-            Instant instant = Instant.ofEpochSecond(parsedTrain.getArrival_epoch());
-            ZoneId zone = ZoneId.of(station.getTime_zone());
-            LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
-            parsedTrain.setScheduled_arrival(formatter.format(localDateTime));
-
-            trainService.addTrain(parsedTrain);
+            trainService.deleteInactiveTrains();
+            log.info("Updated Trains, there are " + trains.length + " trains");
+        } catch (IOException | URISyntaxException e) {
+            log.error("Error updating train information due to error:", e);
         }
-
-        trainService.deleteInactiveTrains();
-        log.info("Updated Trains, there are " + trains.length + " trains");
     }
 
 }

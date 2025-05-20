@@ -17,4 +17,6 @@ public interface TrainService {
     void setAllInactive();
 
     void deleteInactiveTrains();
+
+    List<TrainParsed> getTrainsByRailroad(String query);
 }

@@ -112,6 +112,12 @@ public class TrainController {
         } catch (NumberFormatException e) {
             numberResults = Collections.emptyList();
         }
+
+        //Handle search of railroad when nothing else pops up
+        if (parsedTrains.isEmpty() && numberResults.isEmpty()) {
+            parsedTrains = trainService.getTrainsByRailroad(query);
+        }
+
         parsedTrains.addAll(numberResults);
         parsedTrains.sort(Comparator.comparing(TrainParsed::getNumber));
         trainResponse.put("status", 1);
@@ -119,6 +125,10 @@ public class TrainController {
         return new ResponseEntity<>(trainResponse, HttpStatus.OK);
     }
 
+
+    /*
+    This is here in case needed later, but not used currently
+     */
     @GetMapping("/closest/{latitude}/{longitude}")
     public ResponseEntity<?> closest(@PathVariable double latitude, @PathVariable double longitude) {
         Map<String, Object> trainResponse = new HashMap<String, Object>();

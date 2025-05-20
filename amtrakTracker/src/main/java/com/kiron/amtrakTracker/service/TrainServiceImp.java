@@ -46,4 +46,9 @@ public class TrainServiceImp implements TrainService {
     public void deleteInactiveTrains() {
         trainRepository.deleteByIs_active(false);
     }
+
+    @Override
+    public List<TrainParsed> getTrainsByRailroad(String query) {
+        return trainRepository.findByRailroadContainsIgnoreCase(query);
+    }
 }

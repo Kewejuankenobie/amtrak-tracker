@@ -15,6 +15,7 @@ import com.kiron.amtrakTracker.repository.StopTimeRepository;
 import com.kiron.amtrakTracker.repository.TripRepository;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,7 @@ import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+@Slf4j
 @Service
 public class StationServiceImp implements StationService {
 
@@ -185,6 +187,7 @@ public class StationServiceImp implements StationService {
                                    List<Route> routes, List<Trip> trips,
                                    int type) throws IOException, CsvValidationException {
 
+        log.info("Updating GTFS from {}", url.toString());
         HttpURLConnection conn;
         InputStream inputStream;
         try {
@@ -195,7 +198,7 @@ public class StationServiceImp implements StationService {
             inputStream = conn.getInputStream();
         } catch (SocketTimeoutException e) {
             //If the input stream does not load fast enough, we will not update that gtfs data
-            return;
+            throw new IOException("Connection timed out");
         }
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         ZipEntry zipEntry;
@@ -291,7 +294,7 @@ public class StationServiceImp implements StationService {
             Station station = new Station();
             station.setId(line[0]);
             station.setCode(line[0]);
-            station.setName(line[1]);
+            station.setName(getAmtrakStationName(line[0], line[1]));
             station.setWebsite(line[2]);
             station.setTime_zone(line[3]);
             stations.add(station);
@@ -361,26 +364,30 @@ public class StationServiceImp implements StationService {
         }
     }
 
+    private String getAmtrakStationName(String code, String defaultName) {
+        return switch (code) {
+            case "BON" -> "Boston North Station";
+            case "BOS" -> "Boston South Station";
+            case "BBY" -> "Boston Back Bay Station";
+            case "NYP" -> "New York Moynihan Train Hall at Penn Station";
+            case "BFX" -> "Buffalo Exchange Street Station";
+            case "BUF" -> "Buffalo Depew Station";
+            default -> defaultName;
+        };
+    }
+
     private String getViaRouteName(String defaultRoute) {
-        if (defaultRoute.equals("Vancouver - Toronto")) {
-            return "Canadian";
-        } else if (defaultRoute.equals("Montréal - Halifax")) {
-            return "Ocean";
-        } else if (defaultRoute.equals("Toronto - New York")) {
-            return "Maple Leaf";
-        } else if (defaultRoute.equals("Sudbury - White River")) {
-            return "Lake Superior";
-        } else if (defaultRoute.equals("Jasper - Prince Rupert")) {
-            return "Skeena";
-        } else if (defaultRoute.equals("Winnipeg - Churchill") || defaultRoute.equals("The Pas - Churchill")) {
-            return "Hudson Bay";
-        } else if (defaultRoute.equals("Montréal - Senneterre")) {
-            return "Abitibi";
-        } else if (defaultRoute.equals("Montréal - Jonquière")) {
-            return "Saguenay";
-        } else {
-            return "Corridor: " + defaultRoute;
-        }
+        return switch (defaultRoute) {
+            case "Vancouver - Toronto" -> "Canadian";
+            case "Montréal - Halifax" -> "Ocean";
+            case "Toronto - New York" -> "Maple Leaf";
+            case "Sudbury - White River" -> "Lake Superior";
+            case "Jasper - Prince Rupert" -> "Skeena";
+            case "Winnipeg - Churchill", "The Pas - Churchill" -> "Hudson Bay";
+            case "Montréal - Senneterre" -> "Abitibi";
+            case "Montréal - Jonquière" -> "Saguenay";
+            default -> "Corridor: " + defaultRoute;
+        };
     }
 
     @Override

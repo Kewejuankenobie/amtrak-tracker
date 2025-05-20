@@ -14,10 +14,3 @@ export const searchTrain = async (searchTerm: string) => {
     const data = await response.json();
     return data.data;
 }
-
-export const getClosestTrains = async(position: GeolocationPosition) => {
-    const response = await fetch(`${BASE_URL}/closest/${encodeURIComponent(position.coords.latitude)}
-    /${encodeURIComponent(position.coords.longitude)}`);
-    const data = await response.json();
-    return data.data;
-}

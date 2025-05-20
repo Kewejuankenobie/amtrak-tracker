@@ -20,4 +20,7 @@ public interface TrainRepository extends JpaRepository<TrainParsed, String> {
     @Modifying
     @Query("delete TrainParsed t where t.is_active = ?1")
     void deleteByIs_active(boolean b);
+
+    @Transactional
+    List<TrainParsed> findByRailroadContainsIgnoreCase(String query);
 }

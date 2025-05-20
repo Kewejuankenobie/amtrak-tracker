@@ -36,7 +36,6 @@ public class TrainParsed {
         destination = train.getDestination();
         is_active = true;
         if (train.getLocation() == null) {
-            System.out.println("No Location");
             return;
         }
         latitude = train.getLocation().getLatitude();

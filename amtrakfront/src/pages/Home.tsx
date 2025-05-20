@@ -26,7 +26,7 @@ function Home() {
                         </Link>
                     </div>
 
-                    <div className={`text-gray-500`}>
+                    <div className={`text-gray-500 text-sm`}>
                         <p>This site has no affiliation with Amtrak or Via Rail. Realtime Data is only updated every 2
                             minutes</p>
                         <p>To ensure you don't miss your train, contact the railroad or station staff for more
