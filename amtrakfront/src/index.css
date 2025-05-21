@@ -17,4 +17,54 @@
             transform: translateY(0);
         }
     }
+
+    --animate-dropdown: drop-nav 0.3s ease-in-out;
+
+    @keyframes drop-nav {
+        0% {
+            opacity: 0.75;
+            transform: translateY(-100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    --animate-dropup: up-nav 0.3s ease-in;
+
+    @keyframes up-nav {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0.5;
+            transform: translateY(-100%);
+        }
+    }
+
+    --animate-men: fade-opacity 0.2s ease-in-out;
+
+    @keyframes fade-opacity {
+        0% {
+            opacity: 1;
+            rotation: 0deg;
+        }
+        100% {
+            opacity: 0;
+            rotate: -90deg;
+        }
+    }
+
+    --animate-x: rotate-reverse 0.2s ease-in-out;
+
+    @keyframes rotate-reverse {
+        0% {
+            rotation: 0deg;
+        }
+        100% {
+            rotate: 90deg;
+        }
+    }
 }

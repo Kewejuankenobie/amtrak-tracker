@@ -25,7 +25,10 @@ function Navbar() {
         <>
             <div
                 className="flex md:h-[5vh] h-[15vh] items-center justify-center w-full border-b-1 border-gray-200 bg-main-bg">
-                {openSidebar && <VerticalNav onClick={() => setOpenSidebar(false)}/>}
+                {openSidebar && <VerticalNav onClick={() => setOpenSidebar(false)} delayClick={() =>
+                    setTimeout(() => {
+                        setOpenSidebar(false);
+                }, 300)} />}
                 <div className="flex flex-row items-center justify-between md:w-3/5 w-4/5">
                     <Link className="font-bold text-2xl py-2 text-green-900 cursor-pointer" to="/">
                         <div className="flex md:items-start items-center justify-normal w-full text-pretty">
@@ -61,10 +64,12 @@ function Navbar() {
                     </div>
                 </div>
                 <div className="md:hidden visible">
-                    <button className={`text-3xl cursor-pointer`}
+                    {
+                        <button className={`text-3xl cursor-pointer ${openSidebar && "animate-men"}`}
                             onClick={() => setOpenSidebar(!openSidebar)}>
-                        <RiMenuLine onClick={() => setOpenSidebar(false)}/>
-                    </button>
+                            <RiMenuLine onClick={() => setOpenSidebar(false)}/>
+                        </button>
+                    }
                 </div>
             </div>
         </>
