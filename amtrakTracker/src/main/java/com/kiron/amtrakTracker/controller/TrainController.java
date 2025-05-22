@@ -25,8 +25,7 @@ import java.util.*;
 import static java.lang.Integer.parseInt;
 
 @RestController
-@RequestMapping("/train")
-@CrossOrigin
+@RequestMapping("/api/train")
 public class TrainController {
 
     /*

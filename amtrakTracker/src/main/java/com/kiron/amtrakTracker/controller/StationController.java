@@ -16,8 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/station")
-@CrossOrigin
+@RequestMapping("/api/station")
 public class StationController {
 
     @Autowired

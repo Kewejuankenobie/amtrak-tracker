@@ -12,8 +12,7 @@ function Navbar() {
 
     useEffect(() => {setPage(path)}, [path])
 
-    const checkSize = (e ) => {
-        e.preventDefault();
+    const checkSize = ( ) => {
         if (window.innerWidth >= 768) {
             setOpenSidebar(false);
         }
