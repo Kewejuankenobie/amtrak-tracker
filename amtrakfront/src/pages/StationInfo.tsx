@@ -8,6 +8,7 @@ function StationInfo() {
     const [query, setQuery] = useState<string>("");
     const [stations, setStations] = useState<StationListEl[]>([]);
     const [timeboard, setTimeboard] = useState<Timeboard | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
 
@@ -37,19 +38,23 @@ function StationInfo() {
         }
 
     const getTimeboardFromStation = async (station: StationListEl)=> {
+        setLoading(true);
         try {
             const obtainedTimeboard: Timeboard = await getTimeboard(station.code);
             setTimeboard(obtainedTimeboard);
             console.log(obtainedTimeboard);
+
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     }
 
     useEffect(() => {
-        if (!timeboard) return;
+        if (!timeboard && !loading) return;
         dialogRef.current?.showModal();
-    }, [timeboard]);
+    }, [timeboard, loading]);
 
     return (
         <>
@@ -79,11 +84,15 @@ function StationInfo() {
             <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-4/5 h-4/5
             open:animate-dialog drop-shadow-xl">
                 <div className={`flex flex-col relative z-0 ${
-                    timeboard && timeboard.code.length == 3 ? 'bg-[#E0F2E1]' : 'bg-[#E0F2E1]'
+                    timeboard && 'bg-[#E0F2E1]'
                 } 
                 rounded-lg justify-normal
                      w-full h-full md:p-6 p-2`}>
-                    <StationTimeboard timeboard={timeboard}/>
+                    {
+                     loading ?
+                         <p className={`animate-pulse font-bold text-3xl text-green-900`}>Loading Station Info ...</p> :
+                         <StationTimeboard timeboard={timeboard}/>
+                    }
                     <button onClick={() => {
                         dialogRef.current?.close()
                     }}
