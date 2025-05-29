@@ -19,7 +19,6 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -183,7 +182,6 @@ public class StationServiceImp implements StationService {
         setStations(stations);
 
         stopTimeRepository.deleteAllInBatch();
-        tripRepository.deleteAllInBatch();
 
         stationRepository.saveAll(stations);
         log.info("Finished updating station GTFS");

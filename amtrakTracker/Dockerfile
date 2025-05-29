@@ -11,6 +11,8 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-alpine
 WORKDIR /app
 
+COPY ./src/main/resources/static ./src/main/resources/static
+
 COPY --from=build /app/target/amtrakTracker-0.0.1-SNAPSHOT.jar .
 
 EXPOSE 8080
