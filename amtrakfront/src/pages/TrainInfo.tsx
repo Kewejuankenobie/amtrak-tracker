@@ -9,6 +9,7 @@ function TrainInfo() {
     const [trains, setTrains] = useState<Train[]>([]);
     const [curTrain, setCurTrain] = useState<Train | null>(null);
     const [query, setQuery] = useState<string>("");
+    const [pageLoad, setPageLoad] = useState<boolean>(true);
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
 
@@ -27,6 +28,9 @@ function TrainInfo() {
     }, []);
 
     useEffect(() => {
+        if (pageLoad && trains.length > 0) {
+            setPageLoad(false);
+        }
         const timerID: number = setTimeout(() => {
            fetchTrains();
         }, 30000);
@@ -71,12 +75,15 @@ function TrainInfo() {
                         </div>
                     </form>
                 </div>
-                <div className="w-full flex flex-col items-center">
                 {
-                    trains.map((train: Train) => <TrainListElement train={train}
-                                                                   onClick={() => setCurTrain(train)}/>)
+                    pageLoad ? <p className={`animate-pulse font-bold text-2xl text-green-900`}>Loading ...</p> :
+                    <div className="w-full flex flex-col items-center">
+                    {
+                        trains.map((train: Train) => <TrainListElement train={train}
+                                                                       onClick={() => setCurTrain(train)}/>)
+                    }
+                    </div>
                 }
-                </div>
             </div>
             <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-4/5 h-4/5
             open:animate-dialog drop-shadow-xl">

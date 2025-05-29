@@ -11,7 +11,8 @@ function StationTimeboard({timeboard}: {timeboard: Timeboard | null}) {
         <>
             <div className={`h-full`}>
                 <h1 className={`text-2xl ${timeboard.code.length == 3 ?
-                    'text-blue-900' : 'text-amber-700'} font-bold`}>{timeboard.code}: {timeboard.name}</h1>
+                    'text-blue-900' : 'text-amber-700'} font-bold`}>{timeboard.code}: {timeboard.name}
+                    , {timeboard.admin_area}</h1>
                 {timeboard.website && <p>Learn more about the station at the <a href={timeboard.website}
                                                            className={`underline text-purple-500`}>{timeboard.code} website</a></p>}
                 <h2 className={`py-2 text-lg font-semibold`}>Train Schedule</h2>

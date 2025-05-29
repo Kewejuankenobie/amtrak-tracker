@@ -43,7 +43,12 @@ public class TrainParsed {
         speed = train.getLocation().getSpeed();
         railroad = train.getRailroad();
 
+        if (train.getStops() == null) {
+            return;
+        }
+
         TrainStop stationItr = null;
+
         for (TrainStop station: train.getStops()) {
             if (station.getArrive() == null) {
                 stationItr = station;

@@ -19,4 +19,6 @@ public interface StationService {
     Set<Station> getStationByName(String query);
 
     List<Station> getAllStations();
+
+    void addStationAdmin(String code, double lat, double lng, String geolocKey) throws IOException;
 }

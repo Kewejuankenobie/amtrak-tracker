@@ -15,5 +15,6 @@ public class Station {
     private String name;
     private String website;
     private String time_zone;
+    private String admin_area;
 
 }

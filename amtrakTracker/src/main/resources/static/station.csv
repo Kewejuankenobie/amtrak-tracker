@@ -1,0 +1,1046 @@
+"id","admin_area","code","name","time_zone","website"
+"1","ON","GRIM","Grimsby","America/Toronto",NULL
+"10","NS","TRUR","Truro","America/Halifax",NULL
+"100","SK","KAMS","Kamsack","America/Regina",NULL
+"101","ON","MUDR","Mud River","America/Toronto",NULL
+"102","ON","AUDN","Auden","America/Toronto",NULL
+"103","ON","FERL","Ferland","America/Toronto",NULL
+"104","MB","GSTO","Gladstone","America/Winnipeg",NULL
+"105","ON","COLL","Collins","America/Toronto",NULL
+"106","ON","ARMG","Armstrong","America/Toronto",NULL
+"107","ON","FLTL","Flindt Landing","America/Winnipeg",NULL
+"108","ON","SAVL","Savant Lake","America/Winnipeg",NULL
+"109","ON","ALWB","Allanwater Bridge","America/Winnipeg",NULL
+"11","ON","SMYS","St. Marys","America/Toronto",NULL
+"110","QC","MTPD","Matapédia","America/Toronto",NULL
+"111","ON","RLRX","Red Lake Road","America/Winnipeg",NULL
+"113","ON","CAPR","Capreol","America/Toronto",NULL
+"114","ON","KITC","Kitchener","America/Toronto",NULL
+"115","ON","RCHN","Richan","America/Winnipeg",NULL
+"116","ON","WHTR","White River","America/Toronto",NULL
+"117","BC","KAMN","Kamloops North","America/Vancouver",NULL
+"118","SK","SASK","Saskatoon","America/Regina",NULL
+"119","ON","TRTO","Toronto","America/Toronto",NULL
+"12","NB","MCTN","Moncton","America/Halifax",NULL
+"120","NY","NEWY","New York","America/New_York",NULL
+"121","QC","SMMC","Club Sommet","America/Toronto",NULL
+"125","QC","SIGN","Signai","America/Toronto",NULL
+"126","QC","GARN","Garneau","America/Toronto",NULL
+"127","ON","FRNZ","Franz","America/Toronto",NULL
+"128","ON","WOMR","Woman River","America/Toronto",NULL
+"129","QC","FORS","Forsythe","America/Toronto",NULL
+"130","QC","SPAU","Saint-Paulin","America/Toronto",NULL
+"131","ON","CNYK","Canyon","America/Winnipeg",NULL
+"132","QC","GMRE","Grand-Mère","America/Toronto",NULL
+"134","QC","HRDL","Hirondelle","America/Toronto",NULL
+"136","BC","GOAT","Goat River","America/Vancouver",NULL
+"138","QC","LPOC","La Pocatière","America/Toronto",NULL
+"139","MB","GILL","Gillam","America/Winnipeg",NULL
+"14","ON","STRR","Strathroy","America/Toronto",NULL
+"140","ON","FARL","Farlane","America/Winnipeg",NULL
+"141","MB","GLNA","Glenella","America/Winnipeg",NULL
+"142","ON","MNKI","Minaki","America/Winnipeg",NULL
+"144","ON","RDDT","Redditt","America/Winnipeg",NULL
+"145","BC","ABBO","Abbotsford","America/Vancouver",NULL
+"147","QC","CRSM","Cressman","America/Toronto",NULL
+"148","BC","HOUS","Houston","America/Vancouver",NULL
+"149","MB","TPAS","The Pas","America/Winnipeg",NULL
+"15","ON","BISC","Biscotasing","America/Toronto",NULL
+"151","MB","HALC","Halcrow","America/Winnipeg",NULL
+"153","ON","OTTM","Ottermere","America/Winnipeg",NULL
+"155","MB","TREM","Tremaudan","America/Winnipeg",NULL
+"157","MB","BRGR","Bridgar","America/Winnipeg",NULL
+"158","MB","HOCK","Hockin","America/Winnipeg",NULL
+"159","SK","ENDV","Endeavour","America/Regina",NULL
+"160","QC","KPTC","Club Kapitachuan","America/Toronto",NULL
+"161","QC","KISK","Kiskisink","America/Toronto",NULL
+"162","ON","BRTF","Brantford","America/Toronto",NULL
+"163","QC","GAGN","Gagnon","America/Toronto",NULL
+"164","ON","KORM","Kormak","America/Toronto",NULL
+"165","MB","LEVN","Leven","America/Winnipeg",NULL
+"166","QC","STAD","Stadacona","America/Toronto",NULL
+"167","ON","MLCH","Malachi","America/Winnipeg",NULL
+"168","QC","WGWC","Wigwam","America/Toronto",NULL
+"169","MB","GVIE","Grandview","America/Winnipeg",NULL
+"170","QC","TPIS","Trois Pistoles","America/Toronto",NULL
+"171","QC","MCTC","McTavish","America/Toronto",NULL
+"172","BC","DORR","Dorreen","America/Vancouver",NULL
+"173","NY","AMST","Amsterdam","America/New_York",NULL
+"176","BC","KWIN","Kwinitsa","America/Vancouver",NULL
+"177","QC","KOND","Kondiaronk","America/Toronto",NULL
+"178","ON","CBRG","Cobourg","America/Toronto",NULL
+"179","MB","LPRS","La Perouse","America/Winnipeg",NULL
+"18","NB","JACR","Jacquet River","America/Halifax",NULL
+"180","QC","COQU","Coquar","America/Toronto",NULL
+"182","QC","MWWC","Club Maniwawa","America/Toronto",NULL
+"183","QC","LEDW","Lac Édouard","America/Toronto",NULL
+"184","ON","LARC","Larchwood","America/Toronto",NULL
+"185","ON","SCAT","St. Catharines","America/Toronto",NULL
+"187","ON","COPE","Copelands Landing","America/Winnipeg",NULL
+"189","NY","ALBY","Albany","America/New_York",NULL
+"19","NB","RGRV","Rogersville","America/Halifax",NULL
+"190","QC","BDNC","Club Beaudin","America/Toronto",NULL
+"191","NY","ROCH","Rochester","America/New_York",NULL
+"192","ON","LEVA","Levack","America/Toronto",NULL
+"193","QC","BRMT","Bourmont","America/Toronto",NULL
+"195","BC","CEDA","Cedarvale","America/Vancouver",NULL
+"197","MB","HERC","Herchmer","America/Winnipeg",NULL
+"198","ON","RCLK","Rice Lake","America/Winnipeg",NULL
+"199","ON","BENN","Benny","America/Toronto",NULL
+"2","ON","CHEL","Chelmsford","America/Toronto",NULL
+"200","ON","GANA","Gananoque","America/Toronto",NULL
+"201","NY","BUFX","Buffalo (Exchange)","America/New_York",NULL
+"202","NB","SACK","Sackville","America/Halifax",NULL
+"203","QC","LDAR","Lac Darey","America/Toronto",NULL
+"204","MB","BRTL","Brereton Lake","America/Winnipeg",NULL
+"205","ON","CHAP","Chapleau","America/Toronto",NULL
+"206","MB","ELMA","Elma","America/Winnipeg",NULL
+"207","BC","MCBR","McBride","America/Vancouver",NULL
+"208","MB","WEKU","Wekusko","America/Winnipeg",NULL
+"209","QC","JACC","Club Jacques-Cartier","America/Toronto",NULL
+"21","AB","JASP","Jasper","America/Edmonton",NULL
+"210","NY","CROT","Croton-Harmon","America/New_York",NULL
+"212","QC","MCCA","McCarthy","America/Toronto",NULL
+"214","ON","GIRD","Girdwood","America/Toronto",NULL
+"215","QC","MJBG","Manjobagues","America/Toronto",NULL
+"216","QC","CASY","Casey","America/Toronto",NULL
+"217","QC","TRTC","Club Triton","America/Toronto",NULL
+"218","ON","MTGM","Metagama","America/Toronto",NULL
+"22","NS","AMHS","Amherst","America/Halifax",NULL
+"220","ON","AZIL","Azilda","America/Toronto",NULL
+"221","QC","AMQU","Amqui","America/Toronto",NULL
+"222","NY","RHIN","Rhinecliff","America/New_York",NULL
+"224","MB","PLPX","Portage la Prairie","America/Winnipeg",NULL
+"226","QC","MTRL","Montréal","America/Toronto",NULL
+"227","BC","NHAZ","New Hazelton","America/Vancouver",NULL
+"228","SK","WATR","Watrous","America/Regina",NULL
+"229","MB","CHES","Chesnaye","America/Winnipeg",NULL
+"230","ON","NEME","Nemegos","America/Toronto",NULL
+"231","SK","UNIT","Unity","America/Regina",NULL
+"232","MB","BUTT","Button","America/Winnipeg",NULL
+"235","MB","MUNK","Munk","America/Winnipeg",NULL
+"236","AB","WAIN","Wainwright","America/Edmonton",NULL
+"237","MB","NONS","Nonsuch","America/Winnipeg",NULL
+"238","MB","ATKL","Atikameg Lake","America/Winnipeg",NULL
+"24","SK","STGS","Sturgis","America/Regina",NULL
+"240","NY","POUG","Poughkeepsie","America/New_York",NULL
+"241","AB","EVAN","Evansburg","America/Edmonton",NULL
+"244","BC","ALZL","Aleza Lake","America/Vancouver",NULL
+"245","QC","BRQU","Brooks","America/Toronto",NULL
+"246","MB","RAWE","Rawebb","America/Winnipeg",NULL
+"247","QC","VBRU","Van Bruyssels","America/Toronto",NULL
+"248","ON","POGA","Pogamasing","America/Toronto",NULL
+"249","MB","PITS","Pit Siding","America/Winnipeg",NULL
+"25","NY","SCHE","Schenectady","America/New_York",NULL
+"250","QC","CARI","Caribou","America/Toronto",NULL
+"252","MB","PATE","Paterson","America/Winnipeg",NULL
+"253","QC","MNET","Monet","America/Toronto",NULL
+"254","AB","EDSN","Edson","America/Edmonton",NULL
+"255","QC","PRLL","Lac-aux-Perles","America/Toronto",NULL
+"256","BC","PACI","Pacific","America/Vancouver",NULL
+"257","BC","VLMT","Valemount","America/Vancouver",NULL
+"259","NY","ROME","Rome","America/New_York",NULL
+"26","QC","MIQK","Miquick","America/Toronto",NULL
+"260","NY","HUDS","Hudson","America/New_York",NULL
+"261","SK","RSRV","Reserve","America/Regina",NULL
+"262","MB","PNTN","Ponton","America/Winnipeg",NULL
+"263","AB","HINT","Hinton","America/Edmonton",NULL
+"264","MB","WNTB","Winnitoba","America/Winnipeg",NULL
+"265","ON","RAMS","Ramsey","America/Toronto",NULL
+"266","ON","SULT","Sultan","America/Toronto",NULL
+"267","NB","MIRA","Miramichi","America/Halifax",NULL
+"268","BC","BLUE","Blue River","America/Vancouver",NULL
+"269","BC","ASHN","Ashcroft","America/Vancouver",NULL
+"27","QC","FALR","Falrie","America/Toronto",NULL
+"270","BC","USKX","Usk","America/Vancouver",NULL
+"273","BC","BBAR","Boston Bar","America/Vancouver",NULL
+"274","BC","HOPE","Hope","America/Vancouver",NULL
+"276","QC","OSKR","Rivière Oskélanéo","America/Toronto",NULL
+"277","BC","CHIL","Chilliwack","America/Vancouver",NULL
+"278","MB","AMRY","Amery","America/Winnipeg",NULL
+"28","QC","ROUS","Rousseau","America/Toronto",NULL
+"280","ON","WYOM","Wyoming","America/Toronto",NULL
+"281","BC","SINM","Sinclair Mills","America/Vancouver",NULL
+"282","ON","WDST","Woodstock","America/Toronto",NULL
+"284","MB","TIDL","Tidal","America/Winnipeg",NULL
+"285","BC","KATZ","Katz","America/Vancouver",NULL
+"286","QC","STRN","Strachan","America/Toronto",NULL
+"287","ON","SHEA","Sheahan","America/Toronto",NULL
+"288","BC","NBND","North Bend","America/Vancouver",NULL
+"289","MB","DAUP","Dauphin","America/Winnipeg",NULL
+"29","MB","EARC","Earchman","America/Winnipeg",NULL
+"290","MB","SIPI","Sipiwesk","America/Winnipeg",NULL
+"292","QC","TIMB","Timbrell","America/Toronto",NULL
+"293","ON","OBRI","O'Brien","America/Toronto",NULL
+"294","BC","TELK","Telkwa","America/Vancouver",NULL
+"295","QC","SMRB","Saint-Maurice Rivière Boom","America/Toronto",NULL
+"296","BC","AGAS","Agassiz","America/Vancouver",NULL
+"297","MB","THIB","Thibaudeau","America/Winnipeg",NULL
+"298","BC","MSNH","Mission Harbour","America/Vancouver",NULL
+"299","QC","WNDG","Windigo","America/Toronto",NULL
+"301","SK","VERE","Veregin","America/Regina",NULL
+"303","QC","OSKL","Oskelaneo Lodge","America/Toronto",NULL
+"305","BC","UFRZ","Upper Fraser","America/Vancouver",NULL
+"306","QC","SANM","Sanmaur","America/Toronto",NULL
+"307","BC","SMTR","Smithers","America/Vancouver",NULL
+"308","BC","WILR","Willow River","America/Vancouver",NULL
+"309","ON","NAPN","Napanee","America/Toronto",NULL
+"31","BC","TRRC","Terrace","America/Vancouver",NULL
+"310","NB","BTRS","Bathurst","America/Halifax",NULL
+"312","ON","CART","Cartier","America/Toronto",NULL
+"313","MB","THKP","Thicket Portage","America/Winnipeg",NULL
+"314","MB","PIPN","Pipun","America/Winnipeg",NULL
+"315","ON","RBRT","Roberts","America/Toronto",NULL
+"317","MB","PLUM","Plumas","America/Winnipeg",NULL
+"318","MB","BOYD","Boyd","America/Winnipeg",NULL
+"319","QC","IRQC","Club Iroquois","America/Toronto",NULL
+"32","QC","SSCC","Club Sisco","America/Toronto",NULL
+"320","QC","RAPB","Rapide Blanc","America/Toronto",NULL
+"321","QC","CANN","Cann","America/Toronto",NULL
+"322","ON","BRMP","Brampton","America/Toronto",NULL
+"323","ON","INGR","Ingersoll","America/Toronto",NULL
+"324","ON","BOLK","Bolkow","America/Toronto",NULL
+"326","MB","BUDD","Budd","America/Winnipeg",NULL
+"327","QC","RDLX","Rivière-du-Loup","America/Toronto",NULL
+"328","QC","RMSK","Rimouski","America/Toronto",NULL
+"329","ON","STRL","Stralak","America/Toronto",NULL
+"33","QC","BIMA","Bima","America/Toronto",NULL
+"332","QC","DORV","Dorval","America/Toronto",NULL
+"333","BC","PENN","Penny","America/Vancouver",NULL
+"335","MB","WEIR","Weir River","America/Winnipeg",NULL
+"338","BC","BRNL","Burns Lake","America/Vancouver",NULL
+"339","QC","VDRY","Vandry","America/Toronto",NULL
+"34","ON","MALT","Malton","America/Toronto",NULL
+"340","MB","WVHO","Wivenhoe","America/Winnipeg",NULL
+"341","ON","SARN","Sarnia","America/Toronto",NULL
+"342","QC","MJLI","Mont-Joli","America/Toronto",NULL
+"343","QC","SLAM","Saint-Lambert","America/Toronto",NULL
+"344","ON","ALEX","Alexandria","America/Toronto",NULL
+"345","NY","YONK","Yonkers","America/New_York",NULL
+"346","ON","NIAG","Niagara Falls","America/New_York",NULL
+"347","MB","OCHR","Ochre River","America/Winnipeg",NULL
+"348","MB","OROK","Orok","America/Winnipeg",NULL
+"35","ON","BRKV","Brockville","America/Toronto",NULL
+"350","QC","RAPX","Rivière-à-Pierre","America/Toronto",NULL
+"351","QC","COTO","Coteau","America/Toronto",NULL
+"352","MB","ODAY","O'Day","America/Winnipeg",NULL
+"353","MB","ODHI","Odhill","America/Winnipeg",NULL
+"355","NB","CBTN","Campbellton","America/Halifax",NULL
+"356","MB","ARNO","Arnot","America/Winnipeg",NULL
+"357","NY","BUFF","Buffalo (Depew)","America/New_York",NULL
+"36","BC","VDRH","Vanderhoof","America/Vancouver",NULL
+"360","ON","NICH","Nicholson","America/Toronto",NULL
+"361","BC","BEND","Bend","America/Vancouver",NULL
+"366","NY","UTIC","Utica","America/New_York",NULL
+"367","ON","OSHA","Oshawa","America/Toronto",NULL
+"369","QC","BGQU","Bolger","America/Toronto",NULL
+"37","QC","PBDT","Pont Beaudet","America/Toronto",NULL
+"370","SK","MIKA","Mikado","America/Regina",NULL
+"371","MB","LYDD","Lyddal","America/Winnipeg",NULL
+"373","MB","PIKW","Pikwitonei","America/Winnipeg",NULL
+"375","MB","MCLI","M'Clintock","America/Winnipeg",NULL
+"376","ON","MSBI","Missanabie","America/Toronto",NULL
+"377","ON","SMTF","Smiths Falls","America/Toronto",NULL
+"378","BC","LWTH","Longworth","America/Vancouver",NULL
+"379","BC","MCGR","McGregor","America/Vancouver",NULL
+"38","QC","STIT","Saint-Tite","America/Toronto",NULL
+"380","MB","MCCR","McCreary","America/Winnipeg",NULL
+"381","QC","MEGI","Megiscane","America/Toronto",NULL
+"383","MB","LUKE","Luke","America/Winnipeg",NULL
+"384","QC","RTAC","Club Rita","America/Toronto",NULL
+"386","BC","LOOS","Loos","America/Vancouver",NULL
+"387","MB","WBDN","Wabowden","America/Winnipeg",NULL
+"388","MB","WNPG","Winnipeg","America/Winnipeg",NULL
+"39","QC","SANF","Sanford","America/Toronto",NULL
+"390","QC","CLOV","Clova","America/Toronto",NULL
+"391","ON","LOCH","Lochalsh","America/Toronto",NULL
+"392","QC","CBAT","Consolidated Bathurst","America/Toronto",NULL
+"394","QC","LNGL","Langlade","America/Toronto",NULL
+"395","ON","MUSK","Musk","America/Toronto",NULL
+"397","QC","BLGC","Club Bélanger","America/Toronto",NULL
+"399","QC","NCLC","Club Nicol","America/Toronto",NULL
+"4","ON","SUDJ","Sudbury Jct","America/Toronto",NULL
+"401","MB","CORM","Cormorant","America/Winnipeg",NULL
+"403","NY","NFNY","Niagara Falls Station","America/New_York",NULL
+"404","QC","LBOU","Lac Bouchette","America/Toronto",NULL
+"405","QC","DRLL","Da-Rou-Lac Lodge","America/Toronto",NULL
+"406","MB","TURN","Turnbull","America/Winnipeg",NULL
+"407","QC","DESS","Dessane","America/Toronto",NULL
+"408","MB","LRIE","Laurier","America/Winnipeg",NULL
+"409","ON","DEVN","Devon","America/Toronto",NULL
+"41","NS","SPRJ","Springhill Jct.","America/Halifax",NULL
+"410","ON","DALT","Dalton","America/Toronto",NULL
+"411","QC","VMLC","Club Vermillon","America/Toronto",NULL
+"412","MB","DERI","Dering","America/Winnipeg",NULL
+"413","ON","TRNJ","Trenton Junction","America/Toronto",NULL
+"414","BC","DOMC","Dome Creek","America/Vancouver",NULL
+"415","ON","BLVL","Belleville","America/Toronto",NULL
+"417","QC","HIBB","Hibbard","America/Toronto",NULL
+"418","MB","DUNL","Dunlop","America/Winnipeg",NULL
+"419","ON","CSLM","Casselman","America/Toronto",NULL
+"42","QC","SAYA","Sayabec","America/Toronto",NULL
+"420","ON","KINO","Kinogama","America/Toronto",NULL
+"423","QC","DIXX","Dix","America/Toronto",NULL
+"424","BC","ENDA","Endako","America/Vancouver",NULL
+"425","QC","DUPL","Duplessis","America/Toronto",NULL
+"426","QC","PARE","Parent","America/Toronto",NULL
+"427","MB","GLBP","Gilbert Plains","America/Winnipeg",NULL
+"429","ON","ESHR","Esher","America/Toronto",NULL
+"43","QC","SJUS","Saint-Justin","America/Toronto",NULL
+"432","BC","FFRA","Fort Fraser","America/Vancouver",NULL
+"433","QC","LTUQ","La Tuque","America/Toronto",NULL
+"435","MB","CHUR","Churchill","America/Winnipeg",NULL
+"436","ON","OAKV","Oakville","America/Toronto",NULL
+"437","QC","HERV","Hervey","America/Toronto",NULL
+"438","BC","DNST","Dunster","America/Vancouver",NULL
+"439","QC","CHBD","Chambord","America/Toronto",NULL
+"44","ON","SLKT","Sioux Lookout","America/Winnipeg",NULL
+"440","MB","FING","Finger","America/Winnipeg",NULL
+"441","QC","FITZ","Fitzpatrick","America/Toronto",NULL
+"442","BC","HUTT","Hutton","America/Vancouver",NULL
+"444","QC","JONQ","Jonquière","America/Toronto",NULL
+"445","SK","TOGO","Togo","America/Regina",NULL
+"446","MB","DYCE","Dyce","America/Winnipeg",NULL
+"448","QC","GRNG","Greening","America/Toronto",NULL
+"449","AB","EDMO","Edmonton","America/Edmonton",NULL
+"45","QC","CHER","Cherokee","America/Toronto",NULL
+"450","ON","GUIL","Guildwood","America/Toronto",NULL
+"453","QC","HEBV","Hebertville","America/Toronto",NULL
+"454","BC","PGEO","Prince George","America/Vancouver",NULL
+"455","AB","VKNG","Viking","America/Edmonton",NULL
+"456","MB","OPHR","Ophir","America/Winnipeg",NULL
+"457","QC","JOLI","Joliette","America/Toronto",NULL
+"458","BC","PRUP","Prince Rupert","America/Vancouver",NULL
+"459","QC","SHWN","Shawinigan","America/Toronto",NULL
+"46","QC","LMAL","Lac Malouin","America/Toronto",NULL
+"460","QC","SENN","Senneterre","America/Toronto",NULL
+"461","MB","WILD","Wilde","America/Winnipeg",NULL
+"47","QC","SMQU","Summit","America/Toronto",NULL
+"48","QC","GRGC","Club Grégoire","America/Toronto",NULL
+"49","QC","WYMT","Weymont","America/Toronto",NULL
+"492","QC","CHNY","Charny","America/Toronto",NULL
+"50","MB","RBLN","Roblin","America/Winnipeg",NULL
+"503","MB","THOM","Thompson","America/Winnipeg",NULL
+"506","SK","MELV","Melville","America/Regina",NULL
+"51","QC","LDES","Lac des Roches","America/Toronto",NULL
+"52","QC","LIZO","Club Lizotte","America/Toronto",NULL
+"54","QC","MMGY","Montmagny","America/Toronto",NULL
+"55","QC","PRSS","Press","America/Toronto",NULL
+"555","QC","XYUL","Aéroport Montréal Pierre-Elliott Trudeau","America/Toronto",NULL
+"576","ON","FALL","Fallowfield","America/Toronto",NULL
+"58","ON","KGON","Kingston","America/Toronto",NULL
+"59","ON","WSHG","Washago","America/Toronto",NULL
+"6","ON","GEOR","Georgetown","America/Toronto",NULL
+"60","ON","SPAR","South Parry","America/Toronto",NULL
+"600","ON","ALDR","Aldershot","America/Toronto",NULL
+"601","ON","CHAT","Chatham","America/Toronto",NULL
+"602","ON","CWLL","Cornwall","America/Toronto",NULL
+"61","BC","KITW","Kitwanga","America/Vancouver",NULL
+"614","NY","SYRA","Syracuse","America/New_York",NULL
+"615","SK","BIGG","Biggar","America/Regina",NULL
+"616","MB","RVRS","Rivers","America/Winnipeg",NULL
+"617","ON","OTTW","Ottawa","America/Toronto",NULL
+"618","ON","WDON","Windsor","America/Toronto",NULL
+"620","NS","HLFX","Halifax","America/Halifax",NULL
+"621","ON","SUDB","Sudbury","America/Toronto",NULL
+"628","QC","QBEC","Québec","America/Toronto",NULL
+"629","QC","SFOY","Sainte-Foy","America/Toronto",NULL
+"63","ON","HNPN","Hornepayne","America/Toronto",NULL
+"630","QC","DRMV","Drummondville","America/Toronto",NULL
+"631","QC","SHYA","Saint-Hyacinthe","America/Toronto",NULL
+"632","BC","CASS","Cassiar Cannery","America/Vancouver",NULL
+"633","QC","ANJO","Anjou (EXO)","America/Toronto",NULL
+"634","QC","SAUV","Sauvé (EXO)","America/Toronto",NULL
+"636","ON","AMYO","Amyot","America/Toronto",NULL
+"637","ON","SWAN","Swanson","America/Toronto",NULL
+"638","ON","SNKR","Sinker","America/Toronto",NULL
+"639","ON","FRKS","Forks","America/Toronto",NULL
+"64","BC","HRVY","Harvey","America/Vancouver",NULL
+"65","ON","LAFO","Laforest","America/Toronto",NULL
+"67","MB","ILFO","Ilford","America/Winnipeg",NULL
+"68","ON","MCKC","McKee's Camp","America/Toronto",NULL
+"69","ON","PARS","Parry Sound","America/Toronto",NULL
+"7","ON","STRF","Stratford","America/Toronto",NULL
+"70","ON","GUEL","Guelph","America/Toronto",NULL
+"71","ON","RUEL","Ruel","America/Toronto",NULL
+"72","ON","FELX","Felix","America/Toronto",NULL
+"73","NB","PROC","Petit Rocher","America/Halifax",NULL
+"74","ON","GOGA","Gogama","America/Toronto",NULL
+"76","ON","WSTR","Westree","America/Toronto",NULL
+"78","ON","GLNC","Glencoe","America/Toronto",NULL
+"79","ON","FOLE","Foleyet","America/Toronto",NULL
+"8","BC","VCVR","Vancouver","America/Vancouver",NULL
+"80","BC","CLWT","Clearwater","America/Vancouver",NULL
+"82","QC","CHRT","Charette","America/Toronto",NULL
+"83","QC","FERG","Ferguson","America/Toronto",NULL
+"84","NB","CHLO","Charlo","America/Halifax",NULL
+"87","QC","CAUS","Causapscal","America/Toronto",NULL
+"88","ON","ELSA","Elsas","America/Toronto",NULL
+"89","SK","CANO","Canora","America/Regina",NULL
+"9","ON","PHOP","Port Hope","America/Toronto",NULL
+"90","MB","BIRD","Bird","America/Winnipeg",NULL
+"91","ON","HLSP","Hillsport","America/Toronto",NULL
+"92","ON","OBAX","Oba","America/Toronto",NULL
+"93","ON","LNDN","London","America/Toronto",NULL
+"94","QC","SHPN","Saint-Hilaire de Portneuf","America/Toronto",NULL
+"95","ON","LLAC","Longlac","America/Toronto",NULL
+"96","SK","HBAY","Hudson Bay","America/Regina",NULL
+"98","ON","CARA","Caramat","America/Toronto",NULL
+"99","ON","NAKI","Nakina","America/Toronto",NULL
+"ABB","WI","ABB","Abbotsford-Colby","America/Chicago","https://www.amtrak.com/stations/abb"
+"ABE","MD","ABE","Aberdeen Amtrak Station","America/New_York","https://www.amtrak.com/stations/abe"
+"ABQ","NM","ABQ","Albuquerque Alvarado Transportation Center","America/Denver","https://www.amtrak.com/stations/abq"
+"ACA","CA","ACA","Antioch Station","America/Los_Angeles","https://www.amtrak.com/stations/aca.html"
+"ACD","MO","ACD","Arcadia Valley Station","America/Chicago","https://www.amtrak.com/stations/acd"
+"ADM","OK","ADM","Ardmore Amtrak Station","America/Chicago","https://www.amtrak.com/stations/adm"
+"AKY","KY","AKY","Ashland Amtrak Station","America/New_York","https://www.amtrak.com/stations/aky"
+"ALB","NY","ALB","Albany-Rensselaer Amtrak Station","America/New_York","https://www.amtrak.com/stations/alb"
+"ALC","OH","ALC","Alliance Amtrak","America/New_York","https://www.amtrak.com/stations/alc"
+"ALD","WV","ALD","Alderson Amtrak","America/New_York","https://www.amtrak.com/stations/ald"
+"ALI","MI","ALI","Albion","America/New_York","https://www.amtrak.com/stations/ali"
+"ALN","IL","ALN","Alton Amtrak Station","America/Chicago","https://www.amtrak.com/stations/aln"
+"ALP","TX","ALP","Alpine Amtrak Station","America/Chicago","https://www.amtrak.com/stations/alp"
+"ALT","PA","ALT","Altoona Amtrak Station","America/New_York","https://www.amtrak.com/stations/alt"
+"ALX","VA","ALX","Alexandria","America/New_York","https://www.amtrak.com/stations/alx"
+"ALY","OR","ALY","Albany Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/aly"
+"AMS","NY","AMS","Amsterdam Amtrak Station","America/New_York","https://www.amtrak.com/stations/ams"
+"ANA","CA","ANA","Anaheim","America/Los_Angeles","https://www.amtrak.com/stations/ana"
+"APP","WI","APP","Appleton Amtrak Station","America/Chicago","https://www.amtrak.com/stations/app"
+"ARB","MI","ARB","Ann Arbor Amtrak Station","America/New_York","https://www.amtrak.com/stations/arb"
+"ARC","CA","ARC","Arcata","America/Los_Angeles","https://www.amtrak.com/stations/arc"
+"ARD","PA","ARD","Ardmore Amtrak Station","America/New_York","https://www.amtrak.com/stations/ard"
+"ARK","AR","ARK","Arkadelphia Amtrak Station","America/Chicago","https://www.amtrak.com/stations/ark"
+"ARN","CA","ARN","Auburn Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/arn"
+"ASD","VA","ASD","Ashland Amtrak","America/New_York","https://www.amtrak.com/stations/asd"
+"AST","ON","AST","Aldershot","America/New_York","http://www.amtrak.com/stations/ast"
+"ATL","GA","ATL","Atlanta","America/New_York","https://www.amtrak.com/stations/atl"
+"ATN","AL","ATN","Anniston Amtrak Station","America/Chicago","https://www.amtrak.com/stations/atn"
+"AUS","TX","AUS","Austin","America/Chicago","https://www.amtrak.com/stations/aus"
+"BAL","MD","BAL","Baltimore Penn Station","America/New_York","https://www.amtrak.com/stations/bal"
+"BAM","MI","BAM","Bangor Amtrak Station","America/New_York","https://www.amtrak.com/stations/bam"
+"BAR","CA","BAR","Barstow","America/Los_Angeles","https://www.amtrak.com/stations/bar"
+"BBK","CA","BBK","Burbank","America/Los_Angeles","http://www.amtrak.com/stations/bbk"
+"BBS","CA","BBS","Barstow Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/bbs"
+"BBY","MA","BBY","Boston Back Bay Station","America/New_York","https://www.amtrak.com/stations/bby"
+"BCV","VA","BCV","Burke Centre Amtrak","America/New_York","https://www.amtrak.com/stations/bcv"
+"BDT","FL","BDT","Bradenton","America/New_York","https://www.amtrak.com/stations/bdt"
+"BDU","WI","BDU","Bonduel","America/Chicago","http://www.amtrak.com/stations/bdu"
+"BEL","WA","BEL","Bellingham Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/bel"
+"BEN","AZ","BEN","Benson Amtrak","America/Denver","https://www.amtrak.com/stations/ben"
+"BER","CT","BER","Berlin Amtrak","America/New_York","https://www.amtrak.com/stations/ber"
+"BFD","CA","BFD","Bakersfield Station","America/Los_Angeles","https://www.amtrak.com/stations/bfd.html"
+"BFX","NY","BFX","Buffalo Exchange Street Station","America/New_York","https://www.amtrak.com/stations/bfx"
+"BHM","AL","BHM","Birmingham","America/Chicago","https://www.amtrak.com/stations/bhm"
+"BKY","CA","BKY","Berkeley Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/bky"
+"BLF","VT","BLF","Bellows Falls Amtrak Station","America/New_York","https://www.amtrak.com/stations/blf"
+"BMT","TX","BMT","Beaumont Amtrak","America/Chicago","https://www.amtrak.com/stations/bmt"
+"BNC","NC","BNC","Burlington Amtrak Station","America/New_York","https://www.amtrak.com/stations/bnc"
+"BNF","CT","BNF","Branford","America/New_York","http://www.amtrak.com/stations/bnf"
+"BNG","WA","BNG","Bingen-White Salmon Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/bng"
+"BNL","IL","BNL","Bloomington-Normal","America/Chicago","https://www.amtrak.com/stations/bnl"
+"BON","MA","BON","Boston North Station","America/New_York","https://www.amtrak.com/stations/bon"
+"BOS","MA","BOS","Boston South Station","America/New_York","https://www.amtrak.com/stations/bos"
+"BRA","VT","BRA","Brattleboro Amtrak Station","America/New_York","https://www.amtrak.com/stations/bra"
+"BRH","MS","BRH","Brookhaven Amtrak Station","America/Chicago","https://www.amtrak.com/stations/brh"
+"BRK","ME","BRK","Brunswick Amtrak Station","America/New_York","https://www.amtrak.com/stations/brk"
+"BRL","IA","BRL","Burlington Amtrak Station","America/Chicago","https://www.amtrak.com/stations/brl"
+"BRO","MT","BRO","Browning Amtrak","America/Denver","https://www.amtrak.com/stations/bro"
+"BRP","CT","BRP","Bridgeport Amtrak Station","America/New_York","https://www.amtrak.com/stations/brp"
+"BTL","MI","BTL","Battle Creek","America/New_York","https://www.amtrak.com/stations/btl"
+"BTN","VT","BTN","Burlington","America/New_York","http://www.amtrak.com/stations/btn"
+"BUF","NY","BUF","Buffalo Depew Station","America/New_York","https://www.amtrak.com/stations/buf"
+"BUL","CA","BUL","Buellton Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/bul"
+"BUR","CA","BUR","Burbank Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/bur"
+"BWE","MD","BWE","Bowie State","America/New_York","http://www.amtrak.com/stations/bwe"
+"BWI","MD","BWI","Bwi Thurgood Marshall Airport Station","America/New_York","https://www.amtrak.com/stations/bwi"
+"BYN","OH","BYN","Bryan Amtrak Station","America/New_York","https://www.amtrak.com/stations/byn"
+"CAM","SC","CAM","Camden Amtrak Station","America/New_York","https://www.amtrak.com/stations/cam"
+"CBN","ON","CBN","Canadian Border","America/New_York","http://www.amtrak.com/stations/cbn"
+"CBR","TX","CBR","Cleburne Amtrak Station","America/Chicago","https://www.amtrak.com/stations/cbr"
+"CBS","WI","CBS","Columbus Amtrak Station","America/Chicago","https://www.amtrak.com/stations/cbs"
+"CBZ","CA","CBZ","Cabazon Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/cbz"
+"CDL","IL","CDL","Carbondale","America/Chicago","https://www.amtrak.com/stations/cdl"
+"CEN","IL","CEN","Centralia Amtrak Station","America/Chicago","https://www.amtrak.com/stations/cen"
+"CHI","IL","CHI","Chicago Union Station","America/Chicago","https://www.amtrak.com/stations/chi"
+"CHM","IL","CHM","Champaign-Urbana","America/Chicago","https://www.amtrak.com/stations/chm"
+"CHP","WI","CHP","Chippewa Falls Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/chp"
+"CHS","SC","CHS","Charleston Amtrak Station","America/New_York","https://www.amtrak.com/stations/chs"
+"CHW","WV","CHW","Charleston","America/New_York","https://www.amtrak.com/stations/chw"
+"CIC","CA","CIC","Chico Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/cic"
+"CIN","OH","CIN","Cincinnati Union Terminal","America/New_York","https://www.amtrak.com/stations/cin"
+"CLA","NH","CLA","Claremont Amtrak","America/New_York","https://www.amtrak.com/stations/cla"
+"CLB","SC","CLB","Columbia Amtrak Station","America/New_York","https://www.amtrak.com/stations/clb"
+"CLE","OH","CLE","Cleveland","America/New_York","https://www.amtrak.com/stations/cle"
+"CLF","VA","CLF","Clifton Forge Amtrak Station","America/New_York","https://www.amtrak.com/stations/clf"
+"CLM","CA","CLM","Claremont Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/clm"
+"CLN","CT","CLN","Clinton","America/New_York","http://www.amtrak.com/stations/cln"
+"CLP","VA","CLP","Culpeper Amtrak Station","America/New_York","https://www.amtrak.com/stations/clp"
+"CLT","NC","CLT","Charlotte Amtrak Station","America/New_York","https://www.amtrak.com/stations/clt"
+"CLV","CA","CLV","Cloverdale Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/clv"
+"CML","CA","CML","Camarillo Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/cml"
+"CMO","OR","CMO","Chemult","America/Los_Angeles","https://www.amtrak.com/stations/cmo"
+"CNV","VT","CNV","Castleton Amtrak Station","America/New_York","https://www.amtrak.com/stations/cnv"
+"COC","CA","COC","Corcoran Station","America/Los_Angeles","https://www.amtrak.com/stations/coc"
+"COI","IN","COI","Connersville Amtrak","America/New_York","https://www.amtrak.com/stations/coi"
+"COT","PA","COT","Coatesville Amtrak","America/New_York","https://www.amtrak.com/stations/cot"
+"COV","PA","COV","Connellsville Amtrak","America/New_York","https://www.amtrak.com/stations/cov"
+"COX","CA","COX","Colfax Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/cox"
+"CPN","CA","CPN","Carpinteria Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/cpn"
+"CRF","IN","CRF","Crawfordsville Amtrak","America/New_York","https://www.amtrak.com/stations/crf"
+"CRM","CA","CRM","Carmel Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/crm"
+"CRN","IA","CRN","Creston Amtrak","America/Chicago","https://www.amtrak.com/stations/crn"
+"CRT","NY","CRT","Croton-Harmon Amtrak Station","America/New_York","https://www.amtrak.com/stations/crt"
+"CRV","IL","CRV","Carlinville Amtrak Station","America/Chicago","https://www.amtrak.com/stations/crv"
+"CSN","SC","CSN","Clemson Amtrak Station","America/New_York","https://www.amtrak.com/stations/csn"
+"CTL","WA","CTL","Centralia Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/ctl"
+"CUM","MD","CUM","Cumberland Amtrak Station","America/New_York","https://www.amtrak.com/stations/cum"
+"CUT","MT","CUT","Cut Bank Amtrak Station","America/Denver","https://www.amtrak.com/stations/cut"
+"CVS","VA","CVS","Charlottesville","America/New_York","https://www.amtrak.com/stations/cvs"
+"CWH","PA","CWH","Cornwells Heights Amtrak","America/New_York","https://www.amtrak.com/stations/cwh"
+"CWT","CA","CWT","Chatsworth","America/Los_Angeles","https://www.amtrak.com/stations/cwt"
+"CYN","NC","CYN","Cary","America/New_York","https://www.amtrak.com/stations/cyn"
+"DAL","TX","DAL","Dallas","America/Chicago","https://www.amtrak.com/stations/dal"
+"DAN","VA","DAN","Danville Amtrak Station","America/New_York","https://www.amtrak.com/stations/dan"
+"DAV","CA","DAV","Davis","America/Los_Angeles","https://www.amtrak.com/stations/dav"
+"DBP","CA","DBP","Dublin-Pleasanton Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/dbp"
+"DDE","FL","DDE","Dade City Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/dde"
+"DDG","KS","DDG","Dodge City Amtrak Station","America/Chicago","https://www.amtrak.com/stations/ddg"
+"DEM","NM","DEM","Deming Amtrak","America/Denver","https://www.amtrak.com/stations/dem"
+"DEN","CO","DEN","Denver","America/Denver","https://www.amtrak.com/stations/den"
+"DER","MI","DER","Dearborn","America/New_York","https://www.amtrak.com/stations/der"
+"DET","MI","DET","Detroit","America/New_York","https://www.amtrak.com/stations/det"
+"DFB","FL","DFB","Deerfield Beach Amtrak Station","America/New_York","https://www.amtrak.com/stations/dfb"
+"DHM","NH","DHM","Durham","America/New_York","https://www.amtrak.com/stations/dhm"
+"DIL","SC","DIL","Dillon Amtrak Station","America/New_York","https://www.amtrak.com/stations/dil"
+"DLB","FL","DLB","Delray Beach Amtrak","America/New_York","https://www.amtrak.com/stations/dlb"
+"DLD","FL","DLD","Deland","America/New_York","https://www.amtrak.com/stations/dld"
+"DLK","MN","DLK","Detroit Lakes Amtrak Station","America/Chicago","https://www.amtrak.com/stations/dlk"
+"DNC","NC","DNC","Durham Amtrak Station","America/New_York","https://www.amtrak.com/stations/dnc"
+"DNK","SC","DNK","Denmark Amtrak Station","America/New_York","https://www.amtrak.com/stations/dnk"
+"DOA","MI","DOA","Dowagiac Amtrak Station","America/New_York","https://www.amtrak.com/stations/doa"
+"DOV","NH","DOV","Dover","America/New_York","https://www.amtrak.com/stations/dov"
+"DOW","PA","DOW","Downingtown Amtrak","America/New_York","https://www.amtrak.com/stations/dow"
+"DPE","WI","DPE","Green Bay - De Pere Amtrak Bus Stop","America/Chicago","http://www.amtrak.com/stations/dpe"
+"DQN","IL","DQN","Du Quoin Amtrak Station","America/Chicago","https://www.amtrak.com/stations/dqn"
+"DRD","MI","DRD","Durand Amtrak Station","America/New_York","https://www.amtrak.com/stations/drd"
+"DRT","TX","DRT","Del Rio Amtrak Station","America/Chicago","https://www.amtrak.com/stations/drt"
+"DUN","CA","DUN","Dunsmuir Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/dun"
+"DVL","ND","DVL","Devils Lake Amtrak Station","America/Chicago","https://www.amtrak.com/stations/dvl"
+"DWT","IL","DWT","Dwight Amtrak Station","America/Chicago","https://www.amtrak.com/stations/dwt"
+"DYE","IN","DYE","Dyer Amtrak","America/Chicago","https://www.amtrak.com/stations/dye"
+"EDG","MD","EDG","Edgewood","America/New_York","http://www.amtrak.com/stations/edg"
+"EDM","WA","EDM","Edmonds","America/Los_Angeles","https://www.amtrak.com/stations/edm"
+"EFG","IL","EFG","Effingham Amtrak Station","America/Chicago","https://www.amtrak.com/stations/efg"
+"EKA","CA","EKA","Eureka Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/eka"
+"EKG","CA","EKG","Elk Grove Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/ekg"
+"EKH","IN","EKH","Elkhart Amtrak Station","America/New_York","https://www.amtrak.com/stations/ekh"
+"ELK","NV","ELK","Elko Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/elk"
+"ELP","TX","ELP","El Paso","America/Denver","https://www.amtrak.com/stations/elp"
+"ELT","PA","ELT","Elizabethtown Amtrak Station","America/New_York","https://www.amtrak.com/stations/elt"
+"ELY","OH","ELY","Elyria Amtrak","America/New_York","https://www.amtrak.com/stations/ely"
+"EMY","CA","EMY","Emeryville Station","America/Los_Angeles","https://www.amtrak.com/stations/emy.html"
+"EPH","WA","EPH","Ephrata Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/eph"
+"ERI","PA","ERI","Erie Amtrak Station","America/New_York","https://www.amtrak.com/stations/eri"
+"ESM","MT","ESM","Essex Amtrak","America/Denver","https://www.amtrak.com/stations/esm"
+"ESX","VT","ESX","Essex Junction-Burlington Amtrak Station","America/New_York","https://www.amtrak.com/stations/esx"
+"EUC","WI","EUC","Eau Claire Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/euc"
+"EUG","OR","EUG","Eugene","America/Los_Angeles","https://www.amtrak.com/stations/eug"
+"EVR","WA","EVR","Everett Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/evr"
+"EWR","NJ","EWR","Newark Liberty International Airport","America/New_York","https://www.amtrak.com/stations/ewr"
+"EXR","NH","EXR","Exeter","America/New_York","https://www.amtrak.com/stations/exr"
+"EXT","PA","EXT","Exton Amtrak","America/New_York","https://www.amtrak.com/stations/ext"
+"FAR","ND","FAR","Fargo Amtrak Station","America/Chicago","https://www.amtrak.com/stations/far"
+"FAY","NC","FAY","Fayetteville Amtrak Station","America/New_York","https://www.amtrak.com/stations/fay"
+"FBG","VA","FBG","Fredericksburg Amtrak","America/New_York","https://www.amtrak.com/stations/fbg"
+"FDL","WI","FDL","Fond Du Lac Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/fdl"
+"FED","NY","FED","Fort Edward Amtrak","America/New_York","https://www.amtrak.com/stations/fed"
+"FFV","CA","FFV","Fairfield-Vacaville Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/ffv"
+"FHD","TX","FHD","Fort Hood Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/fhd"
+"FIL","CA","FIL","Fillmore Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/fil"
+"FLG","AZ","FLG","Flagstaff","America/Denver","https://www.amtrak.com/stations/flg"
+"FLN","MI","FLN","Flint Amtrak Station","America/New_York","https://www.amtrak.com/stations/fln"
+"FLO","SC","FLO","Florence Amtrak Station","America/New_York","https://www.amtrak.com/stations/flo"
+"FMD","IA","FMD","Fort Madison","America/Chicago","https://www.amtrak.com/stations/fmd"
+"FMG","CO","FMG","Fort Morgan Amtrak Station","America/Denver","https://www.amtrak.com/stations/fmg"
+"FMT","CA","FMT","Fremont","America/Los_Angeles","https://www.amtrak.com/stations/fmt"
+"FNO","CA","FNO","Fresno Station","America/Los_Angeles","https://www.amtrak.com/stations/fno.html"
+"FRA","MA","FRA","Framingham Amtrak","America/New_York","https://www.amtrak.com/stations/fra"
+"FRE","ME","FRE","Freeport Amtrak Station","America/New_York","https://www.amtrak.com/stations/fre"
+"FRT","CA","FRT","Fremont Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/frt"
+"FTA","CA","FTA","Fortuna Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/fta"
+"FTC","NY","FTC","Ticonderoga Amtrak","America/New_York","https://www.amtrak.com/stations/ftc"
+"FTL","FL","FTL","Fort Lauderdale Amtrak Station","America/New_York","https://www.amtrak.com/stations/ftl"
+"FTM","FL","FTM","Fort Myers Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/ftm"
+"FTN","KY","FTN","Fulton Amtrak Station","America/Chicago","https://www.amtrak.com/stations/ftn"
+"FTW","TX","FTW","Fort Worth","America/Chicago","https://www.amtrak.com/stations/ftw"
+"FUL","CA","FUL","Fullerton Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/ful"
+"GAC","CA","GAC","Santa Clara Great America Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/gac"
+"GAS","NC","GAS","Gastonia Amtrak Station","America/New_York","https://www.amtrak.com/stations/gas"
+"GBB","IL","GBB","Galesburg Amtrak Station","America/Chicago","https://www.amtrak.com/stations/gbb"
+"GBO","NC","GBO","Goldsboro","America/New_York","https://www.amtrak.com/stations/gbo"
+"GBV","CA","GBV","Garberville Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/gbv"
+"GBY","WI","GBY","Green Bay Amtrak Station","America/Chicago","https://www.amtrak.com/stations/gby"
+"GCK","KS","GCK","Garden City Amtrak Station","America/Chicago","https://www.amtrak.com/stations/gck"
+"GDL","CA","GDL","Glendale Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/gdl"
+"GFD","MA","GFD","Greenfield Amtrak Station","America/New_York","https://www.amtrak.com/stations/gfd"
+"GFK","ND","GFK","Grand Forks Amtrak Station","America/Chicago","https://www.amtrak.com/stations/gfk"
+"GGW","MT","GGW","Glasgow Amtrak Station","America/Denver","https://www.amtrak.com/stations/ggw"
+"GJT","CO","GJT","Grand Junction Amtrak Station","America/Denver","https://www.amtrak.com/stations/gjt"
+"GLE","TX","GLE","Gainesville Amtrak Station","America/Chicago","https://www.amtrak.com/stations/gle"
+"GLM","IL","GLM","Gilman Amtrak","America/Chicago","https://www.amtrak.com/stations/glm"
+"GLN","IL","GLN","Glenview Amtrak Station","America/Chicago","https://www.amtrak.com/stations/gln"
+"GLP","NM","GLP","Gallup Amtrak Station","America/Denver","https://www.amtrak.com/stations/glp"
+"GMS","ON","GMS","Grimsby","America/New_York","http://www.amtrak.com/stations/gms"
+"GNB","PA","GNB","Greensburg Amtrak","America/New_York","https://www.amtrak.com/stations/gnb"
+"GNF","FL","GNF","Gainesville Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/gnf"
+"GNS","GA","GNS","Gainesville Amtrak Station","America/New_York","https://www.amtrak.com/stations/gns"
+"GPK","MT","GPK","East Glacier Park Amtrak Station","America/Denver","https://www.amtrak.com/stations/gpk"
+"GRA","CO","GRA","Granby Amtrak Station","America/Denver","https://www.amtrak.com/stations/gra"
+"GRI","UT","GRI","Green River Amtrak","America/Denver","https://www.amtrak.com/stations/gri"
+"GRN","NC","GRN","Greenville Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/grn"
+"GRO","NC","GRO","Greensboro","America/New_York","https://www.amtrak.com/stations/gro"
+"GRR","MI","GRR","Grand Rapids Vernon J. Ehlers Station","America/New_York","https://www.amtrak.com/stations/grr"
+"GRV","SC","GRV","Greenville Amtrak Station","America/New_York","https://www.amtrak.com/stations/grv"
+"GSC","CO","GSC","Glenwood Springs","America/Denver","https://www.amtrak.com/stations/gsc"
+"GTA","CA","GTA","Goleta Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/gta"
+"GUA","CA","GUA","Guadalupe Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/gua"
+"GUI","CT","GUI","Guilford","America/New_York","http://www.amtrak.com/stations/gui"
+"GVB","CA","GVB","Grover Beach Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/gvb"
+"GWD","MS","GWD","Greenwood Amtrak Station","America/Chicago","https://www.amtrak.com/stations/gwd"
+"HAE","MD","HAE","Halethorpe","America/New_York","http://www.amtrak.com/stations/hae"
+"HAM","NC","HAM","Hamlet Amtrak Station","America/New_York","https://www.amtrak.com/stations/ham"
+"HAR","PA","HAR","Harrisburg","America/New_York","https://www.amtrak.com/stations/har"
+"HAS","NE","HAS","Hastings Amtrak Station","America/Chicago","https://www.amtrak.com/stations/has"
+"HAV","MT","HAV","Havre Amtrak Station","America/Denver","https://www.amtrak.com/stations/hav"
+"HAY","CA","HAY","Hayward Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/hay"
+"HAZ","MS","HAZ","Hazlehurst Amtrak","America/Chicago","https://www.amtrak.com/stations/haz"
+"HBG","MS","HBG","Hattiesburg Amtrak Station","America/Chicago","https://www.amtrak.com/stations/hbg"
+"HEA","CA","HEA","Healdsburg Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/hea"
+"HEM","MO","HEM","Hermann","America/Chicago","https://www.amtrak.com/stations/hem"
+"HER","UT","HER","Helper Amtrak Station","America/Denver","https://www.amtrak.com/stations/her"
+"HFD","CT","HFD","Hartford Amtrak Station","America/New_York","https://www.amtrak.com/stations/hfd"
+"HFY","WV","HFY","Harpers Ferry Amtrak","America/New_York","https://www.amtrak.com/stations/hfy"
+"HGD","PA","HGD","Huntingdon Amtrak Station","America/New_York","https://www.amtrak.com/stations/hgd"
+"HHL","MA","HHL","Haverhill Amtrak","America/New_York","https://www.amtrak.com/stations/hhl"
+"HIN","WV","HIN","Hinton Amtrak Station","America/New_York","https://www.amtrak.com/stations/hin"
+"HLD","NE","HLD","Holdrege","America/Chicago","https://www.amtrak.com/stations/hld"
+"HLK","MA","HLK","Holyoke Amtrak","America/New_York","https://www.amtrak.com/stations/hlk"
+"HMD","LA","HMD","Hammond Amtrak Station","America/Chicago","https://www.amtrak.com/stations/hmd"
+"HMI","IN","HMI","Hammond-Whiting Amtrak Station","America/Chicago","https://www.amtrak.com/stations/hmi"
+"HMW","IL","HMW","Homewood","America/Chicago","https://www.amtrak.com/stations/hmw"
+"HNF","CA","HNF","Hanford Station","America/Los_Angeles","https://www.amtrak.com/stations/hnf.html"
+"HOL","FL","HOL","Hollywood Amtrak Station","America/New_York","https://www.amtrak.com/stations/hol"
+"HOM","MI","HOM","Holland Amtrak Station","America/New_York","https://www.amtrak.com/stations/hom"
+"HOP","AR","HOP","Hope Amtrak Station","America/Chicago","https://www.amtrak.com/stations/hop"
+"HOS","TX","HOS","Houston","America/Chicago","https://www.amtrak.com/stations/hos"
+"HPT","NC","HPT","High Point","America/New_York","https://www.amtrak.com/stations/hpt"
+"HSU","CA","HSU","Arcata","America/Los_Angeles","http://www.amtrak.com/stations/hsu"
+"HUD","NY","HUD","Hudson Amtrak Station","America/New_York","https://www.amtrak.com/stations/hud"
+"HUN","WV","HUN","Huntington Amtrak Station","America/New_York","https://www.amtrak.com/stations/hun"
+"HUT","KS","HUT","Hutchinson Amtrak Station","America/Chicago","https://www.amtrak.com/stations/hut"
+"HVL","NC","HVL","Havelock","America/New_York","https://www.amtrak.com/stations/hvl"
+"IDO","CA","IDO","Indio Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/ido"
+"IDP","MO","IDP","Independence Amtrak Station","America/Chicago","https://www.amtrak.com/stations/idp"
+"IND","IN","IND","Indianapolis","America/New_York","https://www.amtrak.com/stations/ind"
+"IRV","CA","IRV","Irvine","America/Los_Angeles","https://www.amtrak.com/stations/irv"
+"JAN","MS","JAN","Jackson","America/Chicago","https://www.amtrak.com/stations/jan"
+"JAX","FL","JAX","Jacksonville","America/New_York","https://www.amtrak.com/stations/jax"
+"JEF","MO","JEF","Jefferson City Amtrak Station","America/Chicago","https://www.amtrak.com/stations/jef"
+"JNC","NC","JNC","Jacksonville Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/jnc"
+"JOL","IL","JOL","Joliet Gateway Center","America/Chicago","https://www.amtrak.com/stations/jol"
+"JSP","GA","JSP","Jesup Amtrak Station","America/New_York","https://www.amtrak.com/stations/jsp"
+"JST","PA","JST","Johnstown Amtrak Station","America/New_York","https://www.amtrak.com/stations/jst"
+"JXN","MI","JXN","Jackson","America/New_York","https://www.amtrak.com/stations/jxn"
+"KAL","MI","KAL","Kalamazoo","America/New_York","https://www.amtrak.com/stations/kal"
+"KAN","NC","KAN","Kannapolis","America/New_York","https://www.amtrak.com/stations/kan"
+"KCY","MO","KCY","Kansas City","America/Chicago","https://www.amtrak.com/stations/kcy"
+"KEE","IL","KEE","Kewanee Amtrak Station","America/Chicago","https://www.amtrak.com/stations/kee"
+"KEL","WA","KEL","Kelso-Longview","America/Los_Angeles","https://www.amtrak.com/stations/kel"
+"KFS","OR","KFS","Klamath Falls","America/Los_Angeles","https://www.amtrak.com/stations/kfs"
+"KGC","CA","KGC","King City Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/kgc"
+"KIL","TX","KIL","Killeen Amtrak Station","America/Chicago","https://www.amtrak.com/stations/kil"
+"KIN","RI","KIN","Kingston Amtrak Station","America/New_York","https://www.amtrak.com/stations/kin"
+"KIS","FL","KIS","Kissimmee Amtrak Station","America/New_York","https://www.amtrak.com/stations/kis"
+"KKI","IL","KKI","Kankakee","America/Chicago","https://www.amtrak.com/stations/kki"
+"KNC","NC","KNC","Kinston","America/New_York","https://www.amtrak.com/stations/knc"
+"KNG","AZ","KNG","Kingman","America/Denver","https://www.amtrak.com/stations/kng"
+"KTR","SC","KTR","Kingstree Amtrak Station","America/New_York","https://www.amtrak.com/stations/ktr"
+"KWD","MO","KWD","Kirkwood Amtrak Station","America/Chicago","https://www.amtrak.com/stations/kwd"
+"LAB","PA","LAB","Latrobe Amtrak","America/New_York","https://www.amtrak.com/stations/lab"
+"LAF","IN","LAF","Lafayette Amtrak Station","America/New_York","https://www.amtrak.com/stations/laf"
+"LAG","IL","LAG","La Grange Amtrak","America/Chicago","https://www.amtrak.com/stations/lag"
+"LAJ","CO","LAJ","La Junta Amtrak Station","America/Denver","https://www.amtrak.com/stations/laj"
+"LAK","FL","LAK","Lakeland Amtrak Station","America/New_York","https://www.amtrak.com/stations/lak"
+"LAP","MO","LAP","La Plata Amtrak Station","America/Chicago","https://www.amtrak.com/stations/lap"
+"LAS","NV","LAS","Mccarran International Airport Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/las"
+"LAU","MS","LAU","Laurel Amtrak Station","America/Chicago","https://www.amtrak.com/stations/lau"
+"LAX","CA","LAX","Los Angeles Station","America/Los_Angeles","https://www.amtrak.com/stations/lax"
+"LCA","CA","LCA","La Crescenta Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/lca"
+"LCH","LA","LCH","Lake Charles","America/Chicago","https://www.amtrak.com/stations/lch"
+"LCN","IL","LCN","Lincoln Amtrak Station","America/Chicago","https://www.amtrak.com/stations/lcn"
+"LDB","NM","LDB","Lordsburg Amtrak","America/Denver","https://www.amtrak.com/stations/ldb"
+"LEE","MO","LEE","Lee'S Summit Amtrak","America/Chicago","https://www.amtrak.com/stations/lee"
+"LEG","CA","LEG","Leggett Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/leg"
+"LEW","PA","LEW","Lewistown Amtrak Station","America/New_York","https://www.amtrak.com/stations/lew"
+"LFT","LA","LFT","Lafayette Amtrak Station","America/Chicago","https://www.amtrak.com/stations/lft"
+"LIB","MT","LIB","Libby Amtrak Station","America/Denver","https://www.amtrak.com/stations/lib"
+"LIV","CA","LIV","Livermore Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/liv"
+"LKL","FL","LKL","Lakeland","America/New_York","https://www.amtrak.com/stations/lkl"
+"LMR","CO","LMR","Lamar Amtrak","America/Denver","https://www.amtrak.com/stations/lmr"
+"LMY","NM","LMY","Lamy","America/Denver","https://www.amtrak.com/stations/lmy"
+"LNC","PA","LNC","Lancaster","America/New_York","https://www.amtrak.com/stations/lnc"
+"LNK","NE","LNK","Lincoln Amtrak Station","America/Chicago","https://www.amtrak.com/stations/lnk"
+"LNS","MI","LNS","East Lansing Amtrak Station","America/New_York","https://www.amtrak.com/stations/lns"
+"LNV","NV","LNV","Laughlin Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/lnv"
+"LOD","CA","LOD","Lodi Station","America/Los_Angeles","https://www.amtrak.com/stations/lod.html"
+"LOH","NM","LOH","Los Alamos Amtrak Bus Stop","America/Denver","https://www.amtrak.com/stations/loh"
+"LOR","VA","LOR","Lorton Amtrak Auto Train Station","America/New_York","https://www.amtrak.com/stations/lor"
+"LOS","NM","LOS","Los Alamos Amtrak Bus Stop","America/Denver","https://www.amtrak.com/stations/los"
+"LPE","MI","LPE","Lapeer Amtrak Station","America/New_York","https://www.amtrak.com/stations/lpe"
+"LPS","CA","LPS","Lompoc-Surf Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/lps"
+"LQT","CA","LQT","La Quinta Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/lqt"
+"LRC","KS","LRC","Lawrence Amtrak Station","America/Chicago","https://www.amtrak.com/stations/lrc"
+"LRK","AR","LRK","Little Rock Union Station","America/Chicago","https://www.amtrak.com/stations/lrk"
+"LSE","WI","LSE","La Crosse","America/Chicago","https://www.amtrak.com/stations/lse"
+"LSV","NM","LSV","Las Vegas Amtrak Station","America/Denver","https://www.amtrak.com/stations/lsv"
+"LTV","CA","LTV","Laytonville Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/ltv"
+"LVS","NV","LVS","Las Vegas","America/Los_Angeles","https://www.amtrak.com/stations/lvs"
+"LVT","NV","LVT","Las Vegas Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/lvt"
+"LVW","TX","LVW","Longview","America/Chicago","https://www.amtrak.com/stations/lvw"
+"LWA","WA","LWA","Leavenworth Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/lwa"
+"LYH","VA","LYH","Lynchburg","America/New_York","https://www.amtrak.com/stations/lyh"
+"MAC","IL","MAC","Macomb Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mac"
+"MAL","MT","MAL","Malta Amtrak Station","America/Denver","https://www.amtrak.com/stations/mal"
+"MAT","IL","MAT","Mattoon Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mat"
+"MAY","KY","MAY","Maysville Amtrak Station","America/New_York","https://www.amtrak.com/stations/may"
+"MBY","VT","MBY","Middlebury","America/New_York","http://www.amtrak.com/stations/mby"
+"MCB","MS","MCB","Mccomb","America/Chicago","https://www.amtrak.com/stations/mcb"
+"MCD","CA","MCD","Merced Station","America/Los_Angeles","https://www.amtrak.com/stations/mcd.html"
+"MCG","TX","MCG","Mcgregor Amtrak","America/Chicago","https://www.amtrak.com/stations/mcg"
+"MCK","NE","MCK","Mccook Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mck"
+"MDN","CT","MDN","Meriden","America/New_York","https://www.amtrak.com/stations/mdn"
+"MDR","CA","MDR","Madera Station","America/Los_Angeles","https://www.amtrak.com/stations/mdr.html"
+"MDS","CT","MDS","Madison","America/New_York","http://www.amtrak.com/stations/mds"
+"MDT","IL","MDT","Mendota Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mdt"
+"MEI","MS","MEI","Meridian Union Station","America/Chicago","https://www.amtrak.com/stations/mei"
+"MEM","TN","MEM","Memphis","America/Chicago","https://www.amtrak.com/stations/mem"
+"MET","NJ","MET","Metropark Amtrak Station","America/New_York","https://www.amtrak.com/stations/met"
+"MHD","NC","MHD","Morehead City","America/New_York","https://www.amtrak.com/stations/mhd"
+"MHL","TX","MHL","Marshall Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mhl"
+"MIA","FL","MIA","Miami Amtrak Station","America/New_York","https://www.amtrak.com/stations/mia"
+"MID","PA","MID","Middletown","America/New_York","https://www.amtrak.com/stations/mid"
+"MIN","TX","MIN","Mineola","America/Chicago","https://www.amtrak.com/stations/min"
+"MJY","PA","MJY","Mount Joy Amtrak","America/New_York","https://www.amtrak.com/stations/mjy"
+"MKA","WI","MKA","General Mitchell Intl. Airport Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mka"
+"MKB","WI","MKB","Milwaukee Airport Amtrak Bus Stop","America/Chicago","http://www.amtrak.com/stations/mkb"
+"MKE","WI","MKE","Milwaukee","America/Chicago","https://www.amtrak.com/stations/mke"
+"MKS","MS","MKS","Marks Amtrak","America/Chicago","https://www.amtrak.com/stations/mks"
+"MNG","WV","MNG","Montgomery Amtrak","America/New_York","https://www.amtrak.com/stations/mng"
+"MOD","CA","MOD","Modesto Station","America/Los_Angeles","https://www.amtrak.com/stations/mod.html"
+"MOJ","CA","MOJ","Mojave Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/moj"
+"MOT","ND","MOT","Minot Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mot"
+"MPK","CA","MPK","Moorpark Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/mpk"
+"MPR","VT","MPR","Montpelier-Berlin Amtrak Station","America/New_York","https://www.amtrak.com/stations/mpr"
+"MRB","WV","MRB","Martinsburg Amtrak Station","America/New_York","https://www.amtrak.com/stations/mrb"
+"MRC","AZ","MRC","Maricopa","America/Denver","https://www.amtrak.com/stations/mrc"
+"MRV","CA","MRV","Marysville Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/mrv"
+"MRY","CA","MRY","Monterey Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/mry"
+"MSA","MD","MSA","Martin Airport","America/New_York","http://www.amtrak.com/stations/msa"
+"MSP","MN","MSP","St. Paul-Minneapolis","America/Chicago","https://www.amtrak.com/stations/msp"
+"MSS","VA","MSS","Manassas Amtrak Station","America/New_York","https://www.amtrak.com/stations/mss"
+"MTC","WI","MTC","Manitowoc Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/mtc"
+"MTP","IA","MTP","Mt. Pleasant Amtrak Station","America/Chicago","https://www.amtrak.com/stations/mtp"
+"MTR","QC","MTR","Montreal Central Station","America/New_York","https://www.amtrak.com/stations/mtr"
+"MTZ","CA","MTZ","Martinez Station","America/Los_Angeles","https://www.amtrak.com/stations/mtz.html"
+"MVN","AR","MVN","Malvern Amtrak","America/Chicago","https://www.amtrak.com/stations/mvn"
+"MVW","WA","MVW","Mount Vernon Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/mvw"
+"MYA","CA","MYA","Monterey Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/mya"
+"MYH","CA","MYH","Monterey Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/myh"
+"MYM","CA","MYM","Monterey Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/mym"
+"MYS","CT","MYS","Mystic Amtrak","America/New_York","https://www.amtrak.com/stations/mys"
+"MYT","CA","MYT","Monterey Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/myt"
+"MYU","CA","MYU","Seaside-Marina","America/Los_Angeles","http://www.amtrak.com/stations/myu"
+"NAP","CA","NAP","Napa Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/nap"
+"NBK","NJ","NBK","New Brunswick Amtrak Station","America/New_York","https://www.amtrak.com/stations/nbk"
+"NBN","TN","NBN","Newbern-Dyersburg Amtrak Station","America/Chicago","https://www.amtrak.com/stations/nbn"
+"NBR","NC","NBR","New Bern Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/nbr"
+"NBU","MI","NBU","New Buffalo Amtrak","America/New_York","https://www.amtrak.com/stations/nbu"
+"NCG","TX","NCG","Nacogdoches Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/ncg"
+"NCR","MD","NCR","New Carrollton Amtrak Station","America/New_York","https://www.amtrak.com/stations/ncr"
+"NDL","CA","NDL","Needles Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/ndl"
+"NEW","KS","NEW","Newton","America/Chicago","https://www.amtrak.com/stations/new"
+"NFK","VA","NFK","Norfolk","America/New_York","https://www.amtrak.com/stations/nfk"
+"NFL","NY","NFL","Niagara Falls Amtrak Station","America/New_York","https://www.amtrak.com/stations/nfl"
+"NFS","ON","NFS","Niagara Falls","America/New_York","http://www.amtrak.com/stations/nfs"
+"NHL","CA","NHL","Santa Clarita-Newhall Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/nhl"
+"NHT","MA","NHT","Northampton","America/New_York","https://www.amtrak.com/stations/nht"
+"NHV","CT","NHV","New Haven","America/New_York","https://www.amtrak.com/stations/nhv"
+"NIB","LA","NIB","New Iberia Amtrak","America/Chicago","https://www.amtrak.com/stations/nib"
+"NLC","CT","NLC","New London","America/New_York","https://www.amtrak.com/stations/nlc"
+"NLS","MI","NLS","Niles Amtrak Station","America/New_York","https://www.amtrak.com/stations/nls"
+"NOL","LA","NOL","New Orleans Union Passenger Terminal","America/Chicago","https://www.amtrak.com/stations/nol"
+"NOR","OK","NOR","Norman Amtrak Station","America/Chicago","https://www.amtrak.com/stations/nor"
+"NPN","VA","NPN","Newport News","America/New_York","https://www.amtrak.com/stations/npn"
+"NPV","IL","NPV","Naperville Amtrak Station","America/Chicago","https://www.amtrak.com/stations/npv"
+"NRG","CA","NRG","Northridge","America/Los_Angeles","http://www.amtrak.com/stations/nrg"
+"NRK","DE","NRK","Newark Amtrak","America/New_York","https://www.amtrak.com/stations/nrk"
+"NRO","NY","NRO","New Rochelle Amtrak Station","America/New_York","https://www.amtrak.com/stations/nro"
+"NWK","NJ","NWK","Newark","America/New_York","https://www.amtrak.com/stations/nwk"
+"NYP","NY","NYP","New York Moynihan Train Hall at Penn Station","America/New_York","https://www.amtrak.com/stations/nyp"
+"OAC","CA","OAC","Oakland Coliseum/Airport Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/oac"
+"OCA","FL","OCA","Ocala Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/oca"
+"OKC","OK","OKC","Oklahoma City","America/Chicago","https://www.amtrak.com/stations/okc"
+"OKE","FL","OKE","Okeechobee Amtrak","America/New_York","https://www.amtrak.com/stations/oke"
+"OKJ","CA","OKJ","Oakland Station","America/Los_Angeles","https://www.amtrak.com/stations/okj.html"
+"OKL","ON","OKL","Oakville","America/New_York","http://www.amtrak.com/stations/okl"
+"OLT","CA","OLT","San Diego Old Town Transportation Center","America/Los_Angeles","https://www.amtrak.com/stations/olt"
+"OLW","WA","OLW","Olympia-Lacey Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/olw"
+"OMA","NE","OMA","Omaha Amtrak Station","America/Chicago","https://www.amtrak.com/stations/oma"
+"ONA","CA","ONA","Ontario Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/ona"
+"ORB","ME","ORB","Old Orchard Beach Amtrak","America/New_York","https://www.amtrak.com/stations/orb"
+"ORC","OR","ORC","Oregon City Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/orc"
+"ORL","FL","ORL","Orlando","America/New_York","https://www.amtrak.com/stations/orl"
+"ORV","CA","ORV","Oroville Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/orv"
+"OSB","CT","OSB","Old Saybrook Amtrak Station","America/New_York","https://www.amtrak.com/stations/osb"
+"OSC","IA","OSC","Osceola Amtrak Station","America/Chicago","https://www.amtrak.com/stations/osc"
+"OSD","CA","OSD","Oceanside","America/Los_Angeles","https://www.amtrak.com/stations/osd"
+"OSU","WI","OSU","Oshkosh Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/osu"
+"OTM","IA","OTM","Ottumwa Amtrak Station","America/Chicago","https://www.amtrak.com/stations/otm"
+"OTN","MD","OTN","Odenton","America/New_York","http://www.amtrak.com/stations/otn"
+"OXN","CA","OXN","Oxnard","America/Los_Angeles","https://www.amtrak.com/stations/oxn"
+"PAK","FL","PAK","Palatka Amtrak","America/New_York","https://www.amtrak.com/stations/pak"
+"PAO","PA","PAO","Paoli Amtrak Station","America/New_York","https://www.amtrak.com/stations/pao"
+"PAR","PA","PAR","Parkesburg Amtrak","America/New_York","https://www.amtrak.com/stations/par"
+"PAS","CA","PAS","Pasadena Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/pas"
+"PBF","MO","PBF","Poplar Bluff Amtrak Station","America/Chicago","https://www.amtrak.com/stations/pbf"
+"PCH","FL","PCH","Port Charlotte Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/pch"
+"PCT","IL","PCT","Princeton Amtrak Station","America/Chicago","https://www.amtrak.com/stations/pct"
+"PDC","CA","PDC","Palm Desert Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/pdc"
+"PDX","OR","PDX","Portland","America/Los_Angeles","https://www.amtrak.com/stations/pdx"
+"PGH","PA","PGH","Pittsburgh Amtrak Station","America/New_York","https://www.amtrak.com/stations/pgh"
+"PHA","AZ","PHA","Phoenix Sky Harbor Airport Amtrak Station","America/Denver","https://www.amtrak.com/stations/pha"
+"PHL","PA","PHL","Philadelphia","America/New_York","https://www.amtrak.com/stations/phl"
+"PHN","PA","PHN","North Philadelphia Amtrak Station","America/New_York","https://www.amtrak.com/stations/phn"
+"PIA","IL","PIA","Peoria Amtrak Station","America/Chicago","https://www.amtrak.com/stations/pia"
+"PIC","MS","PIC","Picayune Amtrak Station","America/Chicago","https://www.amtrak.com/stations/pic"
+"PIT","MA","PIT","Pittsfield Amtrak Station","America/New_York","https://www.amtrak.com/stations/pit"
+"PJC","NJ","PJC","Princeton Junction Amtrak Station","America/New_York","https://www.amtrak.com/stations/pjc"
+"PLB","NY","PLB","Plattsburgh Amtrak Station","America/New_York","https://www.amtrak.com/stations/plb"
+"PLO","IL","PLO","Plano Amtrak Station","America/Chicago","https://www.amtrak.com/stations/plo"
+"PNT","MI","PNT","Pontiac Amtrak Station","America/New_York","https://www.amtrak.com/stations/pnt"
+"POG","WI","POG","Portage","America/Chicago","https://www.amtrak.com/stations/pog"
+"POH","NY","POH","Port Henry Amtrak Station","America/New_York","https://www.amtrak.com/stations/poh"
+"PON","IL","PON","Pontiac Amtrak Station","America/Chicago","https://www.amtrak.com/stations/pon"
+"POR","ME","POR","Portland","America/New_York","https://www.amtrak.com/stations/por"
+"POS","CA","POS","Pomona Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/pos"
+"POU","NY","POU","Poughkeepsie Amtrak Station","America/New_York","https://www.amtrak.com/stations/pou"
+"PRB","CA","PRB","Paso Robles Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/prb"
+"PRC","WV","PRC","Prince Amtrak Station","America/New_York","https://www.amtrak.com/stations/prc"
+"PRO","UT","PRO","Provo Amtrak","America/Denver","https://www.amtrak.com/stations/pro"
+"PRV","MD","PRV","Perryville","America/New_York","http://www.amtrak.com/stations/prv"
+"PSC","WA","PSC","Pasco Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/psc"
+"PSN","CA","PSN","Palm Springs Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/psn"
+"PSP","CA","PSP","Palm Springs Airport Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/psp"
+"PSS","CA","PSS","Palm Springs Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/pss"
+"PTB","VA","PTB","Petersburg Amtrak Station","America/New_York","https://www.amtrak.com/stations/ptb"
+"PTC","CA","PTC","Petaluma","America/Los_Angeles","https://www.amtrak.com/stations/ptc"
+"PTH","MI","PTH","Port Huron Amtrak Station","America/New_York","https://www.amtrak.com/stations/pth"
+"PUR","OK","PUR","Purcell Amtrak Station","America/Chicago","https://www.amtrak.com/stations/pur"
+"PVD","RI","PVD","Providence","America/New_York","https://www.amtrak.com/stations/pvd"
+"PVL","OK","PVL","Pauls Valley Amtrak Station","America/Chicago","https://www.amtrak.com/stations/pvl"
+"PXN","AZ","PXN","North Phoenix Metro Center Transit Station","America/Denver","https://www.amtrak.com/stations/pxn"
+"QAN","VA","QAN","Quantico Amtrak","America/New_York","https://www.amtrak.com/stations/qan"
+"QCY","IL","QCY","Quincy Amtrak Station","America/Chicago","https://www.amtrak.com/stations/qcy"
+"RAT","NM","RAT","Raton","America/Denver","https://www.amtrak.com/stations/rat"
+"RBF","CA","RBF","Red Bluff Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/rbf"
+"RDD","CA","RDD","Redding Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/rdd"
+"RDR","CA","RDR","Redding Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/rdr"
+"RDW","MN","RDW","Red Wing Amtrak Station","America/Chicago","https://www.amtrak.com/stations/rdw"
+"REN","IN","REN","Rensselaer Amtrak","America/Chicago","https://www.amtrak.com/stations/ren"
+"RGH","NC","RGH","Raleigh Union Station","America/New_York","https://www.amtrak.com/stations/rgh"
+"RHI","NY","RHI","Rhinecliff Amtrak Station","America/New_York","https://www.amtrak.com/stations/rhi"
+"RIC","CA","RIC","Richmond Station","America/Los_Angeles","https://www.amtrak.com/stations/ric.html"
+"RIV","CA","RIV","Riverside","America/Los_Angeles","https://www.amtrak.com/stations/riv"
+"RKV","MD","RKV","Rockville Amtrak","America/New_York","https://www.amtrak.com/stations/rkv"
+"RLN","CA","RLN","Rocklin Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/rln"
+"RMT","NC","RMT","Rocky Mount","America/New_York","https://www.amtrak.com/stations/rmt"
+"RNK","VA","RNK","Roanoke","America/New_York","https://www.amtrak.com/stations/rnk"
+"RNO","NV","RNO","Reno","America/Los_Angeles","https://www.amtrak.com/stations/rno"
+"ROC","NY","ROC","Rochester","America/New_York","https://www.amtrak.com/stations/roc"
+"ROM","NY","ROM","Rome Amtrak Station","America/New_York","https://www.amtrak.com/stations/rom"
+"ROY","MI","ROY","Royal Oak Amtrak","America/New_York","https://www.amtrak.com/stations/roy"
+"RPC","CA","RPC","Rohnert Park Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/rpc"
+"RPH","VT","RPH","Randolph Amtrak","America/New_York","https://www.amtrak.com/stations/rph"
+"RSP","NY","RSP","Rouses Point Amtrak","America/New_York","https://www.amtrak.com/stations/rsp"
+"RSV","CA","RSV","Roseville Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/rsv"
+"RTE","MA","RTE","Route 128 Amtrak Station","America/New_York","https://www.amtrak.com/stations/rte"
+"RTL","IL","RTL","Rantoul Amtrak","America/Chicago","https://www.amtrak.com/stations/rtl"
+"RUD","VT","RUD","Rutland","America/New_York","https://www.amtrak.com/stations/rud"
+"RUG","ND","RUG","Rugby Amtrak Station","America/Chicago","https://www.amtrak.com/stations/rug"
+"RVM","VA","RVM","Richmond Main Street Amtrak Station","America/New_York","https://www.amtrak.com/stations/rvm"
+"RVR","VA","RVR","Richmond Staples Mill Road Amtrak Station","America/New_York","https://www.amtrak.com/stations/rvr"
+"SAB","VT","SAB","St. Albans Amtrak Station","America/New_York","https://www.amtrak.com/stations/sab"
+"SAC","CA","SAC","Sacramento Station","America/Los_Angeles","https://www.amtrak.com/stations/sac.html"
+"SAE","NM","SAE","Santa Fe Amtrak Bus Stop","America/Denver","https://www.amtrak.com/stations/sae"
+"SAF","NM","SAF","Santa Fe Amtrak Station","America/Denver","https://www.amtrak.com/stations/saf"
+"SAL","NC","SAL","Salisbury","America/New_York","https://www.amtrak.com/stations/sal"
+"SAN","CA","SAN","San Diego","America/Los_Angeles","https://www.amtrak.com/stations/san"
+"SAO","ME","SAO","Saco Amtrak Station","America/New_York","https://www.amtrak.com/stations/sao"
+"SAP","CA","SAP","Santa Paula Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/sap"
+"SAR","NY","SAR","Saratoga Springs Amtrak Station","America/New_York","https://www.amtrak.com/stations/sar"
+"SAS","TX","SAS","San Antonio Amtrak Station","America/Chicago","https://www.amtrak.com/stations/sas"
+"SAT","CA","SAT","Santa Maria Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/sat"
+"SAV","GA","SAV","Savannah","America/New_York","https://www.amtrak.com/stations/sav"
+"SBA","CA","SBA","Santa Barbara","America/Los_Angeles","https://www.amtrak.com/stations/sba"
+"SBG","FL","SBG","Sebring Amtrak Station","America/New_York","https://www.amtrak.com/stations/sbg"
+"SBU","CA","SBU","Uc Santa Barbara Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/sbu"
+"SBY","MT","SBY","Shelby Amtrak Station","America/Denver","https://www.amtrak.com/stations/sby"
+"SCA","ON","SCA","St. Catherines","America/New_York","http://www.amtrak.com/stations/sca"
+"SCC","CA","SCC","Santa Clara Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/scc"
+"SCD","MN","SCD","St. Cloud Amtrak Station","America/Chicago","https://www.amtrak.com/stations/scd"
+"SCH","LA","SCH","Schriever Amtrak","America/Chicago","https://www.amtrak.com/stations/sch"
+"SCS","CA","SCS","Sacramento Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/scs"
+"SDL","LA","SDL","Slidell Amtrak Station","America/Chicago","https://www.amtrak.com/stations/sdl"
+"SDY","NY","SDY","Schenectady","America/New_York","https://www.amtrak.com/stations/sdy"
+"SEA","WA","SEA","Seattle","America/Los_Angeles","https://www.amtrak.com/stations/sea"
+"SEB","MD","SEB","Seabrook","America/New_York","http://www.amtrak.com/stations/seb"
+"SED","MO","SED","Sedalia Amtrak Station","America/Chicago","https://www.amtrak.com/stations/sed"
+"SFA","FL","SFA","Sanford Amtrak Auto Train Station","America/New_York","https://www.amtrak.com/stations/sfa"
+"SFC","CA","SFC","San Francisco","America/Los_Angeles","https://www.amtrak.com/stations/sfc"
+"SHB","WI","SHB","Sheboygan Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/shb"
+"SHR","LA","SHR","Shreveport Sportran Intermodal Terminal","America/Chicago","https://www.amtrak.com/stations/shr"
+"SIM","CA","SIM","Simi Valley Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/sim"
+"SJC","CA","SJC","San Jose","America/Los_Angeles","https://www.amtrak.com/stations/sjc"
+"SJM","MI","SJM","St. Joseph-Benton Harbor Amtrak Station","America/New_York","https://www.amtrak.com/stations/sjm"
+"SKN","CA","SKN","Stockton- San Joaquin Street Station","America/Los_Angeles","https://www.amtrak.com/stations/skn.html"
+"SKT","CA","SKT","Stockton","America/Los_Angeles","https://www.amtrak.com/stations/skt"
+"SKY","OH","SKY","Sandusky Amtrak Station","America/New_York","https://www.amtrak.com/stations/sky"
+"SLC","UT","SLC","Salt Lake City","America/Denver","https://www.amtrak.com/stations/slc"
+"SLM","OR","SLM","Salem","America/Los_Angeles","https://www.amtrak.com/stations/slm"
+"SLO","CA","SLO","San Luis Obispo","America/Los_Angeles","https://www.amtrak.com/stations/slo"
+"SLP","CA","SLP","San Luis Obispo Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/slp"
+"SLQ","QC","SLQ","St-Lambert Amtrak Station","America/New_York","https://www.amtrak.com/stations/slq"
+"SLV","CA","SLV","Solvang Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/slv"
+"SMC","TX","SMC","San Marcos Amtrak","America/Chicago","https://www.amtrak.com/stations/smc"
+"SMN","CA","SMN","Santa Monica Pier","America/Los_Angeles","https://www.amtrak.com/stations/smn"
+"SMT","IL","SMT","Summit Amtrak","America/Chicago","https://www.amtrak.com/stations/smt"
+"SNA","CA","SNA","Santa Ana","America/Los_Angeles","https://www.amtrak.com/stations/sna"
+"SNB","CA","SNB","San Bernardino","America/Los_Angeles","https://www.amtrak.com/stations/snb"
+"SNC","CA","SNC","San Juan Capistrano Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/snc"
+"SND","TX","SND","Sanderson Amtrak","America/Chicago","https://www.amtrak.com/stations/snd"
+"SNP","CA","SNP","San Clemente Pier Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/snp"
+"SNS","CA","SNS","Salinas","America/Los_Angeles","https://www.amtrak.com/stations/sns"
+"SNY","WI","SNY","Stanley Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/sny"
+"SOB","IN","SOB","South Bend Amtrak Station","America/New_York","https://www.amtrak.com/stations/sob"
+"SOL","CA","SOL","Solana Beach Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/sol"
+"SOP","NC","SOP","Southern Pines Amtrak Station","America/New_York","https://www.amtrak.com/stations/sop"
+"SPB","SC","SPB","Spartanburg Amtrak Station","America/New_York","https://www.amtrak.com/stations/spb"
+"SPG","MA","SPG","Springfield","America/New_York","https://www.amtrak.com/stations/spg"
+"SPI","IL","SPI","Springfield","America/Chicago","https://www.amtrak.com/stations/spi"
+"SPK","WA","SPK","Spokane","America/Los_Angeles","https://www.amtrak.com/stations/spk"
+"SPL","MN","SPL","Staples Amtrak Station","America/Chicago","https://www.amtrak.com/stations/spl"
+"SPM","KY","SPM","South Portsmouth Amtrak","America/New_York","https://www.amtrak.com/stations/spm"
+"SPT","ID","SPT","Sandpoint Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/spt"
+"SPX","NV","SPX","Sparks Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/spx"
+"SRA","FL","SRA","Sarasota Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/sra"
+"SRC","CA","SRC","Santa Rosa Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/src"
+"SSM","NC","SSM","Selma","America/New_York","https://www.amtrak.com/stations/ssm"
+"STA","VA","STA","Staunton Amtrak Station","America/New_York","https://www.amtrak.com/stations/sta"
+"STL","MO","STL","St. Louis","America/Chicago","https://www.amtrak.com/stations/stl"
+"STM","CT","STM","Stamford Amtrak Station","America/New_York","https://www.amtrak.com/stations/stm"
+"STN","ND","STN","Stanley Amtrak Station","America/Chicago","https://www.amtrak.com/stations/stn"
+"STP","FL","STP","St. Petersburg","America/New_York","https://www.amtrak.com/stations/stp"
+"STS","CT","STS","New Haven","America/New_York","https://www.amtrak.com/stations/sts"
+"STW","WA","STW","Stanwood Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/stw"
+"SUI","CA","SUI","Suisun-Fairfield","America/Los_Angeles","https://www.amtrak.com/stations/sui"
+"SVT","WI","SVT","Sturtevant Amtrak Station","America/Chicago","https://www.amtrak.com/stations/svt"
+"SWB","NC","SWB","Swansboro","America/New_York","https://www.amtrak.com/stations/swb"
+"SYR","NY","SYR","Syracuse Regional Transportation Center","America/New_York","https://www.amtrak.com/stations/syr"
+"TAC","WA","TAC","Tacoma","America/Los_Angeles","https://www.amtrak.com/stations/tac"
+"TAY","TX","TAY","Taylor Amtrak","America/Chicago","https://www.amtrak.com/stations/tay"
+"TCA","GA","TCA","Toccoa Amtrak Station","America/New_York","https://www.amtrak.com/stations/tca"
+"TCL","AL","TCL","Tuscaloosa Amtrak Station","America/Chicago","https://www.amtrak.com/stations/tcl"
+"TEH","CA","TEH","Tehachapi Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/teh"
+"TEM","AZ","TEM","Tempe Amtrak Bus Stop","America/Denver","https://www.amtrak.com/stations/tem"
+"THN","WV","THN","Thurmond Amtrak","America/New_York","https://www.amtrak.com/stations/thn"
+"TOH","WI","TOH","Tomah Amtrak Station","America/Chicago","https://www.amtrak.com/stations/toh"
+"TOL","OH","TOL","Toledo","America/New_York","https://www.amtrak.com/stations/tol"
+"TOP","KS","TOP","Topeka Amtrak Station","America/Chicago","https://www.amtrak.com/stations/top"
+"TPA","FL","TPA","Tampa","America/New_York","https://www.amtrak.com/stations/tpa"
+"TPL","TX","TPL","Temple","America/Chicago","https://www.amtrak.com/stations/tpl"
+"TRA","CA","TRA","Tracy Bus Stop Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/tra"
+"TRE","NJ","TRE","Trenton","America/New_York","https://www.amtrak.com/stations/tre"
+"TRI","CO","TRI","Trinidad Amtrak","America/Denver","https://www.amtrak.com/stations/tri"
+"TRK","CA","TRK","Turlock-Denair Station","America/Los_Angeles","https://www.amtrak.com/stations/trk.html"
+"TRM","MI","TRM","Troy Amtrak Station","America/New_York","https://www.amtrak.com/stations/trm"
+"TRU","CA","TRU","Truckee Amtrak Station","America/Los_Angeles","https://www.amtrak.com/stations/tru"
+"TUK","WA","TUK","Tukwila Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/tuk"
+"TUS","AZ","TUS","Tucson Amtrak Station","America/Denver","https://www.amtrak.com/stations/tus"
+"TVF","FL","TVF","The Villages-Lady Lake Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/tvf"
+"TWO","ON","TWO","Toronto","America/New_York","http://www.amtrak.com/stations/two"
+"TXA","TX","TXA","Texarkana Amtrak Station","America/Chicago","https://www.amtrak.com/stations/txa"
+"TYR","PA","TYR","Tyrone Amtrak","America/New_York","https://www.amtrak.com/stations/tyr"
+"UCA","NY","UCA","Utica Amtrak Station","America/New_York","https://www.amtrak.com/stations/uca"
+"UKH","CA","UKH","Ukiah Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/ukh"
+"VAB","VA","VAB","Virginia Beach Amtrak Bus Stop","America/New_York","https://www.amtrak.com/stations/vab"
+"VAC","BC","VAC","Vancouver","America/Los_Angeles","https://www.amtrak.com/stations/vac"
+"VAL","CA","VAL","Vallejo","America/Los_Angeles","https://www.amtrak.com/stations/val"
+"VAN","WA","VAN","Vancouver","America/Los_Angeles","https://www.amtrak.com/stations/van"
+"VEC","CA","VEC","Ventura Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/vec"
+"VNC","CA","VNC","Van Nuys","America/Los_Angeles","https://www.amtrak.com/stations/vnc"
+"VRN","VT","VRN","Ferrisburgh","America/New_York","http://www.amtrak.com/stations/vrn"
+"VRV","CA","VRV","Victorville Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/vrv"
+"WAB","VT","WAB","Waterbury-Stowe Amtrak Station","America/New_York","https://www.amtrak.com/stations/wab"
+"WAC","CA","WAC","Wasco Station","America/Los_Angeles","https://www.amtrak.com/stations/wac.html"
+"WAH","MO","WAH","Washington Amtrak Station","America/Chicago","https://www.amtrak.com/stations/wah"
+"WAR","MO","WAR","Warrensburg Amtrak Station","America/Chicago","https://www.amtrak.com/stations/war"
+"WAS","DC","WAS","Washington Union Station","America/New_York","https://www.amtrak.com/stations/was"
+"WBG","VA","WBG","Williamsburg Amtrak Station","America/New_York","https://www.amtrak.com/stations/wbg"
+"WBL","MD","WBL","West Baltimore","America/New_York","http://www.amtrak.com/stations/wbl"
+"WDB","VA","WDB","Woodbridge Amtrak","America/New_York","https://www.amtrak.com/stations/wdb"
+"WDL","WI","WDL","Wisconsin Dells Amtrak Station","America/Chicago","https://www.amtrak.com/stations/wdl"
+"WDO","FL","WDO","Waldo Amtrak Station","America/New_York","https://www.amtrak.com/stations/wdo"
+"WEL","KS","WEL","Wellington","America/Chicago","http://www.amtrak.com/stations/wel"
+"WEM","ME","WEM","Wells","America/New_York","https://www.amtrak.com/stations/wem"
+"WEN","WA","WEN","Wenatchee Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/wen"
+"WES","CA","WES","Westwood Ucla Amtrak Bus Stop","America/Los_Angeles","https://www.amtrak.com/stations/wes"
+"WFD","CT","WFD","Wallingford Amtrak","America/New_York","https://www.amtrak.com/stations/wfd"
+"WFH","MT","WFH","Whitefish Amtrak Station","America/Denver","https://www.amtrak.com/stations/wfh"
+"WGL","MT","WGL","West Glacier Amtrak","America/Denver","https://www.amtrak.com/stations/wgl"
+"WHL","NY","WHL","Whitehall Amtrak","America/New_York","https://www.amtrak.com/stations/whl"
+"WIC","KS","WIC","Wichita Amtrak Station","America/Chicago","https://www.amtrak.com/stations/wic"
+"WIH","WA","WIH","Wishram Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/wih"
+"WIL","DE","WIL","Wilmington","America/New_York","https://www.amtrak.com/stations/wil"
+"WIN","MN","WIN","Winona","America/Chicago","https://www.amtrak.com/stations/win"
+"WIP","CO","WIP","Winter Park/Fraser","America/Denver","https://www.amtrak.com/stations/wip"
+"WIT","WI","WIT","Wittenberg Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/wit"
+"WLN","NC","WLN","Wilson","America/New_York","https://www.amtrak.com/stations/wln"
+"WLO","AZ","WLO","Winslow Amtrak","America/Denver","https://www.amtrak.com/stations/wlo"
+"WLY","RI","WLY","Westerly Amtrak Station","America/New_York","https://www.amtrak.com/stations/wly"
+"WMH","AZ","WMH","Williams","America/Denver","https://www.amtrak.com/stations/wmh"
+"WMN","NC","WMN","Wilmington Amtrak Station","America/New_York","https://www.amtrak.com/stations/wmn"
+"WND","CT","WND","Windsor","America/New_York","https://www.amtrak.com/stations/wnd"
+"WNL","CT","WNL","Windsor Locks","America/New_York","https://www.amtrak.com/stations/wnl"
+"WNM","VT","WNM","Windsor-Mt. Ascutney Amtrak","America/New_York","https://www.amtrak.com/stations/wnm"
+"WNN","NV","WNN","Winnemucca Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/wnn"
+"WNR","AR","WNR","Walnut Ridge Amtrak Station","America/Chicago","https://www.amtrak.com/stations/wnr"
+"WOB","MA","WOB","Woburn Amtrak Station","America/New_York","https://www.amtrak.com/stations/wob"
+"WOR","MA","WOR","Worcester Union Station","America/New_York","https://www.amtrak.com/stations/wor"
+"WPB","FL","WPB","West Palm Beach Amtrak Station","America/New_York","https://www.amtrak.com/stations/wpb"
+"WPK","FL","WPK","Winter Park Amtrak Station","America/New_York","https://www.amtrak.com/stations/wpk"
+"WPS","CO","WPS","Winter Park","America/Denver","https://www.amtrak.com/stations/wps"
+"WPT","MT","WPT","Wolf Point Amtrak Station","America/Denver","https://www.amtrak.com/stations/wpt"
+"WRJ","VT","WRJ","White River Junction Amtrak Station","America/New_York","https://www.amtrak.com/stations/wrj"
+"WSB","CT","WSB","Westbrook","America/New_York","http://www.amtrak.com/stations/wsb"
+"WSJ","WI","WSJ","Wausau Amtrak Bus Stop","America/Chicago","https://www.amtrak.com/stations/wsj"
+"WSP","NY","WSP","Westport","America/New_York","https://www.amtrak.com/stations/wsp"
+"WSS","WV","WSS","White Sulphur Springs Amtrak","America/New_York","https://www.amtrak.com/stations/wss"
+"WTH","FL","WTH","Winter Haven","America/New_York","https://www.amtrak.com/stations/wth"
+"WTI","IN","WTI","Waterloo Amtrak Station","America/New_York","https://www.amtrak.com/stations/wti"
+"WTN","ND","WTN","Williston Amtrak Station","America/Chicago","https://www.amtrak.com/stations/wtn"
+"WTS","CA","WTS","Willits Calif Western Railroad Depot Amtrak","America/Los_Angeles","https://www.amtrak.com/stations/wts"
+"WWD","FL","WWD","Wildwood Amtrak Station","America/New_York","https://www.amtrak.com/stations/wwd"
+"YAZ","MS","YAZ","Yazoo City Amtrak","America/Chicago","https://www.amtrak.com/stations/yaz"
+"YEM","SC","YEM","Yemassee Amtrak","America/New_York","https://www.amtrak.com/stations/yem"
+"YNY","NY","YNY","Yonkers Amtrak Station","America/New_York","https://www.amtrak.com/stations/yny"
+"YUM","AZ","YUM","Yuma Amtrak","America/Denver","http://www.amtrak.com/yum"

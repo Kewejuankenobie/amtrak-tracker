@@ -9,21 +9,32 @@ function StationInfo() {
     const [stations, setStations] = useState<StationListEl[]>([]);
     const [timeboard, setTimeboard] = useState<Timeboard | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
+    const [pageLoad, setPageLoad] = useState<boolean>(true);
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
 
     useEffect(() => {
         const fetchStations = async () => {
+            setPageLoad(true);
             try {
                 const obtainedStations: StationListEl[] = await getAllStations();
                 console.log(obtainedStations);
                 setStations(obtainedStations);
             } catch (error) {
                 console.log(error);
+                if (error instanceof TypeError) {
+                    setTimeout(() => fetchStations(), 10000);
+                }
             }
         }
         fetchStations();
     }, [])
+
+    useEffect(() => {
+        if (pageLoad && stations.length > 0) {
+            setPageLoad(false);
+        }
+    }, [stations]);
 
     const handleSearch =
         async (e: FormEvent<HTMLFormElement> | ChangeEvent<HTMLInputElement>, searchQuery: string) => {
@@ -74,12 +85,15 @@ function StationInfo() {
                         </div>
                     </form>
                 </div>
+                {
+                    pageLoad ? <p className={`animate-pulse font-bold text-2xl text-green-900`}>Loading ...</p> :
                 <div className="w-full flex flex-col items-center">
                     {
                         stations.map((station: StationListEl) => <StationListElement station={station}
                                                                                      onClick={() => getTimeboardFromStation(station)}/>)
                     }
                 </div>
+                }
             </div>
             <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-4/5 h-4/5
             open:animate-dialog drop-shadow-xl">

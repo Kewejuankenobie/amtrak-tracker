@@ -1,5 +1,7 @@
 package com.kiron.amtrakTracker.service;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.transit.realtime.GtfsRealtime;
 import com.google.transit.realtime.GtfsRealtime.FeedEntity;
 import com.google.transit.realtime.GtfsRealtime.FeedMessage;
@@ -17,12 +19,11 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.SocketTimeoutException;
-import java.net.URL;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -58,7 +59,8 @@ public class StationServiceImp implements StationService {
             return null;
         }
 
-        StationTimeboard timeboard = new StationTimeboard(code, station.getName(), station.getWebsite());
+        StationTimeboard timeboard = new StationTimeboard(code, station.getName(), station.getWebsite(),
+                station.getAdmin_area());
 
 
         List<StopTimes> allStops = stopTimeRepository.findAllByStop_Id(station.getId());
@@ -173,14 +175,24 @@ public class StationServiceImp implements StationService {
         List<Route> routes = new ArrayList<>();
         List<Trip> trips = new ArrayList<>();
 
+
         updateGTFSFromCSV(urlAm, stations, stopTimes, routes, trips, 0);
         updateGTFSFromCSV(urlVia, stations, stopTimes, routes, trips, 1);
         updateGTFSFromCSV(urlSanJ, stations, stopTimes, routes, trips, 2);
 
+        setStations(stations);
+
+        stopTimeRepository.deleteAllInBatch();
+        tripRepository.deleteAllInBatch();
+
         stationRepository.saveAll(stations);
-        stopTimeRepository.saveAll(stopTimes);
+        log.info("Finished updating station GTFS");
         routeRepository.saveAll(routes);
+        log.info("Finished updating route GTFS");
         tripRepository.saveAll(trips);
+        log.info("Finished updating trip GTFS");
+        stopTimeRepository.saveAll(stopTimes);
+        log.info("Finished updating stop time GTFS");
     }
 
     private void updateGTFSFromCSV(URL url, List<Station> stations, List<StopTimes> stopTimes,
@@ -208,8 +220,10 @@ public class StationServiceImp implements StationService {
             stopTimeSize = stopTimes.getLast().getId();
         }
         while ((zipEntry = zipInputStream.getNextEntry()) != null) {
-            if (zipEntry.getName().equals("stops.txt") || zipEntry.getName().equals("stop_times.txt")
+            if (zipEntry.getName().equals("stop_times.txt")
                     || zipEntry.getName().equals("routes.txt") || zipEntry.getName().equals("trips.txt")) {
+
+                log.info("Zip file has name {} on url {}", zipEntry.getName(), url.toString());
 
                 //Reads the zip files input stream to byte arrays, which will later be read from to prevent
                 //the inability to read all zip files
@@ -256,15 +270,16 @@ public class StationServiceImp implements StationService {
 
     private void updateSanJGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
                                 List<Route> routes, List<Trip> trips, Long lineNum, Long stopTimeSize) {
-        if (name.equals("stops.txt") && line[0].length() == 3 && !line[7].contains("acerail")) {
-            Station station = new Station();
-            station.setId(line[0]);
-            station.setCode(line[0]);
-            station.setName(line[2]);
-            station.setWebsite(line[7]);
-            station.setTime_zone("America/Los_Angeles");
-            stations.add(station);
-        } else if (name.equals("stop_times.txt") && line[0].length() == 3) {
+//        if (name.equals("stops.txt") && line[0].length() == 3 && !line[7].contains("acerail")) {
+//            Station station = new Station();
+//            station.setId(line[0]);
+//            station.setCode(line[0]);
+//            station.setName(line[2]);
+//            station.setWebsite(line[7]);
+//            station.setAdmin_area("CA");
+//            station.setTime_zone("America/Los_Angeles");
+//            stations.add(station);
+        if (name.equals("stop_times.txt") && line[0].length() == 3) {
             StopTimes stopTime = new StopTimes();
             stopTime.setId(lineNum + stopTimeSize);
             stopTime.setTrip_id(line[0]);
@@ -290,15 +305,15 @@ public class StationServiceImp implements StationService {
 
     private void updateAmtrakGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
                                   List<Route> routes, List<Trip> trips, Long lineNum, Long stopTimeSize) {
-        if (name.equals("stops.txt")) {
-            Station station = new Station();
-            station.setId(line[0]);
-            station.setCode(line[0]);
-            station.setName(getAmtrakStationName(line[0], line[1]));
-            station.setWebsite(line[2]);
-            station.setTime_zone(line[3]);
-            stations.add(station);
-        } else if (name.equals("stop_times.txt")) {
+//        if (name.equals("stops.txt")) {
+//            Station station = new Station();
+//            station.setId(line[0]);
+//            station.setCode(line[0]);
+//            station.setName(getAmtrakStationName(line[0], line[1]));
+//            station.setWebsite(line[2]);
+//            station.setTime_zone(line[3]);
+//            stations.add(station);
+        if (name.equals("stop_times.txt")) {
             StopTimes stopTime = new StopTimes();
             stopTime.setId(lineNum + stopTimeSize);
             stopTime.setTrip_id(line[0]);
@@ -325,14 +340,14 @@ public class StationServiceImp implements StationService {
     private void updateViaGTFS(String name, String[] line, List<Station> stations,
                                List<StopTimes> stopTimes, List<Route> routes, List<Trip> trips, Long lineNum,
                                Long stopTimeSize) {
-        if (name.equals("stops.txt")) {
-            Station station = new Station();
-            station.setId(line[0]);
-            station.setCode(line[1]);
-            station.setName(line[2]);
-            station.setTime_zone(line[6]);
-            stations.add(station);
-        } else if (name.equals("stop_times.txt")) {
+//        if (name.equals("stops.txt")) {
+//            Station station = new Station();
+//            station.setId(line[0]);
+//            station.setCode(line[1]);
+//            station.setName(line[2]);
+//            station.setTime_zone(line[6]);
+//            stations.add(station);
+        if (name.equals("stop_times.txt")) {
             StopTimes stopTime = new StopTimes();
             stopTime.setId(lineNum + stopTimeSize);
             stopTime.setTrip_id(line[0]);
@@ -364,7 +379,20 @@ public class StationServiceImp implements StationService {
         }
     }
 
+    private String getAdmin1(JsonNode json) {
+
+        return Optional.ofNullable(json)
+                .map(j -> j.get("results"))
+                .map(j -> j.get(0))
+                .map(j -> j.get("address_components"))
+                .map(j -> j.get(0))
+                .map(j -> j.get("short_name"))
+                .map(JsonNode::asText)
+                .orElse(null);
+    }
+
     private String getAmtrakStationName(String code, String defaultName) {
+        //With the csv way of retriving station info, this is not used right now
         return switch (code) {
             case "BON" -> "Boston North Station";
             case "BOS" -> "Boston South Station";
@@ -457,6 +485,53 @@ public class StationServiceImp implements StationService {
         LocalDateTime localDateTime = instant.atZone(zone).toLocalDateTime();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd");
         return formatter.format(localDateTime);
+    }
+
+
+    private void setStations(List<Station> stations) throws IOException, CsvValidationException {
+        //Sets the stations from a pre made csv file
+        CSVReader csvReader = new CSVReader(new FileReader("src/main/resources/static/station.csv"));
+        String[] line;
+        boolean firstLine = true;
+        while ((line = csvReader.readNext()) != null) {
+            //Reading each line into an array, we add each index of line to the according object based on
+            if (firstLine) {
+                firstLine = false;
+                continue;
+            }
+            Station s = new Station();
+            s.setId(line[0]);
+            s.setAdmin_area(line[1]);
+            s.setCode(line[2]);
+            s.setName(line[3]);
+            s.setTime_zone(line[4]);
+            s.setWebsite(line[5]);
+            stations.add(s);
+        }
+    }
+
+    @Override
+    public void addStationAdmin(String code, double lat, double lng, String geolocKey) throws IOException {
+        /*Expensive api calling method, do not do this too frequently, depricated as of now*/
+                Station station = stationRepository.findByCode(code);
+                if (station.getAdmin_area() != null) {
+                    return;
+                }
+                String geostr = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+                        lat + "," + lng + "&result_type=administrative_area_level_1&key=" + geolocKey;
+                try {
+                    URL geoloc = new URI(geostr).toURL();
+                    ObjectMapper mapper = new ObjectMapper();
+                    JsonNode json = mapper.readValue(geoloc, JsonNode.class);
+
+                    String admin1 = getAdmin1(json);
+                    if (admin1 != null) {
+                        station.setAdmin_area(admin1);
+                        stationRepository.save(station);
+                    }
+                } catch (URISyntaxException | MalformedURLException e) {
+                    log.error("Error parsing geolocation for station {}", station.getName());
+                }
     }
 
 }

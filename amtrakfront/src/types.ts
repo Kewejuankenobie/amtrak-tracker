@@ -21,6 +21,7 @@ export type StationListEl = {
     code: string;
     name: string;
     website: string;
+    admin_area: string;
     Component: React.ComponentType;
 }
 
@@ -28,6 +29,7 @@ export type Timeboard = {
     code: string;
     name: string;
     website: string;
+    admin_area: string;
     timeboard: TimeboardRow[];
     Component: React.ComponentType;
 }

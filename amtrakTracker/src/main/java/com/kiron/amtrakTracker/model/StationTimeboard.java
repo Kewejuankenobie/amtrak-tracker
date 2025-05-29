@@ -12,13 +12,15 @@ public class StationTimeboard {
     private String code;
     private String name;
     private String website;
+    private String admin_area;
 
     private List<TimeboardRow> timeboard;
 
-    public StationTimeboard(String code, String name, String website) {
+    public StationTimeboard(String code, String name, String website, String admin_area) {
         this.code = code;
         this.name = name;
         this.website = website;
+        this.admin_area = admin_area;
         this.timeboard = new ArrayList<>();
     }
 

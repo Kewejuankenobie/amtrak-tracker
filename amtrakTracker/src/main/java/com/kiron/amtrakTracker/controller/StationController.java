@@ -60,6 +60,17 @@ public class StationController {
         return new ResponseEntity<>(stationResponse, HttpStatus.OK);
     }
 
+    @PostMapping(value = "/addAdmin/{code}/{key}/{lat}/{lng}")
+    public ResponseEntity<?> addAdmin(@PathVariable String code, @PathVariable String key,
+                                      @PathVariable double lat, @PathVariable double lng) throws IOException {
+        Map<String, Object> stationResponse = new HashMap<String, Object>();
+
+        stationService.addStationAdmin(code, lat, lng, key);
+
+        stationResponse.put("status", 200);
+        return new ResponseEntity<>(stationResponse, HttpStatus.OK);
+    }
+
     @PostMapping(value ="/updateStation")
     public ResponseEntity<?> updateStation(
     ) throws IOException, CsvValidationException {
