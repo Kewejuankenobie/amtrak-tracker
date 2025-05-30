@@ -181,16 +181,19 @@ public class StationServiceImp implements StationService {
 
         setStations(stations);
 
-        stopTimeRepository.deleteAllInBatch();
+        //stopTimeRepository.deleteAllInBatch();
+        //Instead of deleting, if something is inserted in GTFS stop times, since we are using a seperate id that
+        //is generated, it causes some doubling of stop times. Instead, we need to have the ids be a composed id
+        //of the trip id, stop sequence, and departure time
 
-        stationRepository.saveAll(stations);
-        log.info("Finished updating station GTFS");
         routeRepository.saveAll(routes);
         log.info("Finished updating route GTFS");
         tripRepository.saveAll(trips);
         log.info("Finished updating trip GTFS");
         stopTimeRepository.saveAll(stopTimes);
         log.info("Finished updating stop time GTFS");
+        stationRepository.saveAll(stations);
+        log.info("Finished updating station GTFS");
     }
 
     private void updateGTFSFromCSV(URL url, List<Station> stations, List<StopTimes> stopTimes,
@@ -213,10 +216,6 @@ public class StationServiceImp implements StationService {
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         ZipEntry zipEntry;
 
-        Long stopTimeSize = 0L;
-        if (!stopTimes.isEmpty()) {
-            stopTimeSize = stopTimes.getLast().getId();
-        }
         while ((zipEntry = zipInputStream.getNextEntry()) != null) {
             if (zipEntry.getName().equals("stop_times.txt")
                     || zipEntry.getName().equals("routes.txt") || zipEntry.getName().equals("trips.txt")) {
@@ -249,12 +248,12 @@ public class StationServiceImp implements StationService {
                         }
 
                         if (type == 0) {
-                            updateAmtrakGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
+                            updateAmtrakGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum);
 
                         } else if (type == 1) {
-                            updateViaGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
+                            updateViaGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum);
                         } else {
-                            updateSanJGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum, stopTimeSize);
+                            updateSanJGTFS(zipEntry.getName(), line, stations, stopTimes, routes, trips, lineNum);
                         }
                         lineNum++;
                     }
@@ -267,7 +266,7 @@ public class StationServiceImp implements StationService {
     }
 
     private void updateSanJGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
-                                List<Route> routes, List<Trip> trips, Long lineNum, Long stopTimeSize) {
+                                List<Route> routes, List<Trip> trips, Long lineNum) {
 //        if (name.equals("stops.txt") && line[0].length() == 3 && !line[7].contains("acerail")) {
 //            Station station = new Station();
 //            station.setId(line[0]);
@@ -279,7 +278,6 @@ public class StationServiceImp implements StationService {
 //            stations.add(station);
         if (name.equals("stop_times.txt") && line[0].length() == 3) {
             StopTimes stopTime = new StopTimes();
-            stopTime.setId(lineNum + stopTimeSize);
             stopTime.setTrip_id(line[0]);
             stopTime.setArrival_time(line[3]);
             stopTime.setDeparture_time(line[4]);
@@ -302,7 +300,7 @@ public class StationServiceImp implements StationService {
     }
 
     private void updateAmtrakGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
-                                  List<Route> routes, List<Trip> trips, Long lineNum, Long stopTimeSize) {
+                                  List<Route> routes, List<Trip> trips, Long lineNum) {
 //        if (name.equals("stops.txt")) {
 //            Station station = new Station();
 //            station.setId(line[0]);
@@ -313,7 +311,6 @@ public class StationServiceImp implements StationService {
 //            stations.add(station);
         if (name.equals("stop_times.txt")) {
             StopTimes stopTime = new StopTimes();
-            stopTime.setId(lineNum + stopTimeSize);
             stopTime.setTrip_id(line[0]);
             stopTime.setArrival_time(line[1]);
             stopTime.setDeparture_time(line[2]);
@@ -336,8 +333,7 @@ public class StationServiceImp implements StationService {
     }
 
     private void updateViaGTFS(String name, String[] line, List<Station> stations,
-                               List<StopTimes> stopTimes, List<Route> routes, List<Trip> trips, Long lineNum,
-                               Long stopTimeSize) {
+                               List<StopTimes> stopTimes, List<Route> routes, List<Trip> trips, Long lineNum) {
 //        if (name.equals("stops.txt")) {
 //            Station station = new Station();
 //            station.setId(line[0]);
@@ -347,7 +343,6 @@ public class StationServiceImp implements StationService {
 //            stations.add(station);
         if (name.equals("stop_times.txt")) {
             StopTimes stopTime = new StopTimes();
-            stopTime.setId(lineNum + stopTimeSize);
             stopTime.setTrip_id(line[0]);
             stopTime.setArrival_time(line[1]);
             stopTime.setDeparture_time(line[2]);
