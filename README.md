@@ -10,6 +10,7 @@ Technologies Used:
 [![Static Badge](https://img.shields.io/badge/TypeScript-%233178C6?style=for-the-badge&logo=typescript&labelColor=black)](https://www.typescriptlang.org/)
 [![Static Badge](https://img.shields.io/badge/TailwindCSS-%2306B6D4?style=for-the-badge&logo=tailwindcss&labelColor=black)](https://tailwindcss.com/)
 
+[![Static Badge](https://img.shields.io/badge/Java-%23C65D00?style=for-the-badge&logo=openjdk&labelColor=black)](https://openjdk.org/)
 [![Static Badge](https://img.shields.io/badge/Spring-%236DB33F?style=for-the-badge&logo=spring&labelColor=black)](https://spring.io/)
 [![Static Badge](https://img.shields.io/badge/SpringBoot-%236DB33F?style=for-the-badge&logo=springboot&labelColor=black)](https://spring.io/projects/spring-boot)
 [![Static Badge](https://img.shields.io/badge/PostgreSQL-%234169E1?style=for-the-badge&logo=postgresql&labelColor=black)](https://www.postgresql.org/)
