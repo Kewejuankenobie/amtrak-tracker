@@ -33,7 +33,7 @@ function TrainInfo() {
         }
         const timerID: number = setTimeout(() => {
            fetchTrains();
-        }, 30000);
+        }, 120000);
 
         return () => {
             clearTimeout(timerID);

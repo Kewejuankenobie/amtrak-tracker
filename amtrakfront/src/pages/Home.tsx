@@ -9,7 +9,7 @@ function Home() {
                     <p className={'text-5xl'}>
                         Simplify the process of tracking your Amtrak and Via Rail trains
                     </p>
-                    <div className={'lg:grid grid-cols-2 lg:space-x-4 flex flex-col my-10'}>
+                    <div className={'lg:grid grid-cols-2 lg:space-x-4 flex flex-col mt-10 mb-15'}>
                         <Link to="/train-info">
                             <div className={'px-2 pt-20 pb-14 my-2 bg-[#E0F2E1] rounded-lg cursor-pointer shadow-md ' +
                                 'hover:bg-[#E8F0E8] active:bg-green-50 hover:-translate-y-1 hover:drop-shadow-lg duration-75'}>
@@ -27,11 +27,28 @@ function Home() {
                     </div>
 
                     <div className={`text-gray-500 text-sm`}>
-                        <p>This site has no affiliation with Amtrak or Via Rail. Realtime Data is only updated every 2
-                            minutes</p>
-                        <p>To ensure you don't miss your train, contact the railroad or station staff for more
-                            information, plus arrive to the station early</p>
-                        <p>I claim no responsibility to any travel mishaps</p>
+                        <p className={`text-md mb-2 font-semibold`}>Terms of Service:</p>
+                        <p>By using this site, you agree to these terms of service</p>
+                        <p className={`my-1 font-semibold`}>You Will Use this Site Knowing:</p>
+                        <ol className={`list-decimal list-inside`}>
+                            <li>This site has no affiliation with Amtrak or Via Rail</li>
+                            <li>Realtime data is only updated every 2 minutes</li>
+                            <li>You will contact the railroad or station staff for more up to date
+                                information
+                            </li>
+                            <li>I claim no responsibility to any travel mishaps including delays or missing trains</li>
+                        </ol>
+                        <p className={`mt-2 mb-1 font-semibold`}>The AMV Train Tracker Uses Google Maps Features, And Their Usage Is
+                            Subject To:</p>
+                        <ol className={`list-decimal list-inside underline`}>
+                            <li className={'list-item'}>
+                                <a href={`https://maps.google.com/help/terms_maps/`}>Google Maps/Google Earth Terms of
+                                    Service</a>
+                            </li>
+                            <li className={'list-item'}>
+                                <a href={`https://policies.google.com/privacy`}>Google's Privacy Policy</a>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
