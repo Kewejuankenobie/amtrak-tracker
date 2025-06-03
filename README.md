@@ -31,7 +31,11 @@ Please note that if no one has used the site for a while, it may take several mi
 
 ## Screenshots
 
-<img src=https://github.com/user-attachments/assets/c834bb53-22b1-49ee-b920-ef6df4e14717 height=400 align=left></img>
-<img src=https://github.com/user-attachments/assets/db4c5a4e-14dc-4376-b1bd-e683db984c8a height=500 align=left></img>
-<img src=https://github.com/user-attachments/assets/29a3f385-876c-4490-9373-93778dd1d75e height=396 align=left></img>
-<img src=https://github.com/user-attachments/assets/98ff358c-2989-4f6f-9ea8-268271b79410 height=500 align=left></img>
+### Train Info View:
+
+![amvimg1](https://github.com/user-attachments/assets/c834bb53-22b1-49ee-b920-ef6df4e14717)
+
+### Station Info View:
+
+![amvimg7](https://github.com/user-attachments/assets/d2619d4a-f6f2-43b7-96d6-aed24a24b975)
+
