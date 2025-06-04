@@ -2,7 +2,7 @@
 # AMV Train Tracker
 ## Description
 
-The [AMV Train Tracker](https://amv-train-tracker.onrender.com/) is a web application for tracking Amtrak and VIA Rail trains, plus station train schedules
+The [AMV Train Tracker](https://amv-train-tracker.onrender.com/) is a web application that tracks Amtrak and VIA Rail trains, as well as station train schedules.
 
 Technologies Used:
 
