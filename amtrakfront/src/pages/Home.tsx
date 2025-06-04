@@ -33,7 +33,7 @@ function Home() {
                     <div className={`text-gray-500 text-sm`}>
                         <p className={`text-md mb-2 font-semibold`}>Terms of Service:</p>
                         <p>By using this site, you agree to these terms of service</p>
-                        <p className={`my-1 font-semibold`}>You Will Use this Site Knowing:</p>
+                        <p className={`my-1 font-semibold`}>You Will Use This Site Knowing:</p>
                         <ol className={`list-decimal list-inside`}>
                             <li>This site has no affiliation with Amtrak or Via Rail</li>
                             <li>Realtime data is only updated every 2 minutes</li>
