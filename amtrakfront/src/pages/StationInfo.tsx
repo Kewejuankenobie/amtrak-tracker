@@ -5,6 +5,8 @@ import StationListElement from "../components/StationListElement.tsx";
 import StationTimeboard from "../components/StationTimeboard.tsx";
 
 function StationInfo() {
+    //This page shows information about all train stations
+
     const [query, setQuery] = useState<string>("");
     const [stations, setStations] = useState<StationListEl[]>([]);
     const [timeboard, setTimeboard] = useState<Timeboard | null>(null);
@@ -13,6 +15,7 @@ function StationInfo() {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
 
+    //We get all stations upon loading the page, if not, we keep trying until we do
     useEffect(() => {
         const fetchStations = async () => {
             setPageLoad(true);
@@ -30,6 +33,7 @@ function StationInfo() {
         fetchStations();
     }, [])
 
+    //When we have a list of stations, we are no longer loading
     useEffect(() => {
         if (pageLoad && stations.length > 0) {
             setPageLoad(false);
@@ -38,6 +42,8 @@ function StationInfo() {
 
     const handleSearch =
         async (e: FormEvent<HTMLFormElement> | ChangeEvent<HTMLInputElement>, searchQuery: string) => {
+        //Handles the search of stations, giving a station list of search results
+
             e.preventDefault();
             try {
                 const obtainedStations: StationListEl[] = await searchStations(searchQuery);
@@ -49,6 +55,8 @@ function StationInfo() {
         }
 
     const getTimeboardFromStation = async (station: StationListEl)=> {
+        //Given a station we clicked, we get the timeboard for that station
+
         setLoading(true);
         try {
             const obtainedTimeboard: Timeboard = await getTimeboard(station.code);
@@ -62,6 +70,7 @@ function StationInfo() {
         }
     }
 
+    //Upon a timeboard and loading change, we open the dialog box that shows the detail
     useEffect(() => {
         if (!timeboard && !loading) return;
         dialogRef.current?.showModal();
@@ -70,6 +79,8 @@ function StationInfo() {
     return (
         <>
             <div className="flex flex-col h-[95vh] items-center bg-[#f5f9f6] overflow-y-scroll">
+
+                {/*Search bar*/}
                 <div className="flex flex-col items-center justify-center w-full">
                     <form onSubmit={(e) => handleSearch(e, query)} className="md:w-3/5 w-4/5">
                         <div className="flex w-full">
@@ -85,6 +96,8 @@ function StationInfo() {
                         </div>
                     </form>
                 </div>
+
+                {/*Station list elements*/}
                 {
                     pageLoad ? <p className={`animate-pulse font-bold text-2xl text-green-900`}>Loading ...</p> :
                 <div className="w-full flex flex-col items-center">
@@ -95,6 +108,8 @@ function StationInfo() {
                 </div>
                 }
             </div>
+
+            {/*Station detail dialog box*/}
             <dialog ref={dialogRef} className="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm overflow-visible rounded-lg w-4/5 h-4/5
             open:animate-dialog drop-shadow-xl">
                 <div className={`flex flex-col relative z-0 ${

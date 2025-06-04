@@ -28,9 +28,6 @@ import static java.lang.Integer.parseInt;
 @RequestMapping("/api/train")
 public class TrainController {
 
-    /*
-     * This controller will call from the API, so as there is no database control (yet), no need for a service
-     */
 
     @Autowired
     private TrainService trainService;
@@ -40,11 +37,11 @@ public class TrainController {
 
     @PostMapping("/update")
     public ResponseEntity<?> updateAllTrains() throws IOException, URISyntaxException {
+        //Updates all trains currently running
         Map<String, Object> trainResponse = new HashMap<String, Object>();
         URL trainUrl = new URI("https://asm-backend.transitdocs.com/map").toURL();
         ObjectMapper mapper = new ObjectMapper();
         TrainApiModel[] trains = mapper.readValue(trainUrl, TrainApiModel[].class);
-        //These train objects need cleaning up before sending to user, perhaps a second train object
 
         trainService.setAllInactive();
 
@@ -52,6 +49,7 @@ public class TrainController {
         for (TrainApiModel train : trains) {
             TrainParsed parsedTrain = new TrainParsed(train);
 
+            //Get the next station, we need this to set the correct arrival time
             Station station;
             try {
                 station = StationService.getStationByCode(parsedTrain.getNext_station()).iterator().next();
@@ -82,6 +80,8 @@ public class TrainController {
 
     @GetMapping("/getAll")
     public ResponseEntity<?> getAllTrains() {
+        //Gets all trains
+
         Map<String, Object> trainResponse = new HashMap<String, Object>();
 
         List<TrainParsed> parsedTrains = trainService.getAllTrains();
@@ -93,6 +93,8 @@ public class TrainController {
 
     @GetMapping("/search/{query}")
     public ResponseEntity<?> search(@PathVariable String query) {
+        //Searches for trains by name, number, or railroad
+
         Map<String, Object> trainResponse = new HashMap<String, Object>();
 
         List<TrainParsed> parsedTrains = trainService.getTrainsByName(query);
@@ -121,6 +123,8 @@ public class TrainController {
      */
     @GetMapping("/closest/{latitude}/{longitude}")
     public ResponseEntity<?> closest(@PathVariable double latitude, @PathVariable double longitude) {
+        //Returns the five closest trains
+
         Map<String, Object> trainResponse = new HashMap<String, Object>();
 
         List<TrainParsed> allTrains = trainService.getAllTrains();

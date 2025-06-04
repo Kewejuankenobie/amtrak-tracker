@@ -46,7 +46,28 @@ public class StationServiceImp implements StationService {
     private TripRepository tripRepository;
 
     @Override
+    public Set<Station> getStationByCode(String query) {
+        List<Station> stations = stationRepository.findByCodeContainsIgnoreCase(query);
+        return new HashSet<>(stations);
+    }
+
+    @Override
+    public Set<Station> getStationByName(String query) {
+        Set<Station> stations = new HashSet<>(stationRepository.findByNameContainsIgnoreCase(query));
+        String nextQuery = query.replace("e", "é");
+        stations.addAll(stationRepository.findByNameContainsIgnoreCase(nextQuery));
+        return new HashSet<>(stations);
+    }
+
+    @Override
+    public List<Station> getAllStations() {
+        return stationRepository.findAll();
+    }
+
+    @Override
     public StationTimeboard getTrainsAtStation(String code) throws IOException {
+        //Gets all trains at a station and returns them as a full timeboard
+
         //First, get all train gtfs-rt
         URL urlAm = new URL("https://asm-backend.transitdocs.com/gtfs/amtrak");
         URL urlVia = new URL("https://asm-backend.transitdocs.com/gtfs/via");
@@ -78,7 +99,9 @@ public class StationServiceImp implements StationService {
     }
 
     private void buildRow(FeedMessage feed, StopTimes stopTime, StationTimeboard timeboard) {
+        //Builds an individual row in the station timeboard, being the train and its arrival and departure times
 
+        //Calculates the timezone offset from EST
         String timeZone =stationRepository.findById(stopTime.getStop_id()).isPresent() ?
                 stationRepository.findById(stopTime.getStop_id()).get().getTime_zone() : "America/New_York";
 
@@ -199,6 +222,7 @@ public class StationServiceImp implements StationService {
     private void updateGTFSFromCSV(URL url, List<Station> stations, List<StopTimes> stopTimes,
                                    List<Route> routes, List<Trip> trips,
                                    int type) throws IOException, CsvValidationException {
+        //Updates the GTFS lists passed by reference from the csv files provided, this assumes the zip is correct format
 
         log.info("Updating GTFS from {}", url.toString());
         HttpURLConnection conn;
@@ -267,6 +291,8 @@ public class StationServiceImp implements StationService {
 
     private void updateSanJGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
                                 List<Route> routes, List<Trip> trips, Long lineNum) {
+        //Parses Amtrak San Joaquin csv data
+
 //        if (name.equals("stops.txt") && line[0].length() == 3 && !line[7].contains("acerail")) {
 //            Station station = new Station();
 //            station.setId(line[0]);
@@ -301,6 +327,8 @@ public class StationServiceImp implements StationService {
 
     private void updateAmtrakGTFS(String name, String[] line, List<Station> stations, List<StopTimes> stopTimes,
                                   List<Route> routes, List<Trip> trips, Long lineNum) {
+        //Parses Amtrak csv data
+
 //        if (name.equals("stops.txt")) {
 //            Station station = new Station();
 //            station.setId(line[0]);
@@ -334,6 +362,8 @@ public class StationServiceImp implements StationService {
 
     private void updateViaGTFS(String name, String[] line, List<Station> stations,
                                List<StopTimes> stopTimes, List<Route> routes, List<Trip> trips, Long lineNum) {
+        //Parses VIA Rail csv data
+
 //        if (name.equals("stops.txt")) {
 //            Station station = new Station();
 //            station.setId(line[0]);
@@ -373,6 +403,7 @@ public class StationServiceImp implements StationService {
     }
 
     private String getAdmin1(JsonNode json) {
+        //Gets the admin area of a Google Geolocate api call response json object
 
         return Optional.ofNullable(json)
                 .map(j -> j.get("results"))
@@ -409,25 +440,6 @@ public class StationServiceImp implements StationService {
             case "Montréal - Jonquière" -> "Saguenay";
             default -> "Corridor: " + defaultRoute;
         };
-    }
-
-    @Override
-    public Set<Station> getStationByCode(String query) {
-        List<Station> stations = stationRepository.findByCodeContainsIgnoreCase(query);
-        return new HashSet<>(stations);
-    }
-
-    @Override
-    public Set<Station> getStationByName(String query) {
-        Set<Station> stations = new HashSet<>(stationRepository.findByNameContainsIgnoreCase(query));
-        String nextQuery = query.replace("e", "é");
-        stations.addAll(stationRepository.findByNameContainsIgnoreCase(nextQuery));
-        return new HashSet<>(stations);
-    }
-
-    @Override
-    public List<Station> getAllStations() {
-        return stationRepository.findAll();
     }
 
     private String parseTime(String time, int offset) {

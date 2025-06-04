@@ -2,6 +2,7 @@ import {Timeboard} from "../types.ts";
 import TimeboardRowComp from "./TimeboardRowComp.tsx";
 
 function StationTimeboard({timeboard}: {timeboard: Timeboard | null}) {
+    //Component that gives detailed information on a station, shows a timeboard if one is provided
 
     if (timeboard == null) {
         return null;

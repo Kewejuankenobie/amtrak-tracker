@@ -3,6 +3,8 @@
 import {Train} from "../types.ts";
 
 function TrainListElement({train, onClick}: {train: Train, onClick: React.MouseEventHandler<HTMLDivElement>}) {
+    //Component that gives a brief summary about a train
+    //The time delayed is shown in minutes
 
     return (
         <>

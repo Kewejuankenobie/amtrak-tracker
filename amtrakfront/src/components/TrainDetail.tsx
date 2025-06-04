@@ -4,6 +4,9 @@ import {Train} from "../types.ts";
 import {AdvancedMarker, Map, MapCameraChangedEvent, Pin} from "@vis.gl/react-google-maps";
 
 function DetailPart1({train}: {train: Train}) {
+    //Component shows detailed train information
+    //The time delayed is shown in minutes
+
     return (
         <>
                 <p className={`font-bold ${train.railroad == 'AMTRAK' ? 'text-blue-900' : 'text-amber-700'} 
@@ -29,9 +32,11 @@ function DetailPart1({train}: {train: Train}) {
 }
 
 function TrainDetail({train}: {train: Train | null}) {
+    //Component that shows train detail and its location on a map
 
     if (train == null) return null;
 
+    //When we don't have a latitude or longitude, we show the train detail excluding location information
     if (train.latitude == null || train.longitude == null) return (
         <>
             <DetailPart1 train={train} />
@@ -40,6 +45,7 @@ function TrainDetail({train}: {train: Train | null}) {
 
     const position = {lat: train.latitude, lng: train.longitude};
 
+    //Shows train information including location information
     return (
         <>
             <div className="h-full overflow-y-hidden mb-10 md:text-md text-sm">

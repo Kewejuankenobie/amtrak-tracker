@@ -4,6 +4,7 @@ import {useState} from "react";
 
 function VerticalNav({onClick, delayClick}: {onClick: React.MouseEventHandler<SVGElement | HTMLAnchorElement>,
     delayClick: React.MouseEventHandler<SVGElement | HTMLAnchorElement>}) {
+    //Component that is used for navigating pages on smaller browser windows
 
     const [clickX, setClickX] = useState<boolean>(false);
 

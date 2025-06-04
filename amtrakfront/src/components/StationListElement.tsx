@@ -1,7 +1,7 @@
 import {StationListEl} from "../types.ts";
 
 function StationListElement({station, onClick}: {station: StationListEl, onClick: React.MouseEventHandler<HTMLDivElement>}) {
-
+    //Component that gives a brief summary of a train station
 
     return (
         <>

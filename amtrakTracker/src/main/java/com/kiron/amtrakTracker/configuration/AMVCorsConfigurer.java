@@ -14,6 +14,7 @@ public class AMVCorsConfigurer {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
+        //Adds a CORS mapping to the frontend url, enabling it to make get and post requests
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {

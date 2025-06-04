@@ -22,9 +22,9 @@ public class StationController {
     @Autowired
     private StationService stationService;
 
-    //Gets all trains updated stopping at station code
     @GetMapping("/get/{code}")
     public ResponseEntity<?> station(@PathVariable String code) throws IOException {
+        //Gets all trains updated stopping at station code
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
         StationTimeboard timeboard = stationService.getTrainsAtStation(code);
@@ -36,6 +36,8 @@ public class StationController {
 
     @GetMapping("/search/{query}")
     public ResponseEntity<?> search(@PathVariable String query) {
+        //Searches for a station with name query or code query
+
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
         Set<Station> codeResults = stationService.getStationByCode(query);
@@ -50,6 +52,8 @@ public class StationController {
 
     @GetMapping("/getAllStations")
     public ResponseEntity<?> getAllStations() {
+        //Gets all stations
+
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
         List<Station> stations = stationService.getAllStations();
@@ -63,6 +67,8 @@ public class StationController {
     @PostMapping(value = "/addAdmin/{code}/{key}/{lat}/{lng}")
     public ResponseEntity<?> addAdmin(@PathVariable String code, @PathVariable String key,
                                       @PathVariable double lat, @PathVariable double lng) throws IOException {
+        //Adds the administrative area to a station
+
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
         stationService.addStationAdmin(code, lat, lng, key);
@@ -74,6 +80,8 @@ public class StationController {
     @PostMapping(value ="/updateStation")
     public ResponseEntity<?> updateStation(
     ) throws IOException, CsvValidationException {
+        //Updates all stations
+
         Map<String, Object> stationResponse = new HashMap<String, Object>();
 
         stationService.updateGTFS();

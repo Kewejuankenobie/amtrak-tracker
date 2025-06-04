@@ -4,6 +4,7 @@ import { RiMenuLine } from "react-icons/ri";
 import VerticalNav from "./VerticalNav.tsx";
 
 function Navbar() {
+    //Navbar component used for navigating between pages and showing what page you are on
 
     const path: string = useLocation().pathname;
 
@@ -13,6 +14,8 @@ function Navbar() {
     useEffect(() => {setPage(path)}, [path])
 
     const checkSize = ( ) => {
+        //Checks the width of the window, if large enough closes the sidebar
+
         if (window.innerWidth >= 768) {
             setOpenSidebar(false);
         }
@@ -24,10 +27,13 @@ function Navbar() {
         <>
             <div
                 className="flex md:h-[5vh] h-[15vh] items-center justify-center w-full border-b-1 border-gray-200 bg-main-bg">
+
+                {/*When the browser window is small enough and the sidebar is opened, we will open the vertical navigation*/}
                 {openSidebar && <VerticalNav onClick={() => setOpenSidebar(false)} delayClick={() =>
                     setTimeout(() => {
                         setOpenSidebar(false);
                 }, 300)} />}
+
                 <div className="flex flex-row items-center justify-between md:w-3/5 w-4/5">
                     <Link className="font-bold text-2xl py-2 text-green-900 cursor-pointer" to="/">
                         <div className="flex md:items-start items-center justify-normal w-full text-pretty">
@@ -62,6 +68,8 @@ function Navbar() {
                         </Link>
                     </div>
                 </div>
+
+                {/*Shows the menu icon when the browser window is small enough*/}
                 <div className="md:hidden visible">
                     {
                         <button className={`text-3xl cursor-pointer ${openSidebar && "animate-men"}`}

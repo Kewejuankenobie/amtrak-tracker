@@ -8,7 +8,7 @@ import Home from "./pages/Home.tsx";
 
 function App() {
 
-    //Move to the backend, this is unsafe
+    //API key for the Google Maps API
     const key: string = import.meta.env.VITE_API_KEY;
 
 

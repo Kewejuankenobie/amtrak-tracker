@@ -19,6 +19,7 @@ public class StationGTFSUpdate {
 
     @Scheduled(fixedDelay = 7, timeUnit = TimeUnit.DAYS)
     public void updateStation() {
+        //Updates all stations every 7 days
 
         try {
             stationService.updateGTFS();

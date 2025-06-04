@@ -33,16 +33,18 @@ public class TrainAPIUpdate {
 
     @Scheduled(fixedRate = 120000)
     public void updateTrains() {
+        //Updates all trains currently running at a fixed rate of every 2 minutes
         try {
             URL trainUrl = new URI("https://asm-backend.transitdocs.com/map").toURL();
             ObjectMapper mapper = new ObjectMapper();
             TrainApiModel[] trains = mapper.readValue(trainUrl, TrainApiModel[].class);
-            //These train objects need cleaning up before sending to user, perhaps a second train object
 
             trainService.setAllInactive();
 
             for (TrainApiModel train : trains) {
                 TrainParsed parsedTrain = new TrainParsed(train);
+
+                //Get the next station, we need this to set the correct arrival time
                 Station station;
                 try {
                     station = stationService.getStationByCode(parsedTrain.getNext_station()).iterator().next();
