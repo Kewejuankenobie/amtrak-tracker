@@ -1,3 +1,4 @@
+<img src=https://github.com/Kewejuankenobie/amv-train-tracker/blob/main/amtrakfront/public/logo.svg height=150></img>
 # AMV Train Tracker
 ## Description
 
@@ -16,15 +17,25 @@ Technologies Used:
 [![Static Badge](https://img.shields.io/badge/PostgreSQL-%234169E1?style=for-the-badge&logo=postgresql&labelColor=black)](https://www.postgresql.org/)
 [![Static Badge](https://img.shields.io/badge/Docker-%232496ED?style=for-the-badge&logo=docker&labelColor=black)](https://www.docker.com/)
 
-APIs used include the REST API, [Google Maps API](https://mapsplatform.google.com/lp/maps-apis/), GTFS data for Amtrak and VIA Rail (static and real-time), and the [Java GTFS-Realtime Language Bindings](https://gtfs.org/documentation/realtime/language-bindings/java/).
+APIs used include the REST API, [Google Maps API](https://mapsplatform.google.com/lp/maps-apis/), GTFS data for Amtrak and VIA Rail (static and real-time), some pre-parsed GTFS-RT train data from this [Intercity Rail Map](https://asm.transitdocs.com/), and the [Java GTFS-Realtime Language Bindings](https://gtfs.org/documentation/realtime/language-bindings/java/).
 
-When no one has used the site for a while, it may take several minutes for the website to start showing data.
+Please note that if no one has used the site for a while, it may take several minutes for the website to start showing data.
 
 ## Features
 
 - Search for trains and stations
-- View the status of Amtrak and VIA Rail Trains, including their location, speed, and if they're on time (Insert Picture)
-- Check the schedule of train stations and find updated arrival and departure times (Insert Picture)
+- View the status of Amtrak and VIA Rail Trains, including their location, speed, and if they're on time
+
+- Check the schedule of train stations and find updated arrival and departure times
 - Supports separate interfaces for both computer and mobile screens
 
-## License
+## Screenshots
+
+### Train Info View:
+
+![amvimg1](https://github.com/user-attachments/assets/c834bb53-22b1-49ee-b920-ef6df4e14717)
+
+### Station Info View:
+
+![amvimg7](https://github.com/user-attachments/assets/d2619d4a-f6f2-43b7-96d6-aed24a24b975)
+
